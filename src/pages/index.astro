@@ -1,0 +1,184 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Countdown from '../components/Countdown.astro';
+import GuideCard from '../components/GuideCard.astro';
+
+const guides = (await getCollection('guides')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const facts = [
+  { label: 'Release', value: 'Sep 24, 2026' },
+  { label: 'Studio', value: 'Remedy' },
+  { label: 'Genre', value: 'Action RPG' },
+  { label: 'Lead', value: 'Dylan Faden' },
+];
+
+const briefing = [
+  {
+    q: 'When does Control Resonant release?',
+    a: 'September 24, 2026, on PS5, Xbox Series X/S, and PC (Steam and Epic). A Mac version follows later in 2026.',
+  },
+  {
+    q: 'Do I need to play the first Control?',
+    a: "No. Remedy has designed Resonant as a standalone story built around Dylan Faden, so newcomers can start here.",
+  },
+  {
+    q: 'Is it still a third-person shooter?',
+    a: 'No. Resonant is a melee-led action RPG built around the shape-shifting Aberrant weapon and a build system called The Gap.',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      name: 'Control Resonant Field Guide',
+      url: 'https://controlresonant.wiki/',
+      description:
+        'Guides, builds, boss strategies and release information for Control Resonant (Control 2).',
+    },
+    {
+      '@type': 'VideoGame',
+      name: 'Control Resonant',
+      alternateName: 'Control 2',
+      url: 'https://controlresonant.wiki/',
+      applicationCategory: 'Game',
+      gamePlatform: ['PlayStation 5', 'Xbox Series X/S', 'PC', 'macOS'],
+      genre: 'Action role-playing game',
+      datePublished: '2026-09-24',
+      publisher: { '@type': 'Organization', name: 'Remedy Entertainment' },
+    },
+  ],
+};
+---
+<BaseLayout
+  title="Control Resonant Guides, Builds & Release Date | Field Guide"
+  description="An unofficial field guide to Control Resonant (Control 2): release date, combat and build systems, Aberrant weapon forms, Resonant bosses, and everything confirmed so far."
+  jsonLd={jsonLd}
+>
+  <!-- ===================== HERO ===================== -->
+  <section class="relative overflow-hidden border-b border-ash-700">
+    <div class="pointer-events-none absolute inset-y-0 left-0 w-1 bg-hiss"></div>
+    <div class="wrap py-16 sm:py-20 lg:py-24">
+      <p class="eyebrow">FBC // Case File — Resonant Incident</p>
+
+      <h1 class="mt-4 font-display text-4xl font-bold leading-[1.04] tracking-tight text-bone sm:text-5xl lg:text-6xl">
+        CONTROL<br />RESONANT
+      </h1>
+
+      <p class="mt-5 max-w-xl text-base leading-relaxed text-bone-dim sm:text-lg">
+        A reality-bending threat has torn through Manhattan. Dylan Faden is loose with a
+        shape-shifting weapon and powers he barely controls. This is the field guide to the
+        city, the builds, and the bosses — assembled from every official reveal so far.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="/guides/"
+          class="inline-flex items-center gap-2 bg-hiss px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-void transition-colors hover:bg-hiss-deep"
+        >
+          Open the guides &rarr;
+        </a>
+        <a
+          href="/release-date/"
+          class="inline-flex items-center gap-2 border border-ash-600 px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-bone transition-colors hover:border-resonant hover:text-resonant"
+        >
+          Release details
+        </a>
+      </div>
+
+      <!-- countdown -->
+      <div class="mt-12 max-w-md">
+        <p class="eyebrow mb-3 text-resonant">Containment window closes in</p>
+        <Countdown />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KEY FACTS ===================== -->
+  <section class="border-b border-ash-700 bg-ash-950/40">
+    <div class="wrap grid grid-cols-2 divide-ash-800 sm:grid-cols-4 sm:divide-x">
+      {
+        facts.map((f) => (
+          <div class="px-2 py-6 first:pl-0 sm:px-5">
+            <p class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-ash-400">{f.label}</p>
+            <p class="mt-1.5 font-display text-lg font-semibold text-bone">{f.value}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ===================== FIELD MANUAL ===================== -->
+  <section class="wrap py-16">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <p class="eyebrow">Field Manual</p>
+        <h2 class="mt-2 font-display text-2xl font-bold text-bone sm:text-3xl">Start here</h2>
+      </div>
+      <a href="/guides/" class="hidden font-mono text-xs uppercase tracking-[0.14em] text-resonant hover:text-hiss sm:inline">
+        All files &rarr;
+      </a>
+    </div>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        guides.map((g) => (
+          <GuideCard
+            title={g.data.title}
+            description={g.data.description}
+            href={`/guides/${g.id}/`}
+            category={g.data.category}
+            status={g.data.status}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- ===================== BRIEFING (FAQ teaser) ===================== -->
+  <section class="border-t border-ash-700 bg-ash-950/40">
+    <div class="wrap py-16">
+      <p class="eyebrow">Briefing</p>
+      <h2 class="mt-2 font-display text-2xl font-bold text-bone sm:text-3xl">Quick answers</h2>
+
+      <dl class="mt-8 max-w-3xl divide-y divide-ash-800 border-y border-ash-800">
+        {
+          briefing.map((item) => (
+            <div class="py-5">
+              <dt class="font-display text-base font-semibold text-bone">{item.q}</dt>
+              <dd class="mt-2 text-sm leading-relaxed text-bone-dim">{item.a}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <a
+        href="/release-date/"
+        class="mt-6 inline-block font-mono text-xs uppercase tracking-[0.16em] text-resonant hover:text-hiss"
+      >
+        More release &amp; platform details &rarr;
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== ACCURACY NOTE ===================== -->
+  <section class="wrap py-14">
+    <div class="border border-ash-700 bg-ash-900/40 p-6">
+      <p class="eyebrow text-resonant">On accuracy</p>
+      <p class="mt-3 max-w-3xl text-sm leading-relaxed text-bone-dim">
+        Control Resonant is not out yet. Most gameplay detail comes from trailers and hands-on
+        previews and can still change before launch. Every page on this site carries a
+        verification stamp —
+        <span class="stamp stamp--confirmed mx-1 align-middle">Confirmed</span>
+        <span class="stamp stamp--preview mx-1 align-middle">Preview · Unverified</span>
+        <span class="stamp stamp--datamined mx-1 align-middle">Datamined</span>
+        <span class="stamp stamp--speculation mx-1 align-middle">Speculation</span>
+        — so you always know how solid a claim is.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

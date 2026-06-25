@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="File Not Found | Control Resonant Field Guide"
+  description="This file could not be located."
+>
+  <section class="wrap flex min-h-[60vh] flex-col items-start justify-center py-20">
+    <p class="eyebrow text-hiss">Containment error // 404</p>
+    <h1 class="mt-4 font-display text-5xl font-bold leading-none text-bone sm:text-7xl">FILE NOT FOUND</h1>
+    <p class="mt-5 max-w-md text-base leading-relaxed text-bone-dim">
+      The case file you're looking for has been moved, redacted, or never existed. The Bureau
+      apologizes for the disturbance.
+    </p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 bg-hiss px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-void transition-colors hover:bg-hiss-deep"
+      >
+        Return to base &rarr;
+      </a>
+      <a
+        href="/guides/"
+        class="inline-flex items-center gap-2 border border-ash-600 px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-bone transition-colors hover:border-resonant hover:text-resonant"
+      >
+        Browse the guides
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,220 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------
+   Control Resonant Field Guide — design tokens
+   Concept: a declassified FBC case file. Concrete + ash, with two
+   diegetic accents — Hiss red (corruption) and Resonant amber
+   (paranatural energy).
+----------------------------------------------------------------- */
+@theme {
+  --color-void: #0a0a0c;
+  --color-ash-950: #0e0e12;
+  --color-ash-900: #141419;
+  --color-ash-800: #1c1c23;
+  --color-ash-700: #26262f;
+  --color-ash-600: #34343f;
+  --color-ash-500: #4a4a57;
+  --color-ash-400: #6b6b7a;
+  --color-ash-300: #9a9aa8;
+
+  --color-bone: #e9e7e0;
+  --color-bone-dim: #bdbbb2;
+
+  --color-hiss: #ff3b2f;
+  --color-hiss-deep: #b3261c;
+  --color-resonant: #f2a71b;
+  --color-clearance: #5bbd9a;
+  --color-datamine: #57b6d6;
+
+  --font-display: "Chakra Petch", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  /* faint blueprint grid — keeps the brutalist/document feel without noise */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 47px,
+      rgba(233, 231, 224, 0.014) 47px,
+      rgba(233, 231, 224, 0.014) 48px
+    );
+}
+
+::selection {
+  background: var(--color-hiss);
+  color: var(--color-void);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-resonant);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---- layout helper ---- */
+.wrap {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* ---- eyebrow / file labels ---- */
+.eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--color-ash-300);
+}
+
+/* ---- clearance stamp (content verification status) ---- */
+.stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 0.22rem 0.5rem;
+  border: 1px solid currentColor;
+  line-height: 1;
+  white-space: nowrap;
+}
+.stamp::before {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  background: currentColor;
+  flex: none;
+}
+.stamp--confirmed {
+  color: var(--color-clearance);
+}
+.stamp--preview {
+  color: var(--color-resonant);
+}
+.stamp--datamined {
+  color: var(--color-datamine);
+}
+.stamp--speculation {
+  color: var(--color-ash-300);
+}
+
+/* ---- document prose (markdown bodies) ---- */
+.prose-doc {
+  color: var(--color-bone-dim);
+  font-size: 1.02rem;
+  line-height: 1.78;
+  max-width: 44rem;
+}
+.prose-doc > :first-child {
+  margin-top: 0;
+}
+.prose-doc h2 {
+  font-family: var(--font-display);
+  color: var(--color-bone);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 2.6rem;
+  margin-bottom: 0.9rem;
+  padding-left: 0.8rem;
+  border-left: 3px solid var(--color-hiss);
+}
+.prose-doc h3 {
+  font-family: var(--font-display);
+  color: var(--color-bone);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.9rem;
+  margin-bottom: 0.55rem;
+}
+.prose-doc p {
+  margin-bottom: 1.1rem;
+}
+.prose-doc a {
+  color: var(--color-resonant);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.prose-doc a:hover {
+  color: var(--color-hiss);
+}
+.prose-doc strong {
+  color: var(--color-bone);
+  font-weight: 600;
+}
+.prose-doc ul {
+  list-style: none;
+  margin: 0 0 1.1rem 0;
+  padding: 0;
+}
+.prose-doc ul li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.prose-doc ul li::before {
+  content: "▪";
+  position: absolute;
+  left: 0;
+  top: -0.05rem;
+  color: var(--color-hiss);
+}
+.prose-doc ol {
+  margin: 0 0 1.1rem 1.25rem;
+  padding: 0;
+}
+.prose-doc ol li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+.prose-doc blockquote {
+  border-left: 2px solid var(--color-ash-600);
+  padding-left: 1rem;
+  margin: 0 0 1.1rem 0;
+  color: var(--color-ash-300);
+}
+.prose-doc code {
+  font-family: var(--font-mono);
+  background: var(--color-ash-800);
+  color: var(--color-bone);
+  padding: 0.1rem 0.35rem;
+  font-size: 0.88em;
+}
+.prose-doc hr {
+  border: 0;
+  border-top: 1px solid var(--color-ash-700);
+  margin: 2rem 0;
+}

@@ -1,0 +1,28 @@
+---
+import StatusStamp from './StatusStamp.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  category: string;
+  status?: 'confirmed' | 'preview' | 'datamined' | 'speculation';
+}
+const { title, description, href, category, status = 'preview' } = Astro.props;
+---
+<a
+  href={href}
+  class="group flex h-full flex-col border border-ash-700 bg-ash-950/40 p-5 transition-colors hover:border-hiss/60 hover:bg-ash-900/50"
+>
+  <div class="mb-3 flex items-center justify-between gap-3">
+    <span class="eyebrow truncate">{category}</span>
+    <StatusStamp status={status} />
+  </div>
+  <h3 class="font-display text-lg font-semibold leading-snug text-bone transition-colors group-hover:text-hiss">
+    {title}
+  </h3>
+  <p class="mt-2 flex-1 text-sm leading-relaxed text-bone-dim">{description}</p>
+  <span class="mt-4 inline-block font-mono text-[0.64rem] uppercase tracking-[0.18em] text-resonant">
+    Read file &rarr;
+  </span>
+</a>

@@ -1,0 +1,58 @@
+---
+interface Props {
+  target?: string;
+}
+const { target = '2026-09-24T00:00:00' } = Astro.props;
+const units = ['Days', 'Hrs', 'Min', 'Sec'];
+---
+<div class="countdown" data-target={target} aria-label="Time remaining until the Control Resonant release">
+  <div class="grid grid-cols-4 gap-2 sm:gap-3">
+    {
+      units.map((u) => (
+        <div class="border border-ash-700 bg-ash-950/60 px-1.5 py-3 text-center">
+          <span
+            class="cd-val block font-display text-2xl font-bold tabular-nums text-bone sm:text-3xl"
+            data-unit={u.toLowerCase()}
+          >
+            --
+          </span>
+          <span class="mt-1 block font-mono text-[0.55rem] uppercase tracking-[0.2em] text-ash-400">
+            {u}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  function tick(el: HTMLElement) {
+    const raw = el.dataset.target;
+    if (!raw) return;
+    const target = new Date(raw).getTime();
+    let diff = Math.max(0, target - Date.now());
+
+    const day = Math.floor(diff / 86400000);
+    diff -= day * 86400000;
+    const hr = Math.floor(diff / 3600000);
+    diff -= hr * 3600000;
+    const min = Math.floor(diff / 60000);
+    diff -= min * 60000;
+    const sec = Math.floor(diff / 1000);
+
+    const set = (unit: string, value: number, pad = 2) => {
+      const node = el.querySelector<HTMLElement>(`[data-unit="${unit}"]`);
+      if (node) node.textContent = String(value).padStart(pad, '0');
+    };
+
+    set('days', day, 2);
+    set('hrs', hr);
+    set('min', min);
+    set('sec', sec);
+  }
+
+  document.querySelectorAll<HTMLElement>('.countdown').forEach((el) => {
+    tick(el);
+    window.setInterval(() => tick(el), 1000);
+  });
+</script>

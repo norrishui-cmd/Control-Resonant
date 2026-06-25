@@ -1,0 +1,15 @@
+---
+interface Props {
+  status?: 'confirmed' | 'preview' | 'datamined' | 'speculation';
+}
+const { status = 'preview' } = Astro.props;
+
+const labels: Record<string, string> = {
+  confirmed: 'Confirmed',
+  preview: 'Preview · Unverified',
+  datamined: 'Datamined',
+  speculation: 'Speculation',
+};
+const label = labels[status] ?? labels.preview;
+---
+<span class={`stamp stamp--${status}`} title={`Verification status: ${label}`}>{label}</span>

@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const statuses = [
+  {
+    cls: 'stamp--confirmed',
+    label: 'Confirmed',
+    text: 'Stated directly by Remedy or a first-party source (official site, PlayStation/Xbox listings, developer interviews, State of Play).',
+  },
+  {
+    cls: 'stamp--preview',
+    label: 'Preview · Unverified',
+    text: 'Seen in trailers or reported from hands-on previews. Likely accurate, but pre-release and subject to change.',
+  },
+  {
+    cls: 'stamp--datamined',
+    label: 'Datamined',
+    text: 'Found in game files or store data, not officially announced. Treat with extra caution.',
+  },
+  {
+    cls: 'stamp--speculation',
+    label: 'Speculation',
+    text: 'Reasoned inference or community theory, clearly flagged as not confirmed.',
+  },
+];
+---
+<BaseLayout
+  title="About & Sources | Control Resonant Field Guide"
+  description="How this unofficial Control Resonant guide is sourced and verified, what the status stamps mean, and our relationship to Remedy Entertainment (none)."
+>
+  <section class="border-b border-ash-700">
+    <div class="wrap py-12">
+      <p class="eyebrow">File Metadata</p>
+      <h1 class="mt-3 font-display text-3xl font-bold text-bone sm:text-4xl">About &amp; Sources</h1>
+    </div>
+  </section>
+
+  <div class="wrap py-12">
+    <div class="prose-doc">
+      <p>
+        This is an independent, fan-made field guide to <strong>Control Resonant</strong>, the
+        action-RPG sequel from Remedy Entertainment. It exists to gather what is actually known
+        about the game in one organized place during the run-up to launch.
+      </p>
+
+      <h2>How information is sourced</h2>
+      <p>
+        Everything here is compiled from public, first-party material — Remedy's official site,
+        PlayStation and Xbox listings, State of Play showcases, and hands-on previews from the
+        press — alongside careful tracking of what has and hasn't been confirmed. Where the
+        wording of a detail matters, we link out to the original source rather than restate it.
+      </p>
+
+      <h2>What the status stamps mean</h2>
+      <p>
+        Because the game is unreleased, not every detail is equally solid. Each claim carries one
+        of four verification stamps:
+      </p>
+    </div>
+
+    <ul class="mt-6 max-w-[44rem] space-y-4">
+      {
+        statuses.map((s) => (
+          <li class="flex flex-col gap-2 border border-ash-700 bg-ash-950/40 p-4 sm:flex-row sm:items-start sm:gap-4">
+            <span class={`stamp ${s.cls} mt-0.5 shrink-0`}>{s.label}</span>
+            <span class="text-sm leading-relaxed text-bone-dim">{s.text}</span>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="prose-doc mt-10">
+      <h2>Corrections</h2>
+      <p>
+        Pre-release coverage gets things wrong sometimes, and details change. If you spot
+        something inaccurate or out of date, corrections are welcome and pages are updated as
+        new official information lands.
+      </p>
+
+      <h2>Affiliation</h2>
+      <p>
+        This site is not affiliated with, endorsed by, or sponsored by Remedy Entertainment.
+        Control, Control Resonant, and all related names, logos, and imagery are the property of
+        their respective owners and are referenced here for identification and commentary.
+      </p>
+    </div>
+  </div>
+</BaseLayout>

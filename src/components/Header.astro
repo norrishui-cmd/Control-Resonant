@@ -1,0 +1,82 @@
+---
+const path = Astro.url.pathname;
+const norm = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
+const cur = norm(path);
+const isActive = (href: string) => {
+  const h = norm(href);
+  return h === '/' ? cur === '/' : cur === h || cur.startsWith(h + '/');
+};
+
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/release-date/', label: 'Release Date' },
+  { href: '/guides/', label: 'Guides' },
+  { href: '/about/', label: 'About' },
+];
+---
+<header class="sticky top-0 z-40 border-b border-ash-700 bg-void/90 backdrop-blur">
+  <div class="wrap flex items-center justify-between gap-4 py-3">
+    <a href="/" class="group flex items-center gap-3" aria-label="Control Resonant Field Guide — home">
+      <svg
+        width="26"
+        height="26"
+        viewBox="0 0 32 32"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        class="text-hiss transition-transform group-hover:rotate-90"
+        aria-hidden="true"
+      >
+        <path d="M16 4 a12 12 0 0 1 10.4 18" />
+        <path d="M16 28 a12 12 0 0 1 -10.4 -18" />
+        <path d="M16 10 a6 6 0 0 1 4.5 10" />
+        <path d="M16 22 a6 6 0 0 1 -4.5 -10" />
+        <line x1="16" y1="28" x2="16" y2="32" />
+      </svg>
+      <span class="leading-none">
+        <span class="block font-display text-[0.92rem] font-bold tracking-[0.16em] text-bone">CONTROL RESONANT</span>
+        <span class="mt-0.5 block font-mono text-[0.58rem] uppercase tracking-[0.22em] text-ash-400">Unofficial Field Guide</span>
+      </span>
+    </a>
+
+    <!-- desktop -->
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+      {
+        nav.map((i) => (
+          <a
+            href={i.href}
+            aria-current={isActive(i.href) ? 'page' : undefined}
+            class={`px-3 py-2 font-mono text-xs uppercase tracking-[0.14em] transition-colors ${
+              isActive(i.href) ? 'text-hiss' : 'text-ash-300 hover:text-bone'
+            }`}
+          >
+            {i.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- mobile -->
+    <details class="relative md:hidden">
+      <summary class="flex cursor-pointer list-none items-center gap-2 border border-ash-600 px-3 py-2 font-mono text-xs uppercase tracking-[0.14em] text-bone">
+        Menu
+      </summary>
+      <nav class="absolute right-0 z-50 mt-2 w-52 border border-ash-700 bg-ash-900 p-1 shadow-xl" aria-label="Primary mobile">
+        {
+          nav.map((i) => (
+            <a
+              href={i.href}
+              aria-current={isActive(i.href) ? 'page' : undefined}
+              class={`block px-3 py-2 font-mono text-xs uppercase tracking-[0.14em] transition-colors ${
+                isActive(i.href) ? 'text-hiss' : 'text-bone-dim hover:bg-ash-800 hover:text-bone'
+              }`}
+            >
+              {i.label}
+            </a>
+          ))
+        }
+      </nav>
+    </details>
+  </div>
+</header>
