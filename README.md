@@ -26,8 +26,10 @@ controlresonant/
    │  ├─ about.astro           # sources + status-system + disclaimer
    │  ├─ privacy.astro
    │  └─ 404.astro
-   └─ content/guides/         # 5 markdown guides — add more here
+   └─ content/guides/         # evidence-backed markdown guides — add more here
 ```
+
+`SEO_PLAN_2000_URLS.md` contains the phased expansion model and indexability quality gate. The production build also runs `scripts/seo-audit.mjs`, which checks titles, descriptions, canonicals, H1s, duplicate titles, and internal links.
 
 ## Add a new guide
 
@@ -41,6 +43,11 @@ status: preview        # confirmed | preview | datamined | speculation
 category: "Combat & Builds"
 order: 6
 updated: 2026-07-01
+published: 2026-07-01
+indexable: true
+sources:
+  - label: "Official source title"
+    url: "https://example.com/source"
 ---
 
 Body in Markdown...
