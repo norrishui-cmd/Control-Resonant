@@ -1,44 +1,50 @@
 ---
-title: "Control Resonant Languages: Audio, Subtitles & Interface"
-description: "Control Resonant currently lists English audio and text in 11 language variants, including Simplified and Traditional Chinese, Japanese and Korean."
+title: "Control Resonant Languages: Full Audio, Interface & Subtitles"
+description: "Control Resonant supports 15 interface/subtitle languages and 9 full-audio languages on Steam, including Chinese, Japanese and Brazilian Portuguese dubbing."
 status: confirmed
 category: Platforms
 order: 31
 published: 2026-07-18
 updated: 2026-07-18
 sources:
-  - label: "Epic Games Store — supported languages"
-    url: "https://store.epicgames.com/en-US/p/control-resonant-3568d3"
+  - label: "Steam — official supported-language matrix"
+    url: "https://store.steampowered.com/app/3669870/CONTROL_Resonant/"
+  - label: "Steam News — launch languages revealed"
+    url: "https://store.steampowered.com/news/app/3669870/view/529875951123694550"
 ---
 
 ## Quick answer
 
-The Epic Games Store currently lists **English audio** and text support for **11 language variants**: Simplified Chinese, Traditional Chinese, English, French, German, Italian, Brazilian Portuguese, Spanish (Spain), Spanish (Latin America), Korean and Japanese.
+Steam currently lists **15 languages with interface and subtitle support**. Nine of them also have full audio: English, French, Italian, German, Spanish (Spain), Japanese, Brazilian Portuguese, Simplified Chinese and Ukrainian.
 
-## Current language matrix
+## Official Steam language matrix
 
-| Language | Text listed | Audio listed |
-| --- | :---: | :---: |
-| English | Yes | Yes |
-| Simplified Chinese | Yes | No |
-| Traditional Chinese | Yes | No |
-| French | Yes | No |
-| German | Yes | No |
-| Italian | Yes | No |
-| Brazilian Portuguese | Yes | No |
-| Spanish — Spain | Yes | No |
-| Spanish — Latin America | Yes | No |
-| Korean | Yes | No |
-| Japanese | Yes | No |
+| Language | Interface | Full audio | Subtitles |
+| --- | :---: | :---: | :---: |
+| English | Yes | Yes | Yes |
+| French | Yes | Yes | Yes |
+| Italian | Yes | Yes | Yes |
+| German | Yes | Yes | Yes |
+| Spanish — Spain | Yes | Yes | Yes |
+| Japanese | Yes | Yes | Yes |
+| Brazilian Portuguese | Yes | Yes | Yes |
+| Simplified Chinese | Yes | Yes | Yes |
+| Ukrainian | Yes | Yes | Yes |
+| Korean | Yes | No | Yes |
+| Spanish — Latin America | Yes | No | Yes |
+| Traditional Chinese | Yes | No | Yes |
+| Polish | Yes | No | Yes |
+| Russian | Yes | No | Yes |
+| Turkish | Yes | No | Yes |
 
-“Text” can include interface and subtitles depending on store terminology. It should not be interpreted as a promise that every optional asset, texture or accessibility transcript is localized unless the final product page specifies that level.
+## Why this differs from older store information
 
-## Are subtitles available?
+Earlier Epic metadata listed fewer languages and English-only audio. Remedy later announced the launch-language set, and the current Steam table is more complete. This page uses the newer official matrix rather than preserving the earlier placeholder-era list.
 
-The PlayStation Store confirms basic subtitles and a large-subtitle option. Its accessibility description currently says subtitles cover the main story and main characters. The exact subtitle coverage and speaker-label options may differ by final platform build.
+## Subtitles and accessibility
 
-## Can the language list change?
+The PS5 store separately confirms basic and large subtitles. Its accessibility description says subtitle coverage includes the main story and main characters. The Steam matrix confirms language availability but does not by itself describe speaker labels, background-sound captions or every subtitle presentation option.
 
-Yes. Store metadata can be updated before release, and console-region listings may present language availability differently. Check the exact storefront and region where you plan to buy. This page records the official Epic listing as of July 18, 2026 rather than projecting additional dubbing.
+## Regional purchasing note
 
-See [accessibility options](/guides/accessibility-options/) for controls, audio and difficulty features, or the [platform hub](/guides/platforms-and-performance/) for release availability.
+Console product pages can vary by region, especially for disc editions. Check the exact store SKU if a particular dub is essential. The table above records the Steam listing as reviewed July 18, 2026. See [accessibility options](/guides/accessibility-options/) for controls, sound and difficulty features.

@@ -7,6 +7,12 @@ import GuideCard from '../components/GuideCard.astro';
 const guides = (await getCollection('guides')).sort(
   (a, b) => a.data.order - b.data.order,
 );
+const featuredGuides = guides.slice(0, 9);
+const categoryCounts = [...new Map(guides.map((guide) => [guide.data.category, 0])).keys()].map((category) => ({
+  category,
+  count: guides.filter((guide) => guide.data.category === category).length,
+  id: category.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+}));
 
 const facts = [
   { label: 'Release', value: 'Sep 24, 2026' },
@@ -126,7 +132,7 @@ const jsonLd = {
 
     <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {
-        guides.map((g) => (
+        featuredGuides.map((g) => (
           <GuideCard
             title={g.data.title}
             description={g.data.description}
@@ -136,6 +142,17 @@ const jsonLd = {
           />
         ))
       }
+    </div>
+
+    <div class="mt-10 border border-ash-700 bg-ash-900/30 p-5">
+      <h3 class="font-display text-lg font-semibold text-bone">Browse every guide by topic</h3>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {categoryCounts.map((group) => (
+          <a href={`/guides/#${group.id}`} class="border border-ash-700 px-3 py-2 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-ash-300 transition-colors hover:border-resonant hover:text-bone">
+            {group.category} · {group.count}
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 

@@ -15,7 +15,7 @@ sources:
 
 **Steam Deck support for Control Resonant is not confirmed.** The game is coming to Steam on September 24, 2026, but Remedy has not announced Deck compatibility and no verified/playable rating is available yet.
 
-Steam availability alone does not guarantee acceptable performance on Valve's handheld. The missing PC requirements also make a responsible performance estimate impossible.
+Steam availability alone does not guarantee acceptable performance on Valve's handheld. The published PC minimum—GTX 1070 or RX 5600 XT, 16 GB RAM and 100 GB storage—is above the Deck's raw GPU class, but final optimization and low-resolution scaling still prevent a definitive verdict.
 
 ## What would count as confirmation?
 
@@ -27,6 +27,6 @@ GeForce NOW support is confirmed at launch. In supported regions, accessing the 
 
 ## When to check again
 
-Recheck after official [PC system requirements](/guides/system-requirements/) appear and again close to launch when Valve compatibility data is more likely to be available. For now, do not pre-order solely on the assumption that the game will run well on Deck.
+Recheck close to launch when Valve compatibility data and real performance tests are more likely to be available. The [PC system requirements](/guides/system-requirements/) provide useful context, but they are not a substitute for a Verified/Playable rating or frame-time testing. For now, do not pre-order solely on the assumption that the game will run well on Deck.
 
 Also separate “it launches through Steam” from “Valve has verified it.” Compatibility depends on performance, controls, text readability and middleware behavior—not merely whether the product can be downloaded from the same storefront.

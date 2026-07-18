@@ -17,7 +17,7 @@ sources:
 
 **Control Resonant launches September 24, 2026 on PS5, Xbox Series X|S, and PC through Steam and the Epic Games Store.** GeForce NOW support is planned for launch. A Mac release through Steam and the App Store will follow later in 2026.
 
-There are no announced PS4, Xbox One, or Nintendo Switch versions. Remedy has not yet published PC system requirements or final console frame-rate and resolution modes.
+There are no announced PS4, Xbox One, or Nintendo Switch versions. Steam now publishes minimum and recommended PC requirements, while final console frame-rate and resolution modes remain unannounced.
 
 ## Confirmed launch platforms
 
@@ -33,7 +33,7 @@ Use the dedicated [PS5](/guides/control-resonant-ps5/), [Xbox](/guides/control-r
 
 ## What remains unconfirmed
 
-Final graphics modes, console frame-rate targets, PC requirements, ultrawide support and Steam Deck verification have not been announced. Those are separate questions from whether a platform is supported. We keep each answer clearly dated so an old preview claim is not mistaken for a launch specification.
+Final graphics modes, console frame-rate targets, ultrawide support and Steam Deck verification have not been announced. The PC hardware table is now available, but it does not specify target resolution, preset or frame rate. Those are separate questions from whether a platform is supported.
 
 ## Buying checklist
 

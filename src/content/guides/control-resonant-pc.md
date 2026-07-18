@@ -13,7 +13,7 @@ sources:
 
 ## Quick answer
 
-**Control Resonant launches on Windows PC on September 24, 2026 through Steam and the Epic Games Store.** It will also support GeForce NOW at launch. Remedy has not yet published final PC system requirements.
+**Control Resonant launches on Windows PC on September 24, 2026 through Steam and the Epic Games Store.** It will also support GeForce NOW at launch. Steam now lists the minimum and recommended PC requirements, including 16 GB RAM and 100 GB storage.
 
 ## Steam or Epic?
 
@@ -21,7 +21,7 @@ Both storefronts are confirmed for launch, so this is not a timed Epic exclusive
 
 ## PC requirements
 
-Minimum and recommended CPU, GPU, RAM, storage and operating-system requirements remain unannounced as of July 17. Do not use the first Control or Alan Wake 2 requirements as substitutes: Resonant is a different game and the official specification is what matters. Our [system requirements tracker](/guides/system-requirements/) will record the exact table once Remedy publishes it.
+The minimum tier lists Windows 10/11, an Intel i5-8500 or AMD equivalent, 16 GB RAM, and a GTX 1070 or RX 5600 XT with 6 GB VRAM. Recommended moves to a Ryzen 7 3700X or Intel equivalent and an RTX 3070 or RX 6700 XT with 8 GB VRAM. Both tiers list 100 GB storage. See the [full requirements table](/guides/system-requirements/) for the limitations Steam does not specify.
 
 ## PC features still awaiting confirmation
 

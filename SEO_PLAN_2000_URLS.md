@@ -18,6 +18,12 @@ Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 - Added an automated content quality gate for minimum useful depth, direct answers, placeholder language and cross-page phrase overlap.
 - Still withheld individual quests, bosses, locations, items and best-build pages that need final-game evidence.
 
+## Round three progress
+
+- Updated two fast-changing official-data pages: Steam PC requirements now include CPU/GPU/RAM/storage tiers, and the launch language matrix now covers 15 interface/subtitle languages with nine full-audio options.
+- Added 13 focused pages across bounties, collectibles, Altered Items, the Oldest House, side-story outcomes, two summon abilities, environmental combat, gravity puzzles, Dylan's metaphysical space, series changes, Steam controllers and Family Sharing.
+- Preserved the evidence boundary: no invented bounty rewards, collectible coordinates, returning-item list, quest outcomes or final ability statistics.
+
 ## URL capacity model
 
 | Cluster | Target URLs | Primary page types | Evidence needed |
