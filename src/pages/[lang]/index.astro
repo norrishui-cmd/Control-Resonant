@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { localeHome, localizedPages } from '../../data/localized';
+
+export function getStaticPaths() { return (['de','fr'] as const).map(lang => ({ params:{lang}, props:{lang} })); }
+const { lang } = Astro.props as {lang:'de'|'fr'};
+const home = localeHome[lang];
+const pages = localizedPages.filter(p => p.lang === lang);
+const labels = lang === 'de' ? { release:'Erscheinungsdatum', sources:'Quellenstandard', browse:'Alle Themen öffnen' } : { release:'Date de sortie', sources:'Méthode et sources', browse:'Explorer tous les sujets' };
+const jsonLd = {'@context':'https://schema.org','@type':'WebSite',name:home.title,url:`https://controlresonant.wiki/${lang}/`,inLanguage:lang};
+---
+<BaseLayout lang={lang} title={`${home.title} | Field Guide`} description={home.description} jsonLd={jsonLd}>
+  <section class="relative overflow-hidden border-b border-ash-700"><div class="pointer-events-none absolute inset-y-0 left-0 w-1 bg-hiss"></div><div class="wrap py-16 sm:py-20">
+    <p class="eyebrow">{home.label}</p><h1 class="mt-4 font-display text-4xl font-bold text-bone sm:text-6xl">{home.heading}</h1>
+    <p class="mt-5 max-w-2xl text-lg leading-relaxed text-bone-dim">{home.intro}</p>
+    <div class="mt-8 flex flex-wrap gap-3"><a href={`/${lang}/${pages[0].slug}/`} class="bg-hiss px-5 py-3 font-mono text-xs font-semibold uppercase tracking-[.14em] text-void">{labels.release} →</a><a href="#guides" class="border border-ash-600 px-5 py-3 font-mono text-xs uppercase tracking-[.14em] text-bone">{labels.browse}</a></div>
+  </div></section>
+  <section class="border-b border-ash-700 bg-ash-950/40"><div class="wrap py-8"><p class="max-w-4xl text-base leading-relaxed text-bone-dim"><strong class="text-bone">{lang === 'de' ? 'Kurzantwort: ' : 'Réponse courte : '}</strong>{home.answer}</p></div></section>
+  <section id="guides" class="wrap py-16"><p class="eyebrow">{labels.guides}</p><h2 class="mt-2 font-display text-3xl font-bold text-bone">{home.guides}</h2>
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{pages.map(page => <a href={`/${lang}/${page.slug}/`} class="group border border-ash-700 bg-ash-900/35 p-5 transition hover:border-resonant"><p class="eyebrow">{page.label}</p><h3 class="mt-2 font-display text-lg font-semibold text-bone group-hover:text-resonant">{page.title}</h3><p class="mt-3 text-sm leading-relaxed text-ash-300">{page.description}</p></a>)}</div>
+  </section>
+  <section class="wrap pb-16"><div class="border border-ash-700 bg-ash-900/35 p-6"><h2 class="font-display text-xl font-bold text-bone">{labels.sources}</h2><p class="mt-3 max-w-3xl leading-relaxed text-bone-dim">{home.sourceNote}</p></div></section>
+</BaseLayout>

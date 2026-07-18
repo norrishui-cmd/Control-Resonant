@@ -1,24 +1,34 @@
 ---
+import { alternatesFor, type Locale } from '../data/localized';
+const { lang = 'en' } = Astro.props as { lang?: Locale };
 const path = Astro.url.pathname;
 const norm = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
 const cur = norm(path);
 const isActive = (href: string) => {
   const h = norm(href);
-  return h === '/' ? cur === '/' : cur === h || cur.startsWith(h + '/');
+  return ['/', '/de', '/fr'].includes(h) ? cur === h : cur === h || cur.startsWith(h + '/');
 };
 
-const nav = [
+const navs = {
+en: [
   { href: '/', label: 'Home' },
   { href: '/release-date/', label: 'Release Date' },
   { href: '/guides/', label: 'Guides' },
   { href: '/guides/characters-and-story/', label: 'Characters' },
   { href: '/guides/platforms-and-performance/', label: 'Platforms' },
   { href: '/about/', label: 'About' },
-];
+],
+de: [{href:'/de/',label:'Start'},{href:'/de/erscheinungsdatum/',label:'Release'},{href:'/de/systemanforderungen/',label:'PC'},{href:'/de/kampfsystem-und-builds/',label:'Kampf'},{href:'/de/sprachen/',label:'Sprachen'}],
+fr: [{href:'/fr/',label:'Accueil'},{href:'/fr/date-de-sortie/',label:'Sortie'},{href:'/fr/configuration-pc/',label:'PC'},{href:'/fr/combat-et-builds/',label:'Combat'},{href:'/fr/langues/',label:'Langues'}],
+};
+const nav = navs[lang];
+const alternates = alternatesFor(path) ?? {en:'/',de:'/de/',fr:'/fr/'};
+const menu = {en:'Menu',de:'Menü',fr:'Menu'};
+const tag = {en:'Unofficial Field Guide',de:'Inoffizieller Field Guide',fr:'Guide non officiel'};
 ---
 <header class="sticky top-0 z-40 border-b border-ash-700 bg-void/90 backdrop-blur">
   <div class="wrap flex items-center justify-between gap-4 py-3">
-    <a href="/" class="group flex items-center gap-3" aria-label="Control Resonant Field Guide — home">
+    <a href={lang === 'en' ? '/' : `/${lang}/`} class="group flex items-center gap-3" aria-label="Control Resonant Field Guide — home">
       <svg
         width="26"
         height="26"
@@ -38,7 +48,7 @@ const nav = [
       </svg>
       <span class="leading-none">
         <span class="block font-display text-[0.92rem] font-bold tracking-[0.16em] text-bone">CONTROL RESONANT</span>
-        <span class="mt-0.5 block font-mono text-[0.58rem] uppercase tracking-[0.22em] text-ash-400">Unofficial Field Guide</span>
+        <span class="mt-0.5 block font-mono text-[0.58rem] uppercase tracking-[0.22em] text-ash-400">{tag[lang]}</span>
       </span>
     </a>
 
@@ -57,12 +67,13 @@ const nav = [
           </a>
         ))
       }
+      <span class="ml-2 flex border-l border-ash-700 pl-2 font-mono text-[.65rem] uppercase tracking-wider">{(['en','de','fr'] as const).map(code => <a href={alternates[code]} hreflang={code} lang={code} aria-current={lang === code ? 'page' : undefined} class={`px-2 py-2 ${lang === code ? 'text-resonant' : 'text-ash-400 hover:text-bone'}`}>{code}</a>)}</span>
     </nav>
 
     <!-- mobile -->
     <details class="relative md:hidden">
       <summary class="flex cursor-pointer list-none items-center gap-2 border border-ash-600 px-3 py-2 font-mono text-xs uppercase tracking-[0.14em] text-bone">
-        Menu
+        {menu[lang]}
       </summary>
       <nav class="absolute right-0 z-50 mt-2 w-52 border border-ash-700 bg-ash-900 p-1 shadow-xl" aria-label="Primary mobile">
         {
@@ -78,6 +89,7 @@ const nav = [
             </a>
           ))
         }
+        <div class="mt-1 flex border-t border-ash-700 pt-1">{(['en','de','fr'] as const).map(code => <a href={alternates[code]} class={`px-3 py-2 font-mono text-xs uppercase ${lang === code ? 'text-resonant' : 'text-ash-300'}`}>{code}</a>)}</div>
       </nav>
     </details>
   </div>

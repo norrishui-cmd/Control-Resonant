@@ -1,42 +1,50 @@
 ---
+import type { Locale } from '../data/localized';
+const { lang = 'en' } = Astro.props as { lang?: Locale };
 const year = new Date().getFullYear();
+const copy = {
+  en:{tag:'Unofficial Field Guide',about:"An independent, fan-made guide tracking Remedy Entertainment's action-RPG sequel ahead of its September 24, 2026 launch.",sections:'Sections',guides:'Guides',release:'Release Date',sources:'About & Sources',status:'Case Status',statusText:'Information is compiled from official Remedy, Steam and PlayStation sources. Claims are separated from pre-release unknowns.',intel:'Intel current as of July 2026 · pre-release',legal:'a fan resource. Not affiliated with Remedy Entertainment.'},
+  de:{tag:'Inoffizieller Field Guide',about:'Ein unabhängiger Fan-Guide zu Remedys Action-RPG vor der Veröffentlichung am 24. September 2026.',sections:'Bereiche',guides:'Deutsche Guides',release:'Erscheinungsdatum',sources:'Über uns & Quellen',status:'Aktenstatus',statusText:'Informationen stammen aus offiziellen Quellen von Remedy, Steam und PlayStation. Offene Details werden klar von bestätigten Aussagen getrennt.',intel:'Stand Juli 2026 · vor Veröffentlichung',legal:'eine Fan-Ressource. Nicht mit Remedy Entertainment verbunden.'},
+  fr:{tag:'Guide de terrain non officiel',about:'Un guide indépendant créé par des fans pour suivre l’action-RPG de Remedy avant sa sortie le 24 septembre 2026.',sections:'Rubriques',guides:'Guides français',release:'Date de sortie',sources:'À propos & sources',status:'État du dossier',statusText:'Les informations proviennent des sources officielles de Remedy, Steam et PlayStation. Les inconnues sont séparées des faits confirmés.',intel:'Vérifié en juillet 2026 · avant la sortie',legal:'une ressource de fans, sans affiliation avec Remedy Entertainment.'}
+}[lang];
+const home = lang === 'en' ? '/' : `/${lang}/`;
+const guides = lang === 'en' ? '/guides/' : `/${lang}/#guides`;
+const release = lang === 'de' ? '/de/erscheinungsdatum/' : lang === 'fr' ? '/fr/date-de-sortie/' : '/release-date/';
 ---
 <footer class="mt-20 border-t border-ash-700 bg-ash-950/40">
   <div class="wrap grid gap-10 py-12 md:grid-cols-3">
     <div>
       <p class="font-display text-sm font-bold tracking-[0.16em] text-bone">CONTROL RESONANT</p>
-      <p class="mt-1 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-ash-400">Unofficial Field Guide</p>
+      <p class="mt-1 font-mono text-[0.6rem] uppercase tracking-[0.22em] text-ash-400">{copy.tag}</p>
       <p class="mt-4 max-w-xs text-sm leading-relaxed text-ash-300">
-        An independent, fan-made guide tracking Remedy Entertainment's action-RPG sequel
-        ahead of its September 24, 2026 launch.
+        {copy.about}
       </p>
     </div>
 
     <div>
-      <p class="eyebrow">Sections</p>
+      <p class="eyebrow">{copy.sections}</p>
       <ul class="mt-3 space-y-2 font-mono text-xs uppercase tracking-[0.12em]">
-        <li><a href="/guides/" class="text-ash-300 transition-colors hover:text-bone">Guides</a></li>
-        <li><a href="/release-date/" class="text-ash-300 transition-colors hover:text-bone">Release Date</a></li>
-        <li><a href="/about/" class="text-ash-300 transition-colors hover:text-bone">About &amp; Sources</a></li>
+        <li><a href={guides} class="text-ash-300 transition-colors hover:text-bone">{copy.guides}</a></li>
+        <li><a href={release} class="text-ash-300 transition-colors hover:text-bone">{copy.release}</a></li>
+        <li><a href="/about/" class="text-ash-300 transition-colors hover:text-bone">{copy.sources}</a></li>
         <li><a href="/privacy/" class="text-ash-300 transition-colors hover:text-bone">Privacy</a></li>
       </ul>
     </div>
 
     <div>
-      <p class="eyebrow">Case Status</p>
+      <p class="eyebrow">{copy.status}</p>
       <p class="mt-3 text-sm leading-relaxed text-ash-300">
-        Information is compiled from official Remedy and PlayStation reveals, State of Play
-        showcases, and hands-on previews. Every claim is tagged by verification status.
+        {copy.statusText}
       </p>
       <p class="mt-3 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-ash-500">
-        Intel current as of July 2026 · pre-release
+        {copy.intel}
       </p>
     </div>
   </div>
 
   <div class="border-t border-ash-800">
     <div class="wrap flex flex-col gap-2 py-5 text-[0.7rem] text-ash-500 sm:flex-row sm:items-center sm:justify-between">
-      <p>&copy; {year} controlresonant.wiki — a fan resource. Not affiliated with Remedy Entertainment.</p>
+      <p>&copy; {year} controlresonant.wiki — {copy.legal}</p>
       <p>Control, Control Resonant and related marks belong to their respective owners.</p>
     </div>
   </div>

@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { alternatesFor, type Locale } from '../data/localized';
 
 interface Props {
   title: string;
@@ -11,23 +12,29 @@ interface Props {
   jsonLd?: unknown;
   noindex?: boolean;
   canonicalPath?: string;
+  lang?: Locale;
 }
 
-const { title, description, ogType = 'website', ogImage = '/og.png', jsonLd, noindex = false, canonicalPath } = Astro.props;
+const { title, description, ogType = 'website', ogImage = '/og.png', jsonLd, noindex = false, canonicalPath, lang = 'en' } = Astro.props;
 
 const site = Astro.site ?? new URL('https://controlresonant.wiki');
 const canonical = new URL(canonicalPath ?? Astro.url.pathname, site).href;
 const ogImageURL = new URL(ogImage, site).href;
 const siteName = 'Control Resonant Field Guide';
+const alternatePaths = alternatesFor(Astro.url.pathname);
+const ogLocales = { en: 'en_US', de: 'de_DE', fr: 'fr_FR' };
+const skip = { en: 'Skip to content', de: 'Zum Inhalt springen', fr: 'Aller au contenu' };
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {alternatePaths && Object.entries(alternatePaths).map(([code, path]) => <link rel="alternate" hreflang={code} href={new URL(path, site).href} />)}
+    {alternatePaths && <link rel="alternate" hreflang="x-default" href={new URL(alternatePaths.en, site).href} />}
     <meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
     <meta name="theme-color" content="#0a0a0c" />
     <meta name="generator" content={Astro.generator} />
@@ -41,7 +48,7 @@ const siteName = 'Control Resonant Field Guide';
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={ogLocales[lang]} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -65,12 +72,12 @@ const siteName = 'Control Resonant Field Guide';
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:bg-resonant focus:px-3 focus:py-2 focus:font-mono focus:text-xs focus:text-void"
     >
-      Skip to content
+      {skip[lang]}
     </a>
-    <Header />
+    <Header lang={lang} />
     <main id="main" class="flex-1">
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>
