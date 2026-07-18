@@ -12,6 +12,7 @@ controlresonant/
 ├─ public/
 │  ├─ favicon.svg            # broken-circle mark
 │  ├─ og.png                 # social share image (1200×630)
+│  ├─ ads.txt                # Google AdSense publisher authorization
 │  └─ robots.txt
 └─ src/
    ├─ content.config.ts      # "guides" collection + status schema
@@ -65,6 +66,18 @@ It appears automatically on the homepage and the guides page, and gets its own U
 4. Click **Deploy**. Then add `controlresonant.wiki` under the project's **Domains**.
 
 That's it — no env vars. Every push to the repo triggers a rebuild.
+
+## Google AdSense verification
+
+Publisher `ca-pub-9505220977121599` is configured once in the global layout, so every English, German, French, and future page inherits both the AdSense loader and account meta tag. The authorized seller record is served from `/ads.txt`.
+
+After deployment, verify:
+
+- `https://controlresonant.wiki/ads.txt` returns `google.com, pub-9505220977121599, DIRECT, f08c47fec0942fa0`
+- homepage source contains `google-adsense-account`
+- homepage source contains `adsbygoogle.js?client=ca-pub-9505220977121599`
+
+The production audit fails if the script or account meta tag is missing or duplicated on any generated page.
 
 ## Notes
 
