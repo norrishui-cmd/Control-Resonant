@@ -28,3 +28,5 @@ GeForce NOW support is confirmed at launch. In supported regions, accessing the 
 ## When to check again
 
 Recheck after official [PC system requirements](/guides/system-requirements/) appear and again close to launch when Valve compatibility data is more likely to be available. For now, do not pre-order solely on the assumption that the game will run well on Deck.
+
+Also separate “it launches through Steam” from “Valve has verified it.” Compatibility depends on performance, controls, text readability and middleware behavior—not merely whether the product can be downloaded from the same storefront.

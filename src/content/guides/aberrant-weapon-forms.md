@@ -9,6 +9,10 @@ updated: 2026-06-25
 
 The **Aberrant** is Dylan Faden's signature weapon and the heart of Control Resonant's combat. Instead of swapping between separate guns, you reshape one paranatural instrument into different melee forms mid-fight. Here's what's been shown and how the system works.
 
+## Quick answer
+
+The Aberrant is a living, shapeshifting melee weapon with confirmed hammer, dual-blade, scythe and gauntlet-like forms shown in pre-release material. Builds organize its attacks through Primary Forms, Secondary Forms and Combo Enders; the complete launch roster is not yet public.
+
 ## What the Aberrant is
 
 It's a living, shape-shifting weapon that morphs to suit the situation — heavy and slow one moment, fast and reaching the next. Because it's one weapon with many forms, your "loadout" is really a set of shapes you've equipped and the way you flow between them.

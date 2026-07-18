@@ -1,6 +1,6 @@
 # Control Resonant Wiki — 2,000 Quality URL SEO Plan
 
-Updated: July 17, 2026  
+Updated: July 18, 2026  
 Release date: September 24, 2026  
 Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 
@@ -10,6 +10,13 @@ Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 - Round one adds platform, purchase, FAQ, story, character, world and quest hubs based on official evidence.
 - Canonical tags, sitemap generation, index controls, structured data and a build-time SEO audit form the technical baseline.
 - Unknown entities are not pre-generated. A URL enters the sitemap only after it has a concrete answer and a reliable source or verified play data.
+
+## Round two progress
+
+- Added 15 evidence-backed deep pages covering New Game Plus, Artifacts and crafting, The Gap, combat momentum, Combat Abilities, Talents, Aberrant form roles, movement, Zoe, Jesse, enemy factions, languages, accessibility, PS5 early access and Xbox Play Anywhere.
+- Corrected platform-specific purchase details: PS5 Digital Deluxe has confirmed 48-hour advance access; PlayStation, Steam and Xbox do not present an identical pre-order bonus list.
+- Added an automated content quality gate for minimum useful depth, direct answers, placeholder language and cross-page phrase overlap.
+- Still withheld individual quests, bosses, locations, items and best-build pages that need final-game evidence.
 
 ## URL capacity model
 

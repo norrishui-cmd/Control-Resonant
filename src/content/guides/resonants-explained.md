@@ -9,6 +9,10 @@ updated: 2026-06-25
 
 The game isn't called Resonant for nothing. **Resonants** are its marquee bosses, and they're tied directly to how your character grows. Here's what's known so far.
 
+## Quick answer
+
+Resonants are major story-integrated bosses. Defeating one grants a unique supernatural Combat Ability, while some bosses offer branching ability choices that shape Dylan's first-playthrough build and expand into new combinations in New Game Plus.
+
 ## What a Resonant is
 
 Resonants are powerful, paranatural antagonists — twisted, amplified beings shaped by the same reality-warping forces tearing through Manhattan. They function as the campaign's **major boss encounters**, set-piece fights that gate progress and test whatever build you've assembled. Each one is distinct in look and behavior rather than a reskin.

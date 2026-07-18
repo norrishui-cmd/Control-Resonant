@@ -13,6 +13,10 @@ sources:
     url: "https://blog.playstation.com/2026/03/04/control-resonant-a-deep-dive-into-combat-buildcrafting-and-player-choice/"
 ---
 
+## Quick answer
+
+Control Resonant stars Dylan Faden, with missing FBC Director Jesse Faden and field agent Zoe De Vera as the other central confirmed characters. The story reverses the first game's sibling search while moving the paranatural crisis into Manhattan.
+
 ## Spoiler-light story setup
 
 Control Resonant follows **Dylan Faden**, who spent years confined by the Federal Bureau of Control. With Manhattan collapsing under the Hiss, the Mold and a new cosmic form of resonance, the Bureau deploys its former test subject into the crisis. Dylan is also searching for his missing sister, FBC Director **Jesse Faden**.

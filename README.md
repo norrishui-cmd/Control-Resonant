@@ -29,7 +29,7 @@ controlresonant/
    └─ content/guides/         # evidence-backed markdown guides — add more here
 ```
 
-`SEO_PLAN_2000_URLS.md` contains the phased expansion model and indexability quality gate. The production build also runs `scripts/seo-audit.mjs`, which checks titles, descriptions, canonicals, H1s, duplicate titles, and internal links.
+`SEO_PLAN_2000_URLS.md` contains the phased expansion model and indexability quality gate. The production build runs two audits: `scripts/content-quality-audit.mjs` checks useful depth, direct answers, placeholders and cross-page phrase overlap; `scripts/seo-audit.mjs` checks titles, descriptions, canonicals, H1s, duplicate titles and internal links.
 
 ## Add a new guide
 

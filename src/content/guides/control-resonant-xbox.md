@@ -30,3 +30,5 @@ No Xbox One edition appears in Remedy's official platform list. The announced Xb
 ## What to check before launch
 
 Look for the download size, pre-load schedule, console graphics modes and accessibility list when store metadata is finalized. The [platform hub](/guides/platforms-and-performance/) separates confirmed information from pending specifications, while the [release guide](/release-date/) tracks launch timing and editions.
+
+The Xbox product page currently identifies Xbox Play Anywhere. That is relevant to Microsoft-store console and Windows access, but it does not grant a Steam or Epic copy and should not be confused with Game Pass inclusion. See the dedicated [Play Anywhere guide](/guides/xbox-play-anywhere/).

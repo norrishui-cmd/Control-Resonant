@@ -15,7 +15,7 @@ sources:
 
 **Yes, Control Resonant is coming to PS5 on September 24, 2026.** The US PlayStation Store lists the Standard Edition at $59.99 and the Digital Deluxe Edition at $69.99. Prices vary by region.
 
-The official listing identifies the game as PS5 Pro Enhanced and confirms DualSense vibration and trigger effects. It is a single-player game. There is no announced PS4 version.
+The official listing identifies the game as PS5 Pro Enhanced and confirms DualSense vibration and trigger effects. It is a single-player game. There is no announced PS4 version. The PS5 Digital Deluxe Edition includes 48 hours of advance access, beginning September 22 at the listed store time.
 
 ## Confirmed PS5 features
 

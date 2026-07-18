@@ -30,3 +30,5 @@ Final information is still needed for ultrawide resolutions, unlocked frame rate
 ## Cloud play
 
 GeForce NOW support is confirmed for launch. Cloud performance depends on the service tier, connection and server availability, and is distinct from a native PC install. See [all confirmed platforms](/guides/platforms-and-performance/) or compare [editions and bonuses](/guides/editions-price-and-preorder/).
+
+The Steam page currently confirms single-player, Family Sharing and full controller support, while recommending a controller. These store features answer purchase questions but do not establish final keyboard, ultrawide or performance behavior.

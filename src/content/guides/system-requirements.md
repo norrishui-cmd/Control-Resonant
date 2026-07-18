@@ -35,3 +35,5 @@ Only as very rough context, never as a compatibility promise. Different content,
 ## What we will verify when requirements arrive
 
 The quality check will compare the Steam, Epic and official Remedy listings; record minimum and recommended tiers exactly; note SSD and storage requirements; and separate required features from optional ray tracing or upscaling recommendations. See the [PC guide](/guides/control-resonant-pc/) for storefront and cloud-play information.
+
+Epic currently displays the CPU, GPU, memory and operating-system fields as TBD, which is stronger evidence than a third-party estimate: the official storefront itself has not supplied the specification. Storage capacity and target resolution are also still absent.

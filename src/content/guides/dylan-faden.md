@@ -30,3 +30,5 @@ Dylan wields the **Aberrant**, a melee weapon that shifts into forms such as a h
 ## Is Jesse playable?
 
 Jesse is central to Dylan's goal, but Remedy has announced Dylan—not Jesse—as the protagonist. No additional playable character has been confirmed. For the broader cast, visit the [characters and story hub](/guides/characters-and-story/), or read [Aberrant weapon forms](/guides/aberrant-weapon-forms/) for Dylan's combat toolset.
+
+Remedy has further clarified that Dylan is the sole playable character. Jesse retains a major presence and shapes his journey, but narrative importance is not evidence of a separate playable campaign.

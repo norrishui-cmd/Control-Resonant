@@ -9,6 +9,10 @@ updated: 2026-06-25
 
 Control Resonant trades the first game's run-and-gun for a melee-driven action RPG with real buildcraft. If you've bounced off systems-heavy games before, the good news is the structure is cleaner than it first looks. Here's how the pieces connect.
 
+## Quick answer
+
+Builds combine three main layers inside The Gap: supernatural Combat Abilities earned from Resonants, Primary and Secondary Aberrant Weapon Forms plus Combo Enders, and Talents that reinforce their synergy. Artifacts add a separate passive-equipment layer.
+
 ## The core loop
 
 Combat is built around the **Aberrant**, a shape-shifting melee weapon, supported by paranatural abilities. You build resource by landing attacks and staying aggressive, then spend it on powers — so the game rewards pressing forward rather than turtling. Telekinetic options, area attacks, and defensive abilities round out the kit.

@@ -11,6 +11,12 @@ sources:
     url: "https://www.playstation.com/en-us/games/control-resonant/"
   - label: "Remedy launch and pre-order announcement"
     url: "https://www.remedygames.com/article/control-resonant-launches-worldwide-on-september-24"
+  - label: "Steam — editions and pre-purchase offer"
+    url: "https://store.steampowered.com/app/3669870/"
+  - label: "Xbox Store — product and pre-order bundle"
+    url: "https://www.xbox.com/en-US/games/store/control-resonant/9NJ07VWB9BVK"
+  - label: "PlayStation Blog — PS5 advance access"
+    url: "https://blog.playstation.com/2026/06/02/control-resonant-launches-september-24-on-ps5/"
 ---
 
 ## Quick answer
@@ -28,11 +34,13 @@ Control Resonant has a **Standard Edition** and a **Digital Deluxe Edition**. On
 | Digital artbook | No | Yes |
 | Original soundtrack | No | Yes |
 
+On PlayStation 5, Sony and Remedy also confirm **48 hours of advance access** for the Digital Deluxe Edition, with the store release time shown as September 22 rather than September 24. Do not assume that timing applies to every storefront unless its own listing says so.
+
 The Deluxe extras currently presented by PlayStation are cosmetic, resource and digital-media items; no story expansion or season pass is listed in the edition contents.
 
 ## Pre-order bonus
 
-Both editions advertise the Hiss Corruption Outfit, Occult Outfit and Pickpocket's Tool Artifact as pre-order unlocks. Do not confuse those three items with the Deluxe-only contents.
+The bonus differs by storefront. Steam and Xbox list the **Hiss Corruption Outfit** and **Pickpocket's Tool Artifact**. The US PlayStation listing also shows an **Occult Outfit**. Check the product page for your platform and region before buying rather than assuming all three items are universal.
 
 ## Are physical editions available?
 

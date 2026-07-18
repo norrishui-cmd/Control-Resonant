@@ -30,3 +30,5 @@ Remedy has named combat encounters, environmental challenges, hidden discoveries
 ## Walkthrough publishing standard
 
 After verified play data exists, every quest page should include requirements, starting location, exact objectives, step-by-step completion, choices, rewards, known trigger problems and nearby follow-up content. Until then, unconfirmed quest-name pages stay out of the sitemap. See the [Manhattan map hub](/guides/manhattan-map-and-zones/) for the world structure.
+
+Official showcase coverage also mentions side quests, boss encounters and puzzles, plus previously unseen areas of the Oldest House. Their individual names and order remain unreleased, so they belong in the future evidence queue rather than the current sitemap.

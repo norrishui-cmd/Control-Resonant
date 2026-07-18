@@ -28,3 +28,5 @@ There is no confirmed drop-in partner or shared campaign. Summoned combat entiti
 The official material does not yet provide a complete connection requirement. A single-player label does not automatically prove every mode works offline, particularly for downloads, updates or entitlement checks. We will update this answer when the storefront requirements are final.
 
 For the campaign structure, read [World Quests and Dylan's Journey](/guides/world-quests-and-campaign/). For supported hardware, see the [platform hub](/guides/platforms-and-performance/).
+
+The Steam store also labels the game single-player, reinforcing the PlayStation listing. If a network feature is announced later, it would not automatically convert the story campaign into co-op; the mode itself would need explicit confirmation.

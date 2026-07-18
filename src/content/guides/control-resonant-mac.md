@@ -30,3 +30,5 @@ Steam is confirmed as a Mac storefront, but cross-buy entitlement and save compa
 ## What Mac players can do now
 
 If you want to play on September 24 without a console or Windows PC, GeForce NOW is the only confirmed cloud route in the official launch announcement. For the complete release matrix, see the [platform hub](/guides/platforms-and-performance/) and [release-date guide](/release-date/).
+
+Mac players should also distinguish the native later-2026 build from streaming a Windows version. Native support depends on Remedy's eventual chip, memory and macOS specification; cloud play depends on GeForce NOW availability and connection quality.

@@ -28,3 +28,5 @@ Remedy calls Resonant its most expansive game to date. Expansive describes scale
 ## Will there be a map?
 
 Preview material references areas and exploration, but the final map interface and zone list are not fully documented. Our [Manhattan zones guide](/guides/manhattan-map-and-zones/) records only named or officially described locations. For activity types, see [World Quests and campaign structure](/guides/world-quests-and-campaign/).
+
+Remedy has also called the game “open-ended,” which describes choice and exploration across interconnected or handcrafted zones. It still does not mean a single seamless open-world map, and the two phrases should not be treated as interchangeable.

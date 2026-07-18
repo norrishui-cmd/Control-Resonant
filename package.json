@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/seo-audit.mjs",
+    "build": "node scripts/content-quality-audit.mjs && astro build && node scripts/seo-audit.mjs",
+    "audit:content": "node scripts/content-quality-audit.mjs",
     "audit:seo": "node scripts/seo-audit.mjs",
     "preview": "astro preview",
     "astro": "astro"
