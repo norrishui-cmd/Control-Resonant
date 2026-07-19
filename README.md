@@ -43,6 +43,8 @@ FAQ is a primary navigation tab. The `/faq/` hub contains 50 source-checked answ
 
 The `/database/` live intelligence index tracks 23 confirmed or explicitly unresolved game properties across characters, equipment, gameplay systems, threats, and availability. Six new canonical guides cover the public demo status, 90-minute media hands-on, pre-order items, Digital Deluxe items, New Game Plus carryover, and the nine PS5 accessibility features. Unnamed preview bosses and unannounced entities are deliberately not assigned fabricated pages.
 
+German and French now each contain 19 localized detail pages plus a fully translated 23-record database at `/de/datenbank/` and `/fr/base-de-donnees/`. The nine newest pages per language cover Dylan, Jesse, Zoe, public-demo status, the media demo, pre-order items, Digital Deluxe contents, exact New Game Plus carryover, and PS5 accessibility. Desktop and mobile navigation use one accessible language dropdown with page-level EN/DE/FR alternate destinations.
+
 ## Add a new guide
 
 Drop a new `.md` file into `src/content/guides/`. Frontmatter:

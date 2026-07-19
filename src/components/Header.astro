@@ -19,13 +19,15 @@ en: [
   { href: '/guides/platforms-and-performance/', label: 'Platforms' },
   { href: '/faq/', label: 'FAQ' },
 ],
-de: [{href:'/de/',label:'Start'},{href:'/de/erscheinungsdatum/',label:'Release'},{href:'/de/systemanforderungen/',label:'PC'},{href:'/de/kampfsystem-und-builds/',label:'Kampf'},{href:'/de/sprachen/',label:'Sprachen'},{href:'/faq/',label:'FAQ'}],
-fr: [{href:'/fr/',label:'Accueil'},{href:'/fr/date-de-sortie/',label:'Sortie'},{href:'/fr/configuration-pc/',label:'PC'},{href:'/fr/combat-et-builds/',label:'Combat'},{href:'/fr/langues/',label:'Langues'},{href:'/faq/',label:'FAQ'}],
+de: [{href:'/de/',label:'Start'},{href:'/de/erscheinungsdatum/',label:'Release'},{href:'/de/datenbank/',label:'Datenbank'},{href:'/de/kampfsystem-und-builds/',label:'Kampf'},{href:'/de/sprachen/',label:'Sprachen'},{href:'/faq/',label:'FAQ'}],
+fr: [{href:'/fr/',label:'Accueil'},{href:'/fr/date-de-sortie/',label:'Sortie'},{href:'/fr/base-de-donnees/',label:'Données'},{href:'/fr/combat-et-builds/',label:'Combat'},{href:'/fr/langues/',label:'Langues'},{href:'/faq/',label:'FAQ'}],
 };
 const nav = navs[lang];
 const alternates = alternatesFor(path) ?? {en:'/',de:'/de/',fr:'/fr/'};
 const menu = {en:'Menu',de:'Menü',fr:'Menu'};
 const tag = {en:'Unofficial Field Guide',de:'Inoffizieller Field Guide',fr:'Guide non officiel'};
+const languageLabel = {en:'Language',de:'Sprache',fr:'Langue'};
+const languageNames = {en:'English',de:'Deutsch',fr:'Français'};
 ---
 <header class="sticky top-0 z-40 border-b border-ash-700 bg-void/90 backdrop-blur">
   <div class="wrap flex items-center justify-between gap-4 py-3">
@@ -68,7 +70,15 @@ const tag = {en:'Unofficial Field Guide',de:'Inoffizieller Field Guide',fr:'Guid
           </a>
         ))
       }
-      <span class="ml-2 flex border-l border-ash-700 pl-2 font-mono text-[.65rem] uppercase tracking-wider">{(['en','de','fr'] as const).map(code => <a href={alternates[code]} hreflang={code} lang={code} aria-current={lang === code ? 'page' : undefined} class={`px-2 py-2 ${lang === code ? 'text-resonant' : 'text-ash-400 hover:text-bone'}`}>{code}</a>)}</span>
+      <details class="group relative ml-2 border-l border-ash-700 pl-3" aria-label={languageLabel[lang]}>
+        <summary class="flex cursor-pointer list-none items-center gap-2 border border-ash-600 px-3 py-2 font-mono text-[.65rem] uppercase tracking-[.12em] text-bone hover:border-resonant">
+          <span aria-hidden="true">◎</span><span>{languageNames[lang]}</span><span class="text-ash-400 transition-transform group-open:rotate-180">▾</span>
+        </summary>
+        <div class="absolute right-0 top-full z-50 mt-2 w-44 border border-ash-700 bg-ash-900 p-1 shadow-xl">
+          <p class="px-3 py-2 font-mono text-[.58rem] uppercase tracking-[.16em] text-ash-500">{languageLabel[lang]}</p>
+          {(['en','de','fr'] as const).map(code => <a href={alternates[code]} hreflang={code} lang={code} aria-current={lang === code ? 'page' : undefined} class={`flex items-center justify-between px-3 py-2 font-mono text-xs ${lang === code ? 'bg-ash-800 text-resonant' : 'text-bone-dim hover:bg-ash-800 hover:text-bone'}`}><span>{languageNames[code]}</span><span class="uppercase text-ash-500">{code}</span></a>)}
+        </div>
+      </details>
     </nav>
 
     <!-- mobile -->
@@ -90,7 +100,10 @@ const tag = {en:'Unofficial Field Guide',de:'Inoffizieller Field Guide',fr:'Guid
             </a>
           ))
         }
-        <div class="mt-1 flex border-t border-ash-700 pt-1">{(['en','de','fr'] as const).map(code => <a href={alternates[code]} class={`px-3 py-2 font-mono text-xs uppercase ${lang === code ? 'text-resonant' : 'text-ash-300'}`}>{code}</a>)}</div>
+        <details class="mt-1 border-t border-ash-700 pt-1" aria-label={languageLabel[lang]}>
+          <summary class="cursor-pointer list-none px-3 py-2 font-mono text-xs uppercase tracking-[.12em] text-bone">◎ {languageLabel[lang]} · {languageNames[lang]} ▾</summary>
+          <div class="border-t border-ash-800">{(['en','de','fr'] as const).map(code => <a href={alternates[code]} hreflang={code} lang={code} aria-current={lang === code ? 'page' : undefined} class={`flex justify-between px-4 py-2 font-mono text-xs ${lang === code ? 'bg-ash-800 text-resonant' : 'text-ash-300 hover:text-bone'}`}><span>{languageNames[code]}</span><span class="uppercase">{code}</span></a>)}</div>
+        </details>
       </nav>
     </details>
   </div>

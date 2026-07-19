@@ -31,6 +31,13 @@ Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 - Kept Dylan, Jesse, Zoe, Aberrant, Artifacts, Hiss, Mold, summons and other established topics on their existing canonical guide URLs instead of duplicating them as database pages.
 - Reviewed official sources through July 19, 2026. No public downloadable demo or beta is announced; the Summer Game Fest media build is labeled separately so it cannot be mistaken for public access.
 
+## Round five progress — German and French depth
+
+- Expanded both language clusters from 10 to 19 localized detail URLs, adding the three confirmed characters, public-demo status, media hands-on, pre-order items, Digital Deluxe items, precise New Game Plus carryover and PS5 accessibility.
+- Added complete German and French database hubs, each exposing the same 23 evidence-controlled records through locally written descriptions and localized internal links.
+- Replaced the inline EN/DE/FR switch with an accessible desktop and mobile dropdown while preserving page-level self-canonicals and reciprocal hreflang links.
+- Updated older German and French NG+ and accessibility summaries so they no longer contradict the more recent official data.
+
 ## URL capacity model
 
 | Cluster | Target URLs | Primary page types | Evidence needed |

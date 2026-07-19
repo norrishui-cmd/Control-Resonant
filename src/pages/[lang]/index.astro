@@ -6,7 +6,9 @@ export function getStaticPaths() { return (['de','fr'] as const).map(lang => ({ 
 const { lang } = Astro.props as {lang:'de'|'fr'};
 const home = localeHome[lang];
 const pages = localizedPages.filter(p => p.lang === lang);
-const labels = lang === 'de' ? { release:'Erscheinungsdatum', sources:'Quellenstandard', browse:'Alle Themen öffnen' } : { release:'Date de sortie', sources:'Méthode et sources', browse:'Explorer tous les sujets' };
+const labels = lang === 'de'
+  ? { release:'Erscheinungsdatum', sources:'Quellenstandard', browse:'Alle Themen öffnen', guides:'Lokalisierte Inhalte', database:'Spieldatenbank', databaseText:'23 geprüfte Datensätze zu Charakteren, Gegenständen, Gameplay, Gegnern und Demo-Status.', openDatabase:'Datenbank öffnen' }
+  : { release:'Date de sortie', sources:'Méthode et sources', browse:'Explorer tous les sujets', guides:'Contenu localisé', database:'Base de données du jeu', databaseText:'23 entrées vérifiées sur les personnages, objets, systèmes, ennemis et le statut de la démo.', openDatabase:'Ouvrir la base' };
 const jsonLd = {'@context':'https://schema.org','@type':'WebSite',name:home.title,url:`https://controlresonant.wiki/${lang}/`,inLanguage:lang};
 ---
 <BaseLayout lang={lang} title={`${home.title} | Field Guide`} description={home.description} jsonLd={jsonLd}>
@@ -19,5 +21,6 @@ const jsonLd = {'@context':'https://schema.org','@type':'WebSite',name:home.titl
   <section id="guides" class="wrap py-16"><p class="eyebrow">{labels.guides}</p><h2 class="mt-2 font-display text-3xl font-bold text-bone">{home.guides}</h2>
     <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{pages.map(page => <a href={`/${lang}/${page.slug}/`} class="group border border-ash-700 bg-ash-900/35 p-5 transition hover:border-resonant"><p class="eyebrow">{page.label}</p><h3 class="mt-2 font-display text-lg font-semibold text-bone group-hover:text-resonant">{page.title}</h3><p class="mt-3 text-sm leading-relaxed text-ash-300">{page.description}</p></a>)}</div>
   </section>
+  <section class="border-y border-ash-700 bg-ash-950/40"><div class="wrap py-12"><p class="eyebrow">FBC // Data</p><h2 class="mt-2 font-display text-2xl font-bold text-bone">{labels.database}</h2><p class="mt-3 max-w-2xl text-sm leading-relaxed text-bone-dim">{labels.databaseText}</p><a href={lang === 'de' ? '/de/datenbank/' : '/fr/base-de-donnees/'} class="mt-5 inline-flex border border-resonant px-4 py-3 font-mono text-xs uppercase tracking-[.14em] text-resonant hover:bg-resonant hover:text-void">{labels.openDatabase} →</a></div></section>
   <section class="wrap pb-16"><div class="border border-ash-700 bg-ash-900/35 p-6"><h2 class="font-display text-xl font-bold text-bone">{labels.sources}</h2><p class="mt-3 max-w-3xl leading-relaxed text-bone-dim">{home.sourceNote}</p></div></section>
 </BaseLayout>

@@ -125,6 +125,31 @@ else {
   if (!databaseHtml.includes('July 19, 2026')) errors.push('/database/: missing visible evidence review date');
 }
 
+for (const [lang, databaseRoute, languageName, ariaName] of [
+  ['de', '/de/datenbank/', 'Deutsch', 'Sprache'],
+  ['fr', '/fr/base-de-donnees/', 'Français', 'Langue'],
+]) {
+  const localizedDetails = pages.filter(page => {
+    const route = page.replace(root, '/').replace(/index\.html$/, '');
+    return route.startsWith(`/${lang}/`) && route !== `/${lang}/` && route !== databaseRoute;
+  });
+  if (localizedDetails.length !== 19) errors.push(`/${lang}/: expected 19 localized detail URLs, found ${localizedDetails.length}`);
+  const localizedDatabase = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === databaseRoute);
+  if (!localizedDatabase) errors.push(`${databaseRoute}: localized database missing`);
+  else {
+    const html = await readFile(localizedDatabase, 'utf8');
+    const tableLinks = [...html.matchAll(/<tbody[\s\S]*?<\/tbody>/g)]
+      .flatMap(section => [...section[0].matchAll(/href="(\/[^"#]+\/)"/g)].map(match => match[1]));
+    if (tableLinks.length !== 23) errors.push(`${databaseRoute}: expected 23 localized records, found ${tableLinks.length}`);
+    if (!html.includes('"@type":"CollectionPage"') || !html.includes(`inLanguage":"${lang}`)) errors.push(`${databaseRoute}: missing localized CollectionPage schema`);
+  }
+  const homeFile = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === `/${lang}/`);
+  if (homeFile) {
+    const html = await readFile(homeFile, 'utf8');
+    if (!html.includes(`aria-label="${ariaName}"`) || !html.includes(`>${languageName}<`)) errors.push(`/${lang}/: navigation language dropdown missing current locale`);
+  }
+}
+
 const adsTxt = (await readFile(join(root, 'ads.txt'), 'utf8')).trim();
 const expectedAdsTxt = 'google.com, pub-9505220977121599, DIRECT, f08c47fec0942fa0';
 if (adsTxt !== expectedAdsTxt) errors.push(`/ads.txt: expected exact Google publisher record`);
