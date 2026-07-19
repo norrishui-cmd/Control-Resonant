@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Countdown from '../components/Countdown.astro';
 import StatusStamp from '../components/StatusStamp.astro';
+import NewsModule from '../components/NewsModule.astro';
 
 const platforms = [
   { name: 'PlayStation 5', note: 'Launch day' },
@@ -179,13 +180,15 @@ const jsonLd = {
     <section class="mb-14">
       <div class="mb-5 flex items-center gap-3">
         <h2 class="font-display text-xl font-bold text-bone">PC System Requirements</h2>
-        <StatusStamp status="speculation" />
+        <StatusStamp status="confirmed" />
       </div>
-      <div class="border border-dashed border-ash-600 bg-ash-950/30 p-6">
+      <div class="border border-ash-700 bg-ash-950/30 p-6">
         <p class="text-sm leading-relaxed text-ash-300">
-          Remedy has not published official minimum or recommended PC specs for Control Resonant
-          yet. We will fill this section in with verified requirements once they are announced —
-          rather than guess. Check back closer to launch.
+          Steam now lists Windows 10/11 64-bit, 16 GB RAM, and 100 GB storage for both tiers.
+          Minimum graphics are GTX 1070 or RX 5600 XT with 6 GB VRAM; recommended graphics are
+          RTX 3070 or RX 6700 XT with 8 GB. See the
+          <a href="/guides/system-requirements/" class="text-resonant hover:text-hiss">full PC requirements guide</a>
+          for CPU details and the limits of the published specification.
         </p>
       </div>
     </section>
@@ -205,4 +208,5 @@ const jsonLd = {
       </dl>
     </section>
   </div>
+  <NewsModule tab="release" />
 </BaseLayout>

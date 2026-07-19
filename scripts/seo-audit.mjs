@@ -15,6 +15,7 @@ await walk(root);
 
 const errors = [];
 const seenTitles = new Map();
+const newsPages = [];
 const knownRoutes = new Set(pages.map((file) => file.replace(root, '/').replace(/index\.html$/, '')));
 knownRoutes.add('/404.html');
 for (const file of pages) {
@@ -35,6 +36,14 @@ for (const file of pages) {
   if (adsenseScriptCount !== 1) errors.push(`${path}: expected exactly 1 AdSense script, found ${adsenseScriptCount}`);
   if (title && seenTitles.has(title)) errors.push(`${path}: duplicate title with ${seenTitles.get(title)}`);
   if (title) seenTitles.set(title, path);
+  if (path.startsWith('/news/') && path !== '/news/') {
+    newsPages.push({ path, html });
+    const visibleText = html.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ');
+    const words = visibleText.split(/\s+/).filter(Boolean).length;
+    if (words < 220) errors.push(`${path}: news report has only ${words} visible words (minimum 220)`);
+    if (!html.includes('"@type":"NewsArticle"')) errors.push(`${path}: missing NewsArticle schema`);
+    if (!/Official source<\/h2>[\s\S]*?href="https:\/\//.test(html)) errors.push(`${path}: missing visible official source link`);
+  }
   if (path.startsWith('/de/') || path.startsWith('/fr/') || path === '/') {
     const htmlLang = html.match(/<html lang="([^"]+)"/)?.[1];
     const expectedLang = path.startsWith('/de/') ? 'de' : path.startsWith('/fr/') ? 'fr' : 'en';
@@ -53,6 +62,22 @@ for (const file of pages) {
     const route = href.endsWith('/') ? href : `${href}/`;
     if (!knownRoutes.has(route)) errors.push(`${path}: broken internal link ${href}`);
   }
+}
+
+if (newsPages.length !== 25) errors.push(`/news/: expected 25 independent news URLs, found ${newsPages.length}`);
+const requiredNewsModules = {
+  '/release-date/': 5,
+  '/guides/': 5,
+  '/guides/characters-and-story/': 5,
+  '/guides/platforms-and-performance/': 5,
+  '/about/': 5,
+};
+for (const [route, expected] of Object.entries(requiredNewsModules)) {
+  const file = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === route);
+  if (!file) { errors.push(`${route}: required News module host page missing`); continue; }
+  const html = await readFile(file, 'utf8');
+  const uniqueNewsLinks = new Set([...html.matchAll(/href="(\/news\/[^"#]+\/)"/g)].map(match => match[1]));
+  if (uniqueNewsLinks.size !== expected) errors.push(`${route}: expected ${expected} unique News links, found ${uniqueNewsLinks.size}`);
 }
 
 const adsTxt = (await readFile(join(root, 'ads.txt'), 'utf8')).trim();

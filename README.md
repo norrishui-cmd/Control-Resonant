@@ -22,6 +22,8 @@ controlresonant/
    ├─ pages/
    │  ├─ index.astro          # homepage hub
    │  ├─ release-date.astro    # release / platforms / FAQ (FAQ schema)
+   │  ├─ news/index.astro       # source-linked news center, grouped by topic
+   │  ├─ news/[slug].astro      # 25 independent NewsArticle pages
    │  ├─ guides/index.astro    # all guides, grouped
    │  ├─ guides/[...slug].astro # one page per markdown guide
    │  ├─ about.astro           # sources + status-system + disclaimer
@@ -31,6 +33,8 @@ controlresonant/
 ```
 
 `SEO_PLAN_2000_URLS.md` contains the phased expansion model and indexability quality gate. The production build runs two audits: `scripts/content-quality-audit.mjs` checks useful depth, direct answers, placeholders and cross-page phrase overlap; `scripts/seo-audit.mjs` checks titles, descriptions, canonicals, H1s, duplicate titles and internal links.
+
+The five core detail tabs—Release Date, Guides, Characters, Platforms, and About—each expose exactly five topic-matched news reports. Every report has its own canonical `/news/<slug>/` URL, dated official source, visible direct answer, related-report links, and `NewsArticle` structured data. The news audit rejects missing pages, thin reports, incorrect per-tab counts, and missing source links.
 
 ## Add a new guide
 

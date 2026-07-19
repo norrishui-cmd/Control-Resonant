@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GuideCard from '../../components/GuideCard.astro';
+import NewsModule from '../../components/NewsModule.astro';
 
 const guides = (await getCollection('guides')).sort(
   (a, b) => a.data.order - b.data.order,
@@ -80,4 +81,5 @@ const jsonLd = {
       ))
     }
   </div>
+  <NewsModule tab="guides" />
 </BaseLayout>
