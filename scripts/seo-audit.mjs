@@ -16,6 +16,7 @@ await walk(root);
 const errors = [];
 const seenTitles = new Map();
 const newsPages = [];
+const faqPages = [];
 const knownRoutes = new Set(pages.map((file) => file.replace(root, '/').replace(/index\.html$/, '')));
 knownRoutes.add('/404.html');
 for (const file of pages) {
@@ -44,6 +45,14 @@ for (const file of pages) {
     if (!html.includes('"@type":"NewsArticle"')) errors.push(`${path}: missing NewsArticle schema`);
     if (!/Official source<\/h2>[\s\S]*?href="https:\/\//.test(html)) errors.push(`${path}: missing visible official source link`);
   }
+  if (path.startsWith('/faq/') && path !== '/faq/') {
+    faqPages.push({ path, html });
+    const visibleText = html.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ');
+    const words = visibleText.split(/\s+/).filter(Boolean).length;
+    if (words < 180) errors.push(`${path}: FAQ answer has only ${words} visible words (minimum 180)`);
+    if (!html.includes('"@type":"FAQPage"') || !html.includes('"@type":"Question"')) errors.push(`${path}: missing FAQPage/Question schema`);
+    if (!/Official source<\/h2>[\s\S]*?href="https:\/\//.test(html)) errors.push(`${path}: missing visible official source link`);
+  }
   if (path.startsWith('/de/') || path.startsWith('/fr/') || path === '/') {
     const htmlLang = html.match(/<html lang="([^"]+)"/)?.[1];
     const expectedLang = path.startsWith('/de/') ? 'de' : path.startsWith('/fr/') ? 'fr' : 'en';
@@ -65,6 +74,15 @@ for (const file of pages) {
 }
 
 if (newsPages.length !== 25) errors.push(`/news/: expected 25 independent news URLs, found ${newsPages.length}`);
+if (faqPages.length !== 50) errors.push(`/faq/: expected 50 independent FAQ URLs, found ${faqPages.length}`);
+const faqHubFile = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === '/faq/');
+if (faqHubFile) {
+  const faqHubHtml = await readFile(faqHubFile, 'utf8');
+  const hubFaqLinks = new Set([...faqHubHtml.matchAll(/href="(\/faq\/[^"#]+\/)"/g)].map(match => match[1]));
+  const schemaQuestions = (faqHubHtml.match(/"@type":"Question"/g) ?? []).length;
+  if (hubFaqLinks.size !== 50) errors.push(`/faq/: expected links to 50 FAQ detail pages, found ${hubFaqLinks.size}`);
+  if (schemaQuestions !== 50) errors.push(`/faq/: expected 50 FAQPage schema questions, found ${schemaQuestions}`);
+} else errors.push('/faq/: FAQ hub page missing');
 const requiredNewsModules = {
   '/release-date/': 5,
   '/guides/': 5,
@@ -78,6 +96,20 @@ for (const [route, expected] of Object.entries(requiredNewsModules)) {
   const html = await readFile(file, 'utf8');
   const uniqueNewsLinks = new Set([...html.matchAll(/href="(\/news\/[^"#]+\/)"/g)].map(match => match[1]));
   if (uniqueNewsLinks.size !== expected) errors.push(`${route}: expected ${expected} unique News links, found ${uniqueNewsLinks.size}`);
+}
+const requiredFaqModules = {
+  '/release-date/': 5,
+  '/guides/': 5,
+  '/guides/characters-and-story/': 5,
+  '/guides/platforms-and-performance/': 5,
+  '/about/': 5,
+};
+for (const [route, expected] of Object.entries(requiredFaqModules)) {
+  const file = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === route);
+  if (!file) { errors.push(`${route}: required FAQ module host page missing`); continue; }
+  const html = await readFile(file, 'utf8');
+  const uniqueFaqLinks = new Set([...html.matchAll(/href="(\/faq\/[^"#]+\/)"/g)].map(match => match[1]));
+  if (uniqueFaqLinks.size !== expected) errors.push(`${route}: expected ${expected} unique FAQ links, found ${uniqueFaqLinks.size}`);
 }
 
 const adsTxt = (await readFile(join(root, 'ads.txt'), 'utf8')).trim();

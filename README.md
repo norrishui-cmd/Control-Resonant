@@ -24,6 +24,8 @@ controlresonant/
    │  ├─ release-date.astro    # release / platforms / FAQ (FAQ schema)
    │  ├─ news/index.astro       # source-linked news center, grouped by topic
    │  ├─ news/[slug].astro      # 25 independent NewsArticle pages
+   │  ├─ faq/index.astro        # 50-answer FAQ hub + FAQPage schema
+   │  ├─ faq/[slug].astro       # one permanent, source-linked URL per question
    │  ├─ guides/index.astro    # all guides, grouped
    │  ├─ guides/[...slug].astro # one page per markdown guide
    │  ├─ about.astro           # sources + status-system + disclaimer
@@ -35,6 +37,8 @@ controlresonant/
 `SEO_PLAN_2000_URLS.md` contains the phased expansion model and indexability quality gate. The production build runs two audits: `scripts/content-quality-audit.mjs` checks useful depth, direct answers, placeholders and cross-page phrase overlap; `scripts/seo-audit.mjs` checks titles, descriptions, canonicals, H1s, duplicate titles and internal links.
 
 The five core detail tabs—Release Date, Guides, Characters, Platforms, and About—each expose exactly five topic-matched news reports. Every report has its own canonical `/news/<slug>/` URL, dated official source, visible direct answer, related-report links, and `NewsArticle` structured data. The news audit rejects missing pages, thin reports, incorrect per-tab counts, and missing source links.
+
+FAQ is a primary navigation tab. The `/faq/` hub contains 50 source-checked answers grouped into five topics, with a complete 50-question `FAQPage` graph. Every question also has a self-canonical `/faq/<slug>/` detail URL, direct answer, official source, related guide, and related-question links. Each core detail tab exposes exactly five context-matched FAQ entries; the build audit enforces all counts, answer depth, schema, and source visibility.
 
 ## Add a new guide
 

@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import StatusStamp from '../../components/StatusStamp.astro';
 import NewsModule from '../../components/NewsModule.astro';
+import FaqModule from '../../components/FaqModule.astro';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -127,4 +128,5 @@ const jsonLd = {
     </div>
   </article>
   {newsTab && <NewsModule tab={newsTab} />}
+  {newsTab && <FaqModule tab={newsTab} />}
 </BaseLayout>
