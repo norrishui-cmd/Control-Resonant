@@ -112,6 +112,19 @@ for (const [route, expected] of Object.entries(requiredFaqModules)) {
   if (uniqueFaqLinks.size !== expected) errors.push(`${route}: expected ${expected} unique FAQ links, found ${uniqueFaqLinks.size}`);
 }
 
+const databaseFile = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === '/database/');
+if (!databaseFile) errors.push('/database/: game database hub missing');
+else {
+  const databaseHtml = await readFile(databaseFile, 'utf8');
+  const recordLinks = [...databaseHtml.matchAll(/<tbody[\s\S]*?<\/tbody>/g)]
+    .flatMap(section => [...section[0].matchAll(/href="(\/[^"#]+\/)"/g)].map(match => match[1]));
+  if (recordLinks.length !== 23) errors.push(`/database/: expected 23 tracked record links, found ${recordLinks.length}`);
+  if (!databaseHtml.includes('"@type":"CollectionPage"') || !databaseHtml.includes('"@type":"ItemList"')) {
+    errors.push('/database/: missing CollectionPage/ItemList schema');
+  }
+  if (!databaseHtml.includes('July 19, 2026')) errors.push('/database/: missing visible evidence review date');
+}
+
 const adsTxt = (await readFile(join(root, 'ads.txt'), 'utf8')).trim();
 const expectedAdsTxt = 'google.com, pub-9505220977121599, DIRECT, f08c47fec0942fa0';
 if (adsTxt !== expectedAdsTxt) errors.push(`/ads.txt: expected exact Google publisher record`);

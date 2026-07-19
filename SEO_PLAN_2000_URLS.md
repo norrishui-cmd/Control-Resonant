@@ -24,6 +24,13 @@ Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 - Added 13 focused pages across bounties, collectibles, Altered Items, the Oldest House, side-story outcomes, two summon abilities, environmental combat, gravity puzzles, Dylan's metaphysical space, series changes, Steam controllers and Family Sharing.
 - Preserved the evidence boundary: no invented bounty rewards, collectible coordinates, returning-item list, quest outcomes or final ability statistics.
 
+## Round four progress — live game database
+
+- Added a primary `/database/` hub with 23 evidence-state records for confirmed characters, equipment, gameplay systems, threats, demo status and release availability.
+- Added six high-intent detail URLs: public demo/beta status, the 90-minute media preview, both announced item bundles, the exact New Game Plus carryover table, and all nine accessibility features listed for PS5.
+- Kept Dylan, Jesse, Zoe, Aberrant, Artifacts, Hiss, Mold, summons and other established topics on their existing canonical guide URLs instead of duplicating them as database pages.
+- Reviewed official sources through July 19, 2026. No public downloadable demo or beta is announced; the Summer Game Fest media build is labeled separately so it cannot be mistaken for public access.
+
 ## URL capacity model
 
 | Cluster | Target URLs | Primary page types | Evidence needed |
