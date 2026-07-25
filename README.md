@@ -43,11 +43,11 @@ FAQ is a primary navigation tab. The `/faq/` hub contains 50 source-checked answ
 
 The July 25 evidence refresh corrects New Game Plus carry-over, the PS5 nine-feature accessibility list, US Xbox edition prices, and the Steam language matrix. It also adds player-focused FAQ coverage for public Demo/Beta status, the controlled media hands-on, and preorder items.
 
-The `/database/` live intelligence index tracks 47 confirmed or explicitly unresolved game properties across characters, equipment, gameplay systems, threats, locations, returning figures, and availability. The English guide collection contains 77 evidence-backed articles. The latest 24-page expansion gives the six named Aberrant forms, Barrage, Shield, ability slots, traversal powers, named preview zones and verified returning figures their own canonical answers. Unnamed entities and unsupported quests, drops or coordinates are deliberately not assigned fabricated pages.
+The `/database/` live intelligence index tracks 47 confirmed or explicitly unresolved game properties across characters, equipment, gameplay systems, threats, locations, returning figures, and availability. The English guide collection contains 100 evidence-backed articles. The latest 23-page expansion adds distinct platform/storefront comparisons, weapon and Talent mechanics, grounded role-based build plans, and authored world/story activity pages. Unnamed entities and unsupported quests, drops or coordinates are deliberately not assigned fabricated pages.
 
 German and French now each contain 19 localized detail pages plus a fully translated 23-record database at `/de/datenbank/` and `/fr/base-de-donnees/`. The nine newest pages per language cover Dylan, Jesse, Zoe, public-demo status, the media demo, pre-order items, Digital Deluxe contents, exact New Game Plus carryover, and PS5 accessibility. Desktop and mobile navigation use one accessible language dropdown with page-level EN/DE/FR alternate destinations.
 
-The current production build generates 216 HTML files. After excluding 404, Privacy and the three compatibility redirects from discovery, 211 canonical quality-approved URLs enter the sitemap. `SEO_PLAN_2000_URLS.md` now includes a gated path from 211 to the 1,000-page pre-release milestone; later quest, item, boss and map batches remain blocked until attributable preview or final-game evidence exists.
+The current production build generates 239 HTML files, with 235 canonical quality-approved URLs in the sitemap. `SEO_PLAN_2000_URLS.md` now includes a gated path from 235 to the 1,000-page pre-release milestone; later quest, item, boss and map batches remain blocked until attributable preview or final-game evidence exists.
 
 ## Add a new guide
 

@@ -47,13 +47,22 @@ Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 - Expanded the English database from 23 to 47 evidence-controlled records and corrected the older generic Aberrant form overview.
 - Rechecked official information through July 25, 2026. The public demo status remains unannounced; Turkish, not Arabic, is the fifteenth Steam interface/subtitle language.
 
+## Round seven progress — buildcrafting, platform and world-intent expansion
+
+- Added 23 evidence-backed English guide URLs, increasing the guide collection from 77 to 100.
+- Built four distinct page families rather than duplicating one template: PC/cloud storefront comparisons; weapon, Talent and resource mechanics; role-based pre-launch build planning; and authored world/story activity explainers.
+- Added dedicated GeForce NOW, Epic Games Store, Mac Steam-versus-App-Store and PS5 Pro evidence pages without inferring cross-buy, final graphics modes or unannounced storefront features.
+- Expanded buildcrafting around confirmed systems: weapon-form trees, exclusive Talents, status effects, ability-resource management, the execution buff, Barrage, Seekers, Shield, Mold Turrets, crowd control, first-run locks and the three progression pillars.
+- Expanded world and story intent around handcrafted zones, optional discoveries, Altered Item chases, FBC field operations, the seven-year time jump and Zoe–Dylan trust.
+- All build pages explicitly avoid final damage, cooldown, stacking, respec and tier-list claims until the retail build can be tested.
+
 ## 1,000-page pre-release milestone
 
 The immediate target is 1,000 approved sitemap URLs before September 24, while 2,000 remains post-release capacity. The site should not force the missing 793 pages from the current 207-URL state out of six official previews.
 
 | Gate | Timing | Approved URL range | What can safely unlock the range |
 | --- | --- | ---: | --- |
-| Current official-evidence phase | July 25–August 15 | 207–280 | Named entities, platform updates, localized high-intent pages, official trailers and store changes |
+| Current official-evidence phase | July 25–August 15 | 211–280 | Named entities, platform updates, localized high-intent pages, official trailers and store changes |
 | Preview/review-evidence phase | August 16–September 7 | 280–500 | Attributable previews with named quests, locations, enemies, items, controls and tested system detail |
 | Preload/review-access sprint | September 8–23 | 500–1,000 | Verified play data, screenshots, objectives, rewards, stats, puzzle states and troubleshooting evidence |
 | Launch completion | September 24 onward | 1,000–2,000 | Full-game quests, collectibles, builds, endings, patches and query-led support |
