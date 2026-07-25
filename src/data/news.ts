@@ -1,4 +1,4 @@
-export type NewsTab = 'release' | 'guides' | 'characters' | 'platforms' | 'about';
+export type NewsTab = 'release' | 'guides' | 'database' | 'characters' | 'platforms' | 'faq' | 'about';
 
 export interface NewsItem {
   slug: string;
@@ -20,6 +20,9 @@ const psStore = 'https://www.playstation.com/en-us/games/control-resonant/';
 const psCombat = 'https://blog.playstation.com/2026/03/04/control-resonant-a-deep-dive-into-combat-buildcrafting-and-player-choice/';
 const psNg = 'https://blog.playstation.com/2026/04/30/control-resonant-remedy-shares-first-details-on-new-game-plus/';
 const psLaunch = 'https://blog.playstation.com/2026/06/02/control-resonant-launches-september-24-on-ps5/';
+const xboxHandsOn = 'https://news.xbox.com/en-us/2026/06/11/control-resonant-hands-on-melee-combat/';
+const xboxPublishing = 'https://news.xbox.com/en-us/2026/05/08/control-resonant-remedy-exciting-sequel-xbox-play-anywhere-self-publishing/';
+const xboxStore = 'https://www.xbox.com/en-US/games/store/control-resonant/9NJ07VWB9BVK';
 
 export const newsItems: NewsItem[] = [
   {
@@ -143,15 +146,15 @@ export const newsItems: NewsItem[] = [
   {
     slug: 'new-game-plus-promises-more-than-a-repeat-playthrough', tab: 'guides', date: '2026-04-30',
     title: 'New Game Plus Promises Changes Beyond a Repeat Campaign',
-    description: 'Remedy has confirmed New Game Plus and says the mode will contain changes and surprises rather than only stronger enemies.',
+    description: 'Remedy has detailed New Game Plus carry-over, new talent nodes, a fourth Artifact slot, changed encounters, and expanded build combinations.',
     sourceLabel: 'PlayStation Blog — first New Game Plus details', sourceUrl: psNg,
-    lead: 'New Game Plus is officially part of Control Resonant’s replay plan. Remedy’s first details position it as a changed second journey, not merely the same campaign with retained statistics.',
+    lead: 'New Game Plus is officially part of Control Resonant’s replay plan. Remedy’s details position it as a changed second journey with retained combat progression, expanded builds, and harder encounters.',
     details: [
-      'The mode is expected to give developed builds a longer life and introduce additional reasons to revisit encounters. The announcement deliberately avoids revealing every surprise, so a complete list of differences is not yet available.',
-      'Carry-over rules for weapons, resources, upgrades, and collectibles still need a final matrix. It is also premature to state exactly when the option appears or whether repeated NG+ cycles are supported.',
-      'Once the game launches, our guide will document the unlock condition, retained progress, new content, difficulty behavior, and any missable preparation. Until then, those fields stay marked as unknown rather than filled with genre assumptions.'
+      'Aberrant upgrades, health improvements, Combat Ability resource upgrades, supernatural Combat Abilities, talents, and Artifacts carry into the new run. Traversal abilities do not carry over because they remain tied to story progression and how the world opens.',
+      'The second run adds new talent nodes, permits multiple Combat Abilities from the same boss, and unlocks a fourth Artifact slot beyond the first playthrough’s maximum of three. Remedy also says encounters shift and some bosses can show new behaviors.',
+      'World Quests, bounties, collectibles, side-story outcomes, and conversations give players additional reasons to revisit Manhattan. The exact unlock moment and support for repeated NG+ cycles still require final-version verification.'
     ],
-    takeaways: ['New Game Plus is confirmed', 'Remedy promises meaningful changes', 'Carry-over rules remain incomplete']
+    takeaways: ['Most combat progression carries over', 'Traversal abilities reset with story progression', 'A fourth Artifact slot and new build options unlock']
   },
 
   {
@@ -279,7 +282,7 @@ export const newsItems: NewsItem[] = [
     sourceLabel: 'Steam — official language support matrix', sourceUrl: steam,
     lead: 'Control Resonant’s Steam page lists interface and subtitles in 15 languages. Nine of those languages are currently marked for full audio, giving players a clearer picture of localization before launch.',
     details: [
-      'The listed interface and subtitle languages are English, French, Italian, German, Spanish from Spain, Japanese, Korean, Polish, Brazilian Portuguese, Russian, Simplified Chinese, Traditional Chinese, Ukrainian, Latin American Spanish, and Arabic.',
+      'The listed interface and subtitle languages are English, French, Italian, German, Spanish from Spain, Japanese, Korean, Polish, Brazilian Portuguese, Russian, Simplified Chinese, Traditional Chinese, Ukrainian, Latin American Spanish, and Turkish.',
       'Full audio is marked for English, French, Italian, German, Spanish from Spain, Japanese, Brazilian Portuguese, Simplified Chinese, and Ukrainian. The remaining listed languages currently rely on text support rather than complete dubbing.',
       'Steam documents the PC edition. Console language downloads and regional store packages can differ, so the relevant local PlayStation or Xbox listing remains the final check for a console purchase.'
     ],
@@ -350,11 +353,143 @@ export const newsItems: NewsItem[] = [
       'We do not generate pages for rumors without useful evidence, and we do not multiply one announcement into near-identical keyword variants. Each URL must have a distinct question, direct answer, source link, and relevant path back to its topic hub.'
     ],
     takeaways: ['First-party evidence leads', 'Unknowns remain clearly marked', 'News history and evergreen guidance have separate intents']
+  },
+
+  {
+    slug: 'flurry-slash-slice-primary-aberrant-forms', tab: 'database', date: '2026-06-11',
+    title: 'Flurry, Slash, and Slice Identified as Primary Aberrant Forms',
+    description: 'An official Xbox hands-on identifies the three opening primary-form choices for Aberrant and explains the tactical role of each one.',
+    sourceLabel: 'Xbox Wire — official Control Resonant hands-on', sourceUrl: xboxHandsOn,
+    lead: 'The opening build decision presents three named primary Aberrant forms: Flurry, Slash, and Slice. The official Xbox hands-on gives each form a distinct attack profile rather than treating them as cosmetic variants.',
+    details: [
+      'Flurry becomes fast close-range twin daggers with an increased critical chance. Slash uses broad scythe swings to pressure groups. Slice takes the form of a high single-target damage axe that gains bonus damage when attacking from behind.',
+      'The initial choice is mutually exclusive at that moment, but the preview states that the other weapons can be unlocked later. This makes the opening decision a first specialization step rather than a permanent loss of two complete weapon families.',
+      'These names and roles are suitable for the database because a first-party preview directly tested them. Final damage numbers, upgrade trees, animation timing, and best-form rankings still require the launch build and should not be inferred from the preview alone.'
+    ],
+    takeaways: ['Flurry favors speed and critical hits', 'Slash covers groups with wide attacks', 'Slice emphasizes single-target and back damage']
+  },
+  {
+    slug: 'crush-drill-extend-secondary-aberrant-forms', tab: 'database', date: '2026-06-11',
+    title: 'Crush, Drill, and Extend Confirmed as Secondary Weapon Choices',
+    description: 'Xbox’s hands-on preview names three secondary Aberrant choices: a heavy mallet, sustained drill, and ranged chain-staff form.',
+    sourceLabel: 'Xbox Wire — official Control Resonant hands-on', sourceUrl: xboxHandsOn,
+    lead: 'Control Resonant separates primary and secondary Aberrant decisions. The tested opening section offered Crush, Drill, and Extend as the second pool of forms, giving the player a different tactical layer from the first light-attack choice.',
+    details: [
+      'Crush is described as a large, slow smashing mallet. Drill applies directed sustained damage. Extend becomes a whip-like chain staff that adds reach, giving a short-range primary form a way to cover distance without replacing the entire build.',
+      'The preview later explains that primary, secondary, and combo-finisher pools can be mixed. That structure means a named form should be catalogued with its attack slot and function; listing every form as a standalone full weapon would misrepresent the system.',
+      'The report confirms the names and broad purposes, but not complete inputs, stamina or resource costs, unlock conditions, or upgrade nodes. Those database fields remain release-version work rather than speculation based on a short media session.'
+    ],
+    takeaways: ['Crush is a slow heavy mallet', 'Drill applies sustained directed damage', 'Extend supplies whip-like range']
+  },
+  {
+    slug: 'dash-double-jump-levitation-movement-unlocks', tab: 'database', date: '2026-06-11',
+    title: 'Dash, Double Jump, and Levitation Appear as Movement Unlocks',
+    description: 'The official Xbox preview documents three movement abilities and the platforming challenges used to introduce them in Dylan’s opening route.',
+    sourceLabel: 'Xbox Wire — official Control Resonant hands-on', sourceUrl: xboxHandsOn,
+    lead: 'Dash, double jump, and levitation are now supported by first-hand platform-holder reporting. The preview encountered these powers while following Jesse’s impression through a pocket dimension connected to unusual game-console-like objects.',
+    details: [
+      'Each movement ability was followed by a platforming challenge that taught its use before the next unlock. The sequence culminated in Dylan combining movement across larger gaps on the way to the first Resonant Entity encounter.',
+      'The account also describes Control Resonant as having a meaningful 3D-platforming component. Movement is therefore not only combat mobility: it supports rooftop traversal, pocket-dimension navigation, environmental puzzles, and story-controlled access to Manhattan.',
+      'New Game Plus information separately states that traversal abilities do not carry over because they are linked to story progression. The database records the confirmed powers and their design role without inventing exact input windows, upgrade costs, or every location they unlock.'
+    ],
+    takeaways: ['Dash, double jump, and levitation are confirmed', 'Movement unlocks have tutorial challenges', 'Traversal powers reset in New Game Plus']
+  },
+  {
+    slug: 'barrage-seekers-shield-resonant-ability-choices', tab: 'database', date: '2026-06-11',
+    title: 'Barrage, Seekers, and Shield Named as Resonant Ability Choices',
+    description: 'A first-party hands-on identifies three supernatural ability options earned after an early Resonant Entity boss encounter.',
+    sourceLabel: 'Xbox Wire — official Control Resonant hands-on', sourceUrl: xboxHandsOn,
+    lead: 'The first reported Resonant ability choice includes Barrage, Seekers, and Shield. Each option changes Dylan’s combat toolkit in a different way and supports Remedy’s claim that boss rewards create meaningful specialization.',
+    details: [
+      'Barrage pulls rocks from the ground and launches them at range. Seekers summons an automatically firing construct that can also be thrown as an explosive. Shield raises floating rocks defensively and can be turned into offense by dashing into enemies.',
+      'The preview says Dylan can eventually equip three abilities, while the broader build includes primary, secondary, and finisher attacks. New Game Plus later expands the rules by allowing multiple different Combat Abilities associated with the same boss.',
+      'These descriptions come from a tested media build, not a guessed reading of footage. The full boss list, alternative reward branches, resource costs, cooldown behavior, and final balance remain outside the confirmed database until the retail version can be checked.'
+    ],
+    takeaways: ['Barrage is a ranged rock attack', 'Seekers combines a summon with an explosive throw', 'Shield supports defense and offensive dashing']
+  },
+  {
+    slug: 'dr-casper-darling-return-fmv-confirmed', tab: 'database', date: '2026-06-11',
+    title: 'Dr. Casper Darling’s Return Is Confirmed Through an FMV Clip',
+    description: 'Xbox’s hands-on preview reports a brief Dr. Casper Darling video appearance and confirms that live-action FBC segments return.',
+    sourceLabel: 'Xbox Wire — official Control Resonant hands-on', sourceUrl: xboxHandsOn,
+    lead: 'Dr. Casper Darling is now a confirmed returning character. The Xbox Wire preview saw him in a short full-motion-video segment near the end of the session, discussing the period when Dylan was first taken by the FBC.',
+    details: [
+      'The appearance establishes two useful database facts: Darling remains part of the sequel’s record, and the live-action presentation style associated with the first Control returns. It does not prove how much screen time he receives or whether he appears in present-day events.',
+      'The clip concerns Dylan’s earlier relationship with the Bureau, which fits the sequel’s effort to explain his confinement and identity without requiring every player to remember the original game. It may function as an archival or instructional recording rather than a physical encounter.',
+      'Because the preview identifies the character directly, a database entry is justified. Story theories about his location, survival, allegiance, or role in Jesse’s disappearance remain unsupported and should not be presented as confirmed character biography.'
+    ],
+    takeaways: ['Casper Darling returns in an FMV segment', 'The clip discusses Dylan’s FBC history', 'His wider story role remains undisclosed']
+  },
+
+  {
+    slug: 'new-game-plus-carryover-list-officially-detailed', tab: 'faq', date: '2026-04-30',
+    title: 'Official New Game Plus Carry-Over List Answers a Major FAQ',
+    description: 'Remedy confirms exactly which combat progression carries into New Game Plus and why traversal abilities reset.',
+    sourceLabel: 'PlayStation Blog — Remedy details New Game Plus', sourceUrl: psNg,
+    lead: 'The most common New Game Plus question now has a specific official answer. Aberrant upgrades, health improvements, Combat Ability resource upgrades, supernatural Combat Abilities, talents, and Artifacts persist into the new run.',
+    details: [
+      'Traversal abilities are the stated exception. Remedy ties those powers to story progression and the way the world unfolds, so they must be reacquired rather than used to bypass the intended opening route and gated exploration.',
+      'The second playthrough also expands build choice. New talent nodes appear, multiple different Combat Abilities from the same boss can be equipped, and a fourth Artifact slot opens beyond the three available during the first run.',
+      'The FAQ and evergreen carry-over table now separate confirmed categories from remaining operational questions. The final unlock prompt, save-slot behavior, and support for multiple consecutive NG+ cycles still need retail verification, but the progression matrix itself is no longer unknown.'
+    ],
+    takeaways: ['Combat progression largely carries over', 'Traversal abilities reset', 'New talent and Artifact options expand the second run']
+  },
+  {
+    slug: 'three-artifact-slots-fourth-in-new-game-plus', tab: 'faq', date: '2026-04-30',
+    title: 'Artifact Slot Count Confirmed for First Run and New Game Plus',
+    description: 'Players can equip up to three Artifacts during the first playthrough, while New Game Plus unlocks a fourth slot.',
+    sourceLabel: 'PlayStation Blog — official Artifact and New Game Plus details', sourceUrl: psNg,
+    lead: 'Control Resonant allows up to three equipped Artifacts during the first campaign. New Game Plus adds a fourth slot, creating more room to combine passive modifiers, conditions, and trade-offs.',
+    details: [
+      'Artifacts can affect survivability, combat output, exploration, or the resource economy. Remedy emphasizes situational tuning instead of describing every Artifact as an unconditional stat increase, so the best set will depend on the chosen weapon forms and supernatural abilities.',
+      'The crafting loop begins with untapped Artifacts found in the world. Players craft them into usable Artifacts inside The Gap, connecting exploration rewards with the buildcrafting space rather than placing the whole system in a conventional equipment shop.',
+      'The official explanation answers slot-count and crafting-location questions but does not publish every Artifact name, rarity, recipe, or modifier range. Database expansion should wait for identified items with distinct verified effects rather than generate speculative item pages.'
+    ],
+    takeaways: ['Three Artifact slots in the first run', 'A fourth slot unlocks in New Game Plus', 'Untapped Artifacts are crafted in The Gap']
+  },
+  {
+    slug: 'xbox-play-anywhere-entitlement-and-save-details', tab: 'faq', date: '2026-05-08',
+    title: 'Xbox Play Anywhere Details Clarify Cross-Device Access',
+    description: 'Xbox confirms eligible players can move between console, PC, and supported handhelds with saves, add-ons, and achievements.',
+    sourceLabel: 'Xbox Wire — Remedy and Xbox Play Anywhere interview', sourceUrl: xboxPublishing,
+    lead: 'Control Resonant supports Xbox Play Anywhere at launch. Xbox says eligible digital purchases can be played across Xbox console, Xbox on PC, and supported gaming handhelds at no additional cost within the Microsoft ecosystem.',
+    details: [
+      'The program is designed to carry saves, game add-ons, and achievements between supported devices. That makes it a cross-device entitlement and continuity feature, not merely a controller badge or a promise that separate progress files can be imported manually.',
+      'Play Anywhere does not grant Steam, Epic Games Store, PlayStation, or Mac App Store licenses. It also does not mean the game is included with Game Pass; the Xbox store lists the feature separately from any subscription availability.',
+      'The official product page confirms Series X|S and PC play. Exact handheld performance will still depend on device hardware and the final build, even though Remedy says portable screens and controls were considered during development.'
+    ],
+    takeaways: ['Eligible Xbox digital purchase covers console and Microsoft PC', 'Saves, add-ons, and achievements can follow', 'It is not Game Pass or cross-buy with other stores']
+  },
+  {
+    slug: 'xbox-standard-deluxe-us-price-and-addons', tab: 'faq', date: '2026-07-25',
+    title: 'Xbox Store Lists $59.99 Standard and $69.99 Deluxe Editions',
+    description: 'The US Xbox listing supplies a concrete regional price comparison and names the add-ons included with Digital Deluxe.',
+    sourceLabel: 'Xbox Store — official US edition comparison', sourceUrl: xboxStore,
+    lead: 'On the US Xbox store, Control Resonant Standard is listed at $59.99 and Digital Deluxe at $69.99. These figures answer the US Xbox price question but should not be converted into a universal worldwide price.',
+    details: [
+      'The Standard listing includes the base game and the preorder bonus while the offer is active. The Digital Deluxe comparison adds the AWE Mission Outfit, original soundtrack and digital artbook, Starter Resource Bundle, and Untapped Artifact (Wallet).',
+      'The preorder bonus is listed separately and contains the Hiss Corruption Outfit and Pickpocket’s Tool Artifact. Separating preorder content from permanent Deluxe add-ons prevents buyers from assuming the same bonus remains included after the preorder period ends.',
+      'Taxes, currency, promotions, and regional availability can change the amount shown to another account. The FAQ therefore cites the exact US Xbox listing and directs players to their own first-party store before purchase rather than presenting $59.99 as a global price.'
+    ],
+    takeaways: ['US Xbox Standard price: $59.99', 'US Xbox Digital Deluxe price: $69.99', 'Regional stores and preorder timing control the final offer']
+  },
+  {
+    slug: 'steam-language-matrix-confirms-15-text-nine-audio', tab: 'faq', date: '2026-07-25',
+    title: 'Steam Confirms 15 Text Languages and Nine Full-Audio Options',
+    description: 'The official Steam matrix resolves language-support questions and distinguishes text localization from complete dubbing.',
+    sourceLabel: 'Steam — official Control Resonant language matrix', sourceUrl: steam,
+    lead: 'Steam lists 15 languages with interface and subtitle support. Nine of those languages also carry the full-audio mark: English, French, Italian, German, Spanish from Spain, Japanese, Brazilian Portuguese, Simplified Chinese, and Ukrainian.',
+    details: [
+      'Korean, Latin American Spanish, Traditional Chinese, Polish, Russian, and Turkish currently have interface and subtitle support without full audio. Turkish is the fifteenth text language; Arabic is not part of the current Steam matrix.',
+      'This distinction matters for users searching whether a language is “supported.” A localized interface and subtitles answer a different accessibility and purchasing question from a complete voice track, so the FAQ records both columns rather than reducing the result to yes or no.',
+      'The Steam matrix applies directly to the PC listing. Console language availability can depend on the regional product and downloadable packs, so PS5 and Xbox buyers should verify their own store page even when the language is present on Steam.'
+    ],
+    takeaways: ['15 interface and subtitle languages', 'Nine include complete voice acting', 'Turkish is supported for text, not full audio']
   }
 ];
 
 export const tabLabels: Record<NewsTab, string> = {
-  release: 'Release Date', guides: 'Guides & Systems', characters: 'Characters & Story', platforms: 'Platforms', about: 'Development & Sources'
+  release: 'Release Date', guides: 'Guides & Systems', database: 'Game Database', characters: 'Characters & Story', platforms: 'Platforms', faq: 'FAQ Updates', about: 'Development & Sources'
 };
 
 export const newsForTab = (tab: NewsTab) => newsItems.filter(item => item.tab === tab);

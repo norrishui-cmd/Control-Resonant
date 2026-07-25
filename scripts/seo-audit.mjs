@@ -17,11 +17,22 @@ const errors = [];
 const seenTitles = new Map();
 const newsPages = [];
 const faqPages = [];
+const legacyRedirects = new Set([
+  '/faq/is-this-the-official-control-resonant-site/',
+  '/faq/how-does-the-site-verify-information/',
+  '/faq/why-do-some-answers-say-not-announced/',
+]);
 const knownRoutes = new Set(pages.map((file) => file.replace(root, '/').replace(/index\.html$/, '')));
 knownRoutes.add('/404.html');
 for (const file of pages) {
   const html = await readFile(file, 'utf8');
   const path = file.replace(root, '/').replace(/index\.html$/, '');
+  if (legacyRedirects.has(path)) {
+    if (!html.includes('http-equiv="refresh"') || !html.includes('<link rel="canonical"')) {
+      errors.push(`${path}: legacy FAQ route is not a valid static redirect`);
+    }
+    continue;
+  }
   const title = html.match(/<title>(.*?)<\/title>/s)?.[1]?.trim();
   const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
@@ -73,7 +84,7 @@ for (const file of pages) {
   }
 }
 
-if (newsPages.length !== 25) errors.push(`/news/: expected 25 independent news URLs, found ${newsPages.length}`);
+if (newsPages.length !== 35) errors.push(`/news/: expected 35 independent news URLs, found ${newsPages.length}`);
 if (faqPages.length !== 50) errors.push(`/faq/: expected 50 independent FAQ URLs, found ${faqPages.length}`);
 const faqHubFile = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === '/faq/');
 if (faqHubFile) {
@@ -86,9 +97,13 @@ if (faqHubFile) {
 const requiredNewsModules = {
   '/release-date/': 5,
   '/guides/': 5,
+  '/database/': 5,
   '/guides/characters-and-story/': 5,
   '/guides/platforms-and-performance/': 5,
+  '/faq/': 5,
   '/about/': 5,
+  '/de/datenbank/': 5,
+  '/fr/base-de-donnees/': 5,
 };
 for (const [route, expected] of Object.entries(requiredNewsModules)) {
   const file = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === route);
@@ -100,9 +115,12 @@ for (const [route, expected] of Object.entries(requiredNewsModules)) {
 const requiredFaqModules = {
   '/release-date/': 5,
   '/guides/': 5,
+  '/database/': 5,
   '/guides/characters-and-story/': 5,
   '/guides/platforms-and-performance/': 5,
   '/about/': 5,
+  '/de/datenbank/': 5,
+  '/fr/base-de-donnees/': 5,
 };
 for (const [route, expected] of Object.entries(requiredFaqModules)) {
   const file = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === route);

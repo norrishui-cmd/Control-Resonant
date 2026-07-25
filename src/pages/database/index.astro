@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import StatusStamp from '../../components/StatusStamp.astro';
+import NewsModule from '../../components/NewsModule.astro';
+import FaqModule from '../../components/FaqModule.astro';
 import { databaseGroups, databaseRecords } from '../../data/database';
 
 const jsonLd = {
@@ -26,4 +28,6 @@ const jsonLd = {
     </section>)}
     <aside class="border border-ash-700 bg-ash-900/40 p-6"><h2 class="font-display text-xl font-bold text-bone">Coverage rule</h2><p class="mt-3 max-w-3xl text-sm leading-relaxed text-bone-dim">A name appearing only in rumor, fan discussion or an unlabeled trailer frame does not become a database entity. New character, item, enemy and ability pages are added only when an official source identifies the subject and provides enough distinct information to answer a real search query. Unknown values remain visibly unknown.</p></aside>
   </div>
+  <NewsModule tab="database" />
+  <FaqModule tab="guides" />
 </BaseLayout>

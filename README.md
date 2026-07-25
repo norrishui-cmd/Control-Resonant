@@ -23,7 +23,7 @@ controlresonant/
    │  ├─ index.astro          # homepage hub
    │  ├─ release-date.astro    # release / platforms / FAQ (FAQ schema)
    │  ├─ news/index.astro       # source-linked news center, grouped by topic
-   │  ├─ news/[slug].astro      # 25 independent NewsArticle pages
+   │  ├─ news/[slug].astro      # 35 independent NewsArticle pages
    │  ├─ faq/index.astro        # 50-answer FAQ hub + FAQPage schema
    │  ├─ faq/[slug].astro       # one permanent, source-linked URL per question
    │  ├─ database/index.astro   # 23 verified character/item/system/threat records
@@ -37,9 +37,11 @@ controlresonant/
 
 `SEO_PLAN_2000_URLS.md` contains the phased expansion model and indexability quality gate. The production build runs two audits: `scripts/content-quality-audit.mjs` checks useful depth, direct answers, placeholders and cross-page phrase overlap; `scripts/seo-audit.mjs` checks titles, descriptions, canonicals, H1s, duplicate titles and internal links.
 
-The five core detail tabs—Release Date, Guides, Characters, Platforms, and About—each expose exactly five topic-matched news reports. Every report has its own canonical `/news/<slug>/` URL, dated official source, visible direct answer, related-report links, and `NewsArticle` structured data. The news audit rejects missing pages, thin reports, incorrect per-tab counts, and missing source links.
+The six primary detail tabs—Release Date, Guides, Database, Characters, Platforms, and FAQ—each expose exactly five topic-matched news reports. About also retains five development/source reports. Every report has its own canonical `/news/<slug>/` URL, dated first-party source, visible direct answer, related-report links, and `NewsArticle` structured data. The news audit rejects missing pages, thin reports, incorrect per-tab counts, and missing source links.
 
-FAQ is a primary navigation tab. The `/faq/` hub contains 50 source-checked answers grouped into five topics, with a complete 50-question `FAQPage` graph. Every question also has a self-canonical `/faq/<slug>/` detail URL, direct answer, official source, related guide, and related-question links. Each core detail tab exposes exactly five context-matched FAQ entries; the build audit enforces all counts, answer depth, schema, and source visibility.
+FAQ is a primary navigation tab. The `/faq/` hub contains 50 source-checked answers grouped into five topics, with a complete 50-question `FAQPage` graph. Every question also has a self-canonical `/faq/<slug>/` detail URL, direct answer, first-party source, related guide, and related-question links. Release, Guides, Database, Characters, Platforms, and About expose five context-matched FAQ entries; the FAQ hub itself exposes all 50. Three replaced low-value FAQ URLs are preserved as static redirects and excluded from the sitemap.
+
+The July 25 evidence refresh corrects New Game Plus carry-over, the PS5 nine-feature accessibility list, US Xbox edition prices, and the Steam language matrix. It also adds player-focused FAQ coverage for public Demo/Beta status, the controlled media hands-on, and preorder items.
 
 The `/database/` live intelligence index tracks 23 confirmed or explicitly unresolved game properties across characters, equipment, gameplay systems, threats, and availability. Six new canonical guides cover the public demo status, 90-minute media hands-on, pre-order items, Digital Deluxe items, New Game Plus carryover, and the nine PS5 accessibility features. Unnamed preview bosses and unannounced entities are deliberately not assigned fabricated pages.
 
