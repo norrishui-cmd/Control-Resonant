@@ -136,11 +136,11 @@ else {
   const databaseHtml = await readFile(databaseFile, 'utf8');
   const recordLinks = [...databaseHtml.matchAll(/<tbody[\s\S]*?<\/tbody>/g)]
     .flatMap(section => [...section[0].matchAll(/href="(\/[^"#]+\/)"/g)].map(match => match[1]));
-  if (recordLinks.length !== 23) errors.push(`/database/: expected 23 tracked record links, found ${recordLinks.length}`);
+  if (recordLinks.length !== 47) errors.push(`/database/: expected 47 tracked record links, found ${recordLinks.length}`);
   if (!databaseHtml.includes('"@type":"CollectionPage"') || !databaseHtml.includes('"@type":"ItemList"')) {
     errors.push('/database/: missing CollectionPage/ItemList schema');
   }
-  if (!databaseHtml.includes('July 19, 2026')) errors.push('/database/: missing visible evidence review date');
+  if (!databaseHtml.includes('July 25, 2026')) errors.push('/database/: missing visible evidence review date');
 }
 
 for (const [lang, databaseRoute, languageName, ariaName] of [

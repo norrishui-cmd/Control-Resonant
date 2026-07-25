@@ -1,6 +1,6 @@
 ---
 title: "Is There a Control Resonant Demo, Beta or Playtest?"
-description: "No public Control Resonant demo, beta or open playtest has been announced as of July 19, 2026; here is how that differs from the media hands-on demo."
+description: "No public Control Resonant demo, beta or open playtest has been announced as of July 25, 2026; here is how that differs from the media hands-on demo."
 status: confirmed
 category: Demo & Availability
 order: 7
@@ -17,7 +17,7 @@ sources:
 
 ## Quick answer
 
-**No downloadable public demo, beta, open playtest or trial for Control Resonant has been announced as of July 19, 2026.** The official Remedy release announcement, PlayStation store listing and Steam page advertise the full game and pre-orders, but none currently lists a public demo entitlement or beta schedule.
+**No downloadable public demo, beta, open playtest or trial for Control Resonant has been announced as of July 25, 2026.** The official Remedy release announcement, PlayStation store listing and Steam page advertise the full game and pre-orders, but none currently lists a public demo entitlement or beta schedule.
 
 This is a status check, not a claim that a demo can never happen. Pre-release availability can change quickly, so the date above matters. A genuine public test should be traceable to Remedy, an official platform store or a verified Remedy social channel and should specify a platform, access window and download method.
 

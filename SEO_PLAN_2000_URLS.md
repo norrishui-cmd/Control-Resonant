@@ -38,6 +38,28 @@ Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 - Replaced the inline EN/DE/FR switch with an accessible desktop and mobile dropdown while preserving page-level self-canonicals and reciprocal hreflang links.
 - Updated older German and French NG+ and accessibility summaries so they no longer contradict the more recent official data.
 
+## Round six progress — evidence-backed entity expansion
+
+- Added 24 distinct English guide URLs, increasing the guide collection from 53 to 77 without generating unknown quests, drops, coordinates or placeholder bosses.
+- Split the six named Aberrant forms into individual role pages: Flurry, Slash, Slice, Crush, Drill and Extend. Added separate pages for Combo Enders, Barrage, Shield, the three-ability loadout and Resonant reward choices.
+- Added verified traversal and world entities: Reach, Shift, movement-unlock consoles, 3D platforming, West Incursion Zone, Evacuation Zone and the evolving FBC field-office hub.
+- Added spoiler-controlled story and threat pages for Casper Darling, the Board, the opening sequence, the first previewed Resonant Entity, Hiss versus the Resonant AWE, and the seamless dialogue system.
+- Expanded the English database from 23 to 47 evidence-controlled records and corrected the older generic Aberrant form overview.
+- Rechecked official information through July 25, 2026. The public demo status remains unannounced; Turkish, not Arabic, is the fifteenth Steam interface/subtitle language.
+
+## 1,000-page pre-release milestone
+
+The immediate target is 1,000 approved sitemap URLs before September 24, while 2,000 remains post-release capacity. The site should not force the missing 793 pages from the current 207-URL state out of six official previews.
+
+| Gate | Timing | Approved URL range | What can safely unlock the range |
+| --- | --- | ---: | --- |
+| Current official-evidence phase | July 25–August 15 | 207–280 | Named entities, platform updates, localized high-intent pages, official trailers and store changes |
+| Preview/review-evidence phase | August 16–September 7 | 280–500 | Attributable previews with named quests, locations, enemies, items, controls and tested system detail |
+| Preload/review-access sprint | September 8–23 | 500–1,000 | Verified play data, screenshots, objectives, rewards, stats, puzzle states and troubleshooting evidence |
+| Launch completion | September 24 onward | 1,000–2,000 | Full-game quests, collectibles, builds, endings, patches and query-led support |
+
+Every gate is evidence-limited. If review access does not expose enough verified entities before launch, the correct action is to miss the numerical date rather than place unsupported pages in the sitemap.
+
 ## URL capacity model
 
 | Cluster | Target URLs | Primary page types | Evidence needed |
