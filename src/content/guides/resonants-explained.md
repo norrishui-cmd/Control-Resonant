@@ -1,10 +1,17 @@
 ---
 title: "What Are Resonants? Control Resonant's Bosses Explained"
-description: "Resonants are the major bosses woven into the story — defeating them grants new abilities, and some force a permanent choice between two upgrade paths."
+description: "Resonants are major story bosses that grant Combat Abilities, including branching choices that shape a first run and expand in New Game Plus."
 status: preview
 category: Bosses
 order: 5
-updated: 2026-06-25
+updated: 2026-07-25
+sources:
+  - label: "PlayStation Blog — combat, progression, and Resonants"
+    url: "https://blog.playstation.com/2026/03/04/control-resonant-a-deep-dive-into-combat-buildcrafting-and-player-choice/"
+  - label: "PlayStation Blog — New Game Plus ability combinations"
+    url: "https://blog.playstation.com/2026/04/30/control-resonant-remedy-shares-first-details-on-new-game-plus/"
+  - label: "Xbox Wire — hands-on ability choice"
+    url: "https://news.xbox.com/en-us/2026/06/11/control-resonant-hands-on-melee-combat/"
 ---
 
 The game isn't called Resonant for nothing. **Resonants** are its marquee bosses, and they're tied directly to how your character grows. Here's what's known so far.
@@ -23,7 +30,16 @@ This is the key hook: defeating a Resonant **grants Dylan a new combat ability**
 
 ## Some choices are permanent
 
-Several of these unlocks come with a catch. After certain Resonants, you're offered a **choice between two upgrade paths**, and committing to one **locks out the other** for that playthrough. It's a deliberate, Deus Ex-style fork: there's no "correct" pick, only the build you're shaping. If you want to see the road not taken, that's what New Game Plus and respecs are for.
+Several of these unlocks come with a catch. Some Resonants offer branching,
+exclusive choices, and the hands-on build presented three options after one
+encounter: Barrage, Seekers, and Shield. Remedy has not published a universal
+number for every boss or a first-run respec rule, so the accurate conclusion is
+that the choice shapes the current playthrough rather than that every Resonant
+always gives exactly two or three rewards.
+
+New Game Plus adds confirmed flexibility: it can let Dylan equip multiple
+different Combat Abilities obtained from the same boss. That is the documented
+route to combinations that are not available during the first journey.
 
 ## Why this matters for your build
 
@@ -31,10 +47,14 @@ Because abilities flow from bosses, the Resonants effectively author your option
 
 - Go into a fight knowing what your current build does well, so you can lean on it.
 - Read each post-boss choice in terms of the playstyle you're building toward, not in isolation.
-- Don't agonize over a single locked path — the system expects you to specialize.
+- Record which boss pool a power came from; New Game Plus can later open combinations from that same pool.
 
 ## What's been shown
 
-Previews have leaned on Resonant's heightened, surreal style for these encounters — the kind of large, uncanny adversaries and reality-bent arenas Remedy is known for. Specific Resonant identities, movesets, and counters are still mostly under wraps ahead of launch.
+Previews have shown at least two visually distinct encounters: a masked,
+dual-mallet figure tentatively called the Dancer, and a huge head-shaped entity
+embedded in pavement. They are tracked separately because the working Dancer
+name may change and the later hands-on did not assign the same mechanics or
+reward screen to both bosses.
 
 We'll expand this into full per-boss strategies — patterns, phases, and recommended setups — as the game releases and encounters are confirmed. For how the abilities you earn here slot into a build, see the [combat and build systems guide](/guides/combat-and-build-systems-explained/).

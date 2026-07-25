@@ -15,6 +15,7 @@ const ps = 'https://www.playstation.com/en-us/games/control-resonant/';
 const psStore = 'https://store.playstation.com/en-us/product/EP5291-PPSA34547_00-0210080241603648/';
 const psDeluxe = 'https://store.playstation.com/en-us/product/EP5291-PPSA34547_00-0993602042148218/';
 const handsOn = 'https://blog.playstation.com/2026/06/08/summer-game-fest-2026-hands-on-and-more-details-on-11-upcoming-ps5-games/';
+const xboxHandsOn = 'https://news.xbox.com/en-us/2026/06/11/control-resonant-hands-on-melee-combat/';
 
 const sources = (extra: {label:string;url:string}[] = []) => [{ label: 'Remedy Entertainment', url: remedy }, ...extra];
 
@@ -229,6 +230,274 @@ export const localizedPages: LocalizedPage[] = [
     {heading:'Portée de la liste',paragraphs:['Ces neuf éléments sont vérifiés pour la fiche PS5. PC et Xbox peuvent proposer des options similaires, mais nécessitent leur propre confirmation. Les effets DualSense et l’amélioration PS5 Pro sont des fonctions de plateforme séparées.']}
   ], sources:[{label:'PlayStation Store – accessibilité',url:psStore}] },
 ];
+
+localizedPages.push(
+  {
+    lang:'de', slug:'aberrant-waffenformen', englishPath:'/guides/aberrant-weapon-forms/',
+    title:'Aberrant-Waffenformen in Control Resonant erklärt',
+    description:'Alle bestätigten Aberrant-Formen, ihre Rollen als Primär- oder Sekundärwaffe und die Grenzen der Vorabinformationen.',
+    label:'Aberrant', answer:'Aberrant ist Dylans formwandelnde Nahkampfwaffe. Bestätigt sind Flurry, Slash und Slice als frühe Primärformen sowie Crush, Drill und Extend als Sekundärformen. Zusätzlich wählt der Spieler eine eigene Form für Combo Enders.',
+    sections:[
+      {heading:'Drei Ebenen eines Aberrant-Builds',paragraphs:['Ein Loadout besteht nicht einfach aus einer einzigen Waffe. Die Primärform bestimmt normale Angriffsfolgen, die Sekundärform übernimmt schwere oder aufgeladene Aktionen, und eine dritte Auswahl beendet bestimmte Komboketten. Dadurch lassen sich Tempo, Reichweite und Kontrolle getrennt planen.','Im gezeigten Hands-on wurden die Formen nacheinander gewählt. Die finale Freischaltreihenfolge, Kosten und Rücksetzregeln sind noch nicht vollständig dokumentiert; diese Seite behandelt deshalb Rollen statt erfundener Schadenswerte.']},
+      {heading:'Die sechs benannten Formen',paragraphs:['Flurry arbeitet mit schnellen Fäusten, Slash mit einer einzelnen Klinge und Slice mit zwei Klingen. Crush ist ein langsamer, schwerer Hammer, Drill hält gerichteten Schaden auf einem Ziel, und Extend nutzt eine kettenartige Stabwaffe für größere Reichweite.','Diese Beschreibungen stammen aus einer kontrollierten Vorabversion. Sie belegen die grundsätzliche Funktion, aber keine endgültige Rangliste. Welche Form stark ist, hängt außerdem von Talenten, Artefakten und Combat Abilities ab.']},
+      {heading:'Sinnvoll kombinieren',paragraphs:['Eine langsame Sekundärform kann eine schnelle Primärform ergänzen; eine weitreichende Form kann dagegen ein Nahkampf-Loadout absichern. Vor dem Release ist die beste Regel, fehlende Aufgaben abzudecken statt eine angebliche Meta zu kopieren.']}
+    ], sources:[{label:'Xbox Wire – Hands-on zu Aberrant',url:xboxHandsOn},{label:'PlayStation Blog – Combat Deep Dive',url:combat}]
+  },
+  {
+    lang:'de', slug:'flurry-aberrant-form', englishPath:'/guides/flurry-aberrant-form/',
+    title:'Flurry in Control Resonant: schnelle Aberrant-Faustform',
+    description:'Flurry als schnelle Primärform von Aberrant: bestätigte Funktion, mögliche Partnerformen und offene Werte vor dem Release.',
+    label:'Waffenform', answer:'Flurry ist eine der drei im Hands-on angebotenen Primärformen. Dylan kämpft mit schnellen, faustartigen Schlägen; die Form richtet sich damit an Spieler, die Druck aufbauen und die Kampffähigkeits-Ressource durch viele Nahkampftreffer speisen wollen.',
+    sections:[
+      {heading:'Bestätigte Rolle',paragraphs:['Xbox Wire beschreibt Flurry als schnelle Fäuste. Als Primärform prägt sie die grundlegende Angriffskette, nicht automatisch schwere Angriffe oder den Combo Ender. Ihr hoher Takt passt zum offiziellen Momentum-Kreislauf, in dem Nahkampftreffer Ressourcen für paranatürliche Fähigkeiten zurückgeben.','Nicht veröffentlicht sind Trefferzahl, Reichweite, Unterbrechungsstärke und Ressourcenwert pro Schlag. Diese Felder werden erst nach Tests der finalen Version ergänzt.']},
+      {heading:'Welche Lücke Flurry lässt',paragraphs:['Schnelle kurze Schläge deuten auf gute Nähe und Reaktionsfähigkeit, lösen aber nicht automatisch Probleme mit entfernten oder stark gepanzerten Zielen. Extend kann Reichweite ergänzen, während Crush eine langsamere, härtere Sekundäraktion bietet.','Barrage oder Seekers können Gegner außerhalb der Faustreichweite beschäftigen. Shield ist dagegen die defensivere Wahl, wenn dauerhaftes Dranbleiben zu riskant wird.']},
+      {heading:'Kein fertiger Best Build',paragraphs:['Talente, Status-Effekte und Form-Upgrades können Flurrys Rolle noch verändern. Eine seriöse Empfehlung benötigt deshalb finale Knoten, Werte und echte Begegnungen statt nur die Angriffsgeschwindigkeit der Vorschau.']}
+    ], sources:[{label:'Xbox Wire – Auswahl der Primärformen',url:xboxHandsOn},{label:'PlayStation Blog – Momentum-System',url:combat}]
+  },
+  {
+    lang:'de', slug:'slash-aberrant-form', englishPath:'/guides/slash-aberrant-form/',
+    title:'Slash in Control Resonant: Aberrant-Klinge als Primärform',
+    description:'Was über Slash bestätigt ist, wie die einzelne Klinge in das Formsystem passt und welche Build-Aussagen noch offen bleiben.',
+    label:'Waffenform', answer:'Slash ist eine frühe Primärform von Aberrant und verwendet eine einzelne Klinge. Sie gehört zum normalen Grund-Moveset eines Loadouts; Sekundärangriffe und Combo Enders werden separat gewählt.',
+    sections:[
+      {heading:'Was Slash tatsächlich festlegt',paragraphs:['Die Primärform steuert Dylans leichte oder grundlegende Angriffskette. Slash wurde im Hands-on neben Flurry und Slice angeboten und steht für eine einzelne Klinge. Das unterscheidet die Form strukturell von Slice mit zwei Klingen, belegt aber noch keine höhere Reichweite oder mehr Einzelschaden.','Animationsdauer, Parierfenster und genaue Status-Effekte sind nicht veröffentlicht. Trailerbilder reichen nicht aus, um solche Werte zuverlässig abzuleiten.']},
+      {heading:'Sekundärform und Fähigkeit wählen',paragraphs:['Slash kann mit Crush für schwere Treffer, Drill für gehaltenen Druck oder Extend für Abstand kombiniert werden. Diese zweite Auswahl ersetzt Slash nicht, sondern ergänzt die schweren beziehungsweise aufgeladenen Aktionen.','Bei den Combat Abilities bietet Barrage Reichweite, Seekers unabhängigen Druck und Shield Schutz plus offensiven Dash. Welche Kombination funktioniert, hängt von Begegnung und Talenten ab.']},
+      {heading:'Abgrenzung zu Slice',paragraphs:['Die Namen sind ähnlich, stehen aber für getrennte Primärformen. Slash ist die einzelne Klinge, Slice die dual geführte Variante. Bis finale Movesets vorliegen, sollten beide URLs nicht dieselben Werte oder Strategien behaupten.']}
+    ], sources:[{label:'Xbox Wire – Hands-on und Formauswahl',url:xboxHandsOn}]
+  },
+  {
+    lang:'de', slug:'slice-aberrant-form', englishPath:'/guides/slice-aberrant-form/',
+    title:'Slice in Control Resonant: zwei Aberrant-Klingen erklärt',
+    description:'Slice nutzt zwei Klingen als Primärform. Hier stehen bestätigte Aufgaben, sinnvolle Ergänzungen und klar markierte Informationsgrenzen.',
+    label:'Waffenform', answer:'Slice ist eine Primärform, bei der Dylan zwei kurze Klingen führt. Im Xbox-Wire-Hands-on wurde Slice wegen ihres Nahkampfschadens gewählt und später mit der weitreichenden Sekundärform Extend kombiniert.',
+    sections:[
+      {heading:'Direkte Beobachtung aus dem Hands-on',paragraphs:['Die Vorschau bezeichnet Slice als Dual-Blade-Option unter den drei ersten Primärformen. Sie steuert das Haupt-Moveset und wurde als nahe Schadensquelle eingesetzt. Das ist eine beobachtete Rolle, keine Bestätigung für kritische Treffer, Blutung oder einen bestimmten Status-Effekt.','Wie früh Slice dauerhaft verfügbar ist und welche Alternativknoten ihr Upgrade-Baum besitzt, bleibt offen. Die Vorabwahl belegt nur, dass die Form spielbar und kombinierbar war.']},
+      {heading:'Warum Extend dazu passte',paragraphs:['Der Redakteur wählte Extend ausdrücklich, um Slices kurze Reichweite zu ergänzen. Das zeigt den Zweck des Systems: Primär- und Sekundärform sollen unterschiedliche Aufgaben in einem Loadout abdecken.','Eine andere Lösung wäre Barrage als Fernoption oder Shield für sichere Annäherung. Crush könnte stattdessen langsame schwere Treffer liefern, würde aber die Reichweitenlücke nicht auf dieselbe Weise schließen.']},
+      {heading:'Vorläufige Build-Regel',paragraphs:['Beurteile Slice zunächst nach Spielgefühl und Abdeckung, nicht nach einer vorab erfundenen Tier-Liste. Erst finale Gegner, Ressourcenwerte und Talent-Synergien zeigen, ob die Form eher für einzelne Ziele, Gruppen oder Ausführungen optimal ist.']}
+    ], sources:[{label:'Xbox Wire – Slice und Extend im Hands-on',url:xboxHandsOn}]
+  },
+  {
+    lang:'de', slug:'crush-aberrant-form', englishPath:'/guides/crush-aberrant-form/',
+    title:'Crush in Control Resonant: schwere Hammer-Sekundärform',
+    description:'Crush ist die langsame Hammerform von Aberrant. Bestätigte Funktion, mögliche Paarungen und noch unbekannte Balancewerte.',
+    label:'Waffenform', answer:'Crush ist eine Sekundärform von Aberrant: ein großer, langsamer Hammer für wuchtige Schläge. Sie wird zusätzlich zur Primärform ausgerüstet und kann dadurch ein schnelles Grund-Moveset um schwere Aktionen ergänzen.',
+    sections:[
+      {heading:'Schwer statt schnell',paragraphs:['Xbox Wire beschreibt Crush als riesigen, langsamen Schlaghammer. Die Form gehört zur zweiten Auswahlgruppe und prägt daher nicht automatisch jede normale Attacke. Ihre sichtbare Aufgabe ist Gewicht und Wirkung, doch genaue Betäubungs-, Rüstungs- oder Flächenschadenswerte fehlen.','Langsame Animationen können Timing verlangen. Ob Ausweichaktionen die Aufladung abbrechen und welche Angriffe Super Armor besitzen, lässt sich aus der Vorschau nicht seriös festlegen.']},
+      {heading:'Geeignete Partner',paragraphs:['Flurry oder Slice können zwischen schweren Crush-Aktionen schnelle Treffer liefern. Slash bietet eine weitere Primäralternative, während eine weitreichende Combat Ability wie Barrage fehlenden Abstand ausgleichen kann.','Shield kann ein schweres Loadout stabilisieren, Seekers können parallel Druck erzeugen. Solche Kombinationen sind Rollenmodelle, keine Aussage über die spätere Meta.']},
+      {heading:'Was der Upgrade-Baum ändern kann',paragraphs:['Jede Form besitzt eigene Upgrades und spezialisierte Varianten. Damit kann Crush später schneller, kontrollierender oder stärker situationsgebunden werden. Die konkreten Knoten bleiben bis zu offiziellen Details oder finaler Spielprüfung offen.']}
+    ], sources:[{label:'Xbox Wire – Crush, Drill und Extend',url:xboxHandsOn},{label:'Xbox Wire – Form-Upgrades',url:'https://news.xbox.com/en-us/2026/03/04/control-resonant-combat-preview/'}]
+  },
+  {
+    lang:'de', slug:'drill-aberrant-form', englishPath:'/guides/drill-aberrant-form/',
+    title:'Drill in Control Resonant: gerichteter Dauerschaden',
+    description:'Drill als Aberrant-Sekundärform für gehaltenen, gerichteten Schaden; Einsatzidee, Grenzen und mögliche Fähigkeitspartner.',
+    label:'Waffenform', answer:'Drill ist eine Sekundärform, die laut Hands-on gerichteten, anhaltenden Schaden ausübt. Sie unterscheidet sich damit von Crushs einzelnen schweren Schlägen und Extends Reichweitenkontrolle.',
+    sections:[
+      {heading:'Was „sustained damage“ bedeutet',paragraphs:['Die offizielle Plattformvorschau beschreibt Drill als gehaltenes Werkzeug gegen ein anvisiertes Ziel. Daraus lässt sich eine Fokusrolle ableiten, aber weder eine garantierte Panzerbrechung noch ein Strahl-, Bohr- oder Statusschadenstyp.','Ressourcenverbrauch, Haltedauer und Beweglichkeit während der Aktion sind noch nicht veröffentlicht. Ein Vorab-Build darf diese Lücken nicht mit Zahlen füllen.']},
+      {heading:'Mögliche Kampfsituation',paragraphs:['Drill dürfte am leichtesten einzusetzen sein, wenn ein Gegner betäubt, gebunden oder anderweitig beschäftigt ist. Combat Abilities können solche Fenster schaffen: Fähigkeiten betäuben Gegner grundsätzlich, während Seekers unabhängigen Druck aufbauen.','Gegen Gruppen könnte eine kontrollierende Primärform oder Barrage wichtiger sein. Ob Drill mehrere Ziele trifft, ist nicht bestätigt und wird daher nicht vorausgesetzt.']},
+      {heading:'Vergleich mit den anderen Sekundärformen',paragraphs:['Crush priorisiert sichtbares Gewicht, Extend größere Reichweite, Drill konzentrierten Dauerdruck. Diese funktionale Trennung hilft bei der Auswahl, ohne vorzutäuschen, dass eine Form generell stärker ist.']}
+    ], sources:[{label:'Xbox Wire – Sekundärformen im Hands-on',url:xboxHandsOn},{label:'PlayStation Blog – Fähigkeiten und Betäubung',url:combat}]
+  },
+  {
+    lang:'de', slug:'extend-aberrant-form', englishPath:'/guides/extend-aberrant-form/',
+    title:'Extend in Control Resonant: Aberrant-Form für Reichweite',
+    description:'Extend nutzt einen kettenartigen Stab für größere Reichweite. Bestätigte Rolle, Paarungen und offene Fragen zum finalen Moveset.',
+    label:'Waffenform', answer:'Extend ist eine Sekundärform mit einer peitschen- oder kettenartigen Stabwaffe. Im Hands-on wurde sie ausgewählt, um die kurze Reichweite der Slice-Primärform zu ergänzen.',
+    sections:[
+      {heading:'Bestätigte Reichweitenrolle',paragraphs:['Extend wurde ausdrücklich als Range-Option beschrieben. Das bedeutet eine größere Nahkampfzone als bei kurzen Klingen, nicht automatisch echten Fernkampf. Projektilschaden, maximale Distanz und Gruppentreffer sind nicht bestätigt.','Als Sekundärform übernimmt Extend spezielle oder aufgeladene Aktionen. Das normale Grund-Moveset bleibt von der separat gewählten Primärform abhängig.']},
+      {heading:'Loadout-Lücken schließen',paragraphs:['Die dokumentierte Slice-Extend-Kombination zeigt, wie das System gedacht ist: schnelle Nahaktionen plus ein Werkzeug für Ziele außerhalb der unmittelbaren Klingenreichweite. Auch Flurry kann von dieser Ergänzung profitieren.','Wer bereits Barrage als Fernfähigkeit nutzt, könnte stattdessen Crush oder Drill wählen. Umgekehrt lässt Extend den Combat-Ability-Slot für Shield oder Seekers frei.']},
+      {heading:'Keine bestätigte Crowd-Control-Garantie',paragraphs:['Eine lange, schwingende Waffe wirkt visuell gruppentauglich, doch Trefferbreite, Einziehen von Gegnern und Status-Effekte sind nicht belegt. Diese Eigenschaften werden erst nach finaler Prüfung Teil der Strategie.']}
+    ], sources:[{label:'Xbox Wire – Extend und Slice',url:xboxHandsOn}]
+  },
+  {
+    lang:'de', slug:'aberrant-combo-ender', englishPath:'/guides/aberrant-combo-ender-system/',
+    title:'Aberrant Combo Enders: dritte Waffenwahl erklärt',
+    description:'Wie Combo Enders neben Primär- und Sekundärform funktionieren und warum sie eine eigene Build-Ebene in Control Resonant bilden.',
+    label:'Kampfsystem', answer:'Combo Enders sind die dritte Aberrant-Auswahl eines Loadouts. Nach Primärform für Grundangriffe und Sekundärform für schwere Aktionen wählt der Spieler eine weitere Form für spezielle Abschlüsse am Ende von Angriffsketten.',
+    sections:[
+      {heading:'Getrennte Auswahl statt festes Waffenpaket',paragraphs:['Im Hands-on erschien nach Primär- und Sekundärform eine dritte Gruppe für Combo-Finisher. Dadurch muss ein Build nicht alle Angriffe derselben Waffenform verwenden. Die Vorschau kombinierte beispielsweise Eigenschaften verschiedener Formen innerhalb eines Movesets.','Welche Ender-Formen existieren und welche Eingaben jede Kette verlangt, ist noch nicht vollständig publiziert. Bekannt ist die Systemebene, nicht die finale Liste.']},
+      {heading:'Aufgabe im Momentum-Kreislauf',paragraphs:['Nahkampftreffer füllen Combat-Ability-Ressourcen, Fähigkeiten können betäuben und Ausführungen verstärken vorübergehend den Nahkampfschaden. Ein Combo Ender sitzt in diesem Kreislauf als geplanter Abschluss, aber seine genaue Wechselwirkung mit Ausführungen bleibt offen.','Ein sinnvoller Ender könnte eine fehlende Rolle abdecken: Einzelziel, Gruppe, Positionierung oder Status. Vor Release sind das Auswahlkriterien, keine belegten Ranglisten.']},
+      {heading:'Was später getestet werden muss',paragraphs:['Wichtig werden Abbruchfenster, Reichweite, Ressourcengewinn, Trefferstabilität und Talent-Synergien. Bis diese Daten vorliegen, bleibt jede Aussage über den besten Combo Ender vorläufig.']}
+    ], sources:[{label:'Xbox Wire – drei Aberrant-Auswahlgruppen',url:xboxHandsOn},{label:'PlayStation Blog – Combat Flow',url:combat}]
+  },
+  {
+    lang:'de', slug:'barrage-kampffaehigkeit', englishPath:'/guides/barrage-combat-ability/',
+    title:'Barrage in Control Resonant: Steine als Fernangriff',
+    description:'Barrage zieht Steine aus dem Boden und schleudert sie auf Distanz. Rolle, Ressourcenbezug und klare Grenzen der Vorschau.',
+    label:'Combat Ability', answer:'Barrage ist eine von drei im Hands-on angebotenen Resonant-Fähigkeiten. Dylan zieht Steine aus dem Boden und schleudert sie auf Entfernung, wodurch ein Nahkampf-Build eine direkte Fernoption erhält.',
+    sections:[
+      {heading:'Wie Barrage freigeschaltet wurde',paragraphs:['Nach dem ersten gezeigten Resonant-Boss wählte der Spieler zwischen Barrage, Seekers und Shield. Die Fähigkeit ist daher an eine Boss-Belohnung gebunden und konkurriert im ersten Durchlauf mit anderen exklusiven Optionen.','New Game Plus erlaubt später mehrere verschiedene Fähigkeiten desselben Bosses. Im ersten Lauf sollte die Wahl deshalb als Build-Entscheidung verstanden werden.']},
+      {heading:'Rolle im Nahkampfsystem',paragraphs:['Barrage deckt Entfernung ab, während Nahkampftreffer die benötigte Combat-Ability-Ressource wiederherstellen. So ersetzt die Fähigkeit den Nahkampf nicht dauerhaft, sondern erweitert den Kreislauf um einen gezielten Fernimpuls.','Ob Barrage Flächenschaden, Zielverfolgung oder verschiedene Ladestufen besitzt, ist noch nicht bestätigt. Die sichtbare Steinsalve allein belegt keine finalen Modifikatoren.']},
+      {heading:'Wann Barrage naheliegt',paragraphs:['Kurze Primärformen wie Flurry oder Slice profitieren besonders von Reichweitenabdeckung. Wer dagegen Extend nutzt oder unabhängigen Druck benötigt, kann Seekers erwägen; Shield priorisiert Schutz und offensives Rammen.']}
+    ], sources:[{label:'Xbox Wire – Resonant-Fähigkeitswahl',url:xboxHandsOn},{label:'PlayStation Blog – Boss-Belohnungen',url:combat}]
+  },
+  {
+    lang:'de', slug:'seekers-beschwoerung', englishPath:'/guides/seekers-summon/',
+    title:'Seekers in Control Resonant: beschworener Auto-Turm',
+    description:'Seekers beschwört einen selbständig feuernden Turm, der auch als Sprengsatz geworfen werden kann. Bestätigte Funktion und Build-Rolle.',
+    label:'Combat Ability', answer:'Seekers ist eine Resonant-Fähigkeit, die einen automatisch feuernden Turm beschwört. Dylan kann die Beschwörung außerdem werfen, um sie als explosive Aktion zu nutzen.',
+    sections:[
+      {heading:'Zwei bestätigte Funktionen',paragraphs:['Die Hands-on-Beschreibung nennt unabhängiges automatisches Feuer und die Möglichkeit, den Turm als Bombe zu werfen. Seekers kann somit anhaltenden Druck liefern oder in eine aktive Abschlussaktion umgewandelt werden.','Lebensdauer, Zielpriorität, Anzahl gleichzeitig aktiver Türme und Explosionswerte sind unbekannt. Diese Details dürfen nicht aus ähnlichen Summon-Systemen anderer Spiele übernommen werden.']},
+      {heading:'Taktische Rolle',paragraphs:['Ein selbständig angreifendes Objekt kann Aufmerksamkeit teilen, während Dylan Nahkampftreffer, Ausführungen oder Bewegung organisiert. Die frühere Entwicklerdemonstration zeigte ausdrücklich einen Beschwörungs- und Turret-Stil für Crowd Control.','Seekers garantiert dennoch keinen sicheren Kampf: In der späteren Evacuation Zone kamen Nah- und Ferngegner aus mehreren Richtungen, und das vollständige Kit musste aktiv gemanagt werden.']},
+      {heading:'Abgrenzung zu Barrage und Shield',paragraphs:['Barrage ist die direktere Fernattacke; Shield verbindet Schutz mit einem offensiven Dash. Seekers passt zu Spielern, die parallelen Druck und taktische Positionierung bevorzugen.']}
+    ], sources:[{label:'Xbox Wire – Seekers im Hands-on',url:xboxHandsOn},{label:'Xbox Wire – Beschwörungs-Build',url:'https://news.xbox.com/en-us/2026/03/04/control-resonant-combat-preview/'}]
+  },
+  {
+    lang:'de', slug:'shield-kampffaehigkeit', englishPath:'/guides/shield-combat-ability/',
+    title:'Shield in Control Resonant: Verteidigung und Ramm-Dash',
+    description:'Shield bildet einen Schild aus schwebenden Steinen und kann beim Dash offensiv eingesetzt werden. Funktion und Build-Abwägung.',
+    label:'Combat Ability', answer:'Shield zieht schwebende Steine als Schutz vor Dylan und besitzt zugleich eine offensive Anwendung: Während eines Dashs kann der Schild in Gegner gerammt werden.',
+    sections:[
+      {heading:'Nicht nur blocken',paragraphs:['Die Fähigkeit wurde als defensive Option neben Barrage und Seekers angeboten. Xbox Wire bestätigt zugleich den offensiven Ramm-Einsatz. Damit folgt Shield dem aggressiven Grundprinzip des Kampfsystems, statt den Spieler nur hinter einer statischen Barriere warten zu lassen.','Blockwinkel, Haltbarkeit, Ressourcenverbrauch und perfekte Timing-Fenster sind nicht veröffentlicht. Die Fähigkeit sollte deshalb nicht mit Jesses Schild aus Control gleichgesetzt werden.']},
+      {heading:'Wann Shield eine Lücke schließt',paragraphs:['Nahkampf mit Flurry, Slash oder Slice bringt Dylan dicht an Gegner. Shield kann dort Fehler abfangen oder den Weg durch Druck öffnen. Crush und Drill könnten ebenfalls von einem sichereren Ansatzfenster profitieren.','Gegen entfernte Ziele bietet Barrage direkteren Schaden; Seekers erzeugt unabhängigen Druck. Die Wahl hängt daher von Überleben, Reichweite und gewünschter Aktivität ab.']},
+      {heading:'Exklusive Erstwahl beachten',paragraphs:['Die drei Fähigkeiten stammen aus demselben Boss-Pool. Im ersten Durchlauf sind solche Entscheidungen dauerhaft und exklusiv. Erst New Game Plus eröffnet mehrere verschiedene Fähigkeiten desselben Bosses in einem späteren Build.']}
+    ], sources:[{label:'Xbox Wire – Shield und Fähigkeitspool',url:xboxHandsOn},{label:'PlayStation Blog – New Game Plus',url:ngp}]
+  },
+  {
+    lang:'de', slug:'drei-kampffaehigkeits-slots', englishPath:'/guides/three-combat-ability-slots/',
+    title:'Drei Combat-Ability-Slots in Control Resonant',
+    description:'Dylan kann drei Combat Abilities gleichzeitig ausrüsten. So ordnen sich Boss-Belohnungen, sechs Angriffe und New Game Plus ein.',
+    label:'Build-System', answer:'Dylan kann schließlich drei Combat Abilities gleichzeitig ausrüsten. Zusammen mit Primärform, Sekundärform und Combo Ender entsteht ein Set aus sechs aktiv gewählten Angriffen beziehungsweise Fähigkeiten.',
+    sections:[
+      {heading:'Sechs aktive Bausteine',paragraphs:['Aberrant liefert drei Ebenen: normales Moveset, schwere oder aufgeladene Form und Combo-Finisher. Daneben stehen drei Slots für paranatürliche Combat Abilities. Die Hands-on-Vorschau beschreibt diese Kombination ausdrücklich als vollständiges aktives Kit.','Talente und Artefakte kommen zusätzlich hinzu, sind aber passive oder modifizierende Systeme. Sie zählen nicht einfach als weitere aktive Taste.']},
+      {heading:'Slots sind nicht gleich Freischaltungen',paragraphs:['Drei Plätze bedeuten nicht, dass alle Fähigkeiten in einem Durchlauf erhältlich sind. Resonant-Bosse können exklusive Auswahlmöglichkeiten anbieten, und nicht alles lässt sich im ersten Spielstand freischalten.','New Game Plus erweitert die Kombinationen, weil mehrere verschiedene Fähigkeiten desselben Bosses ausgerüstet werden können. Trotzdem bleiben Slotgrenzen und tatsächliche Freischaltungen getrennte Fragen.']},
+      {heading:'Vorläufige Loadout-Prüfung',paragraphs:['Ein ausgeglichenes Set sollte Reichweite, Schutz oder Kontrolle und eine Methode für starken Druck abdecken. Finale Cooldowns und Ressourcenkosten entscheiden später, ob drei ähnliche Fähigkeiten tragfähig sind.']}
+    ], sources:[{label:'Xbox Wire – vollständiges Sechs-Aktionen-Kit',url:xboxHandsOn},{label:'PlayStation Blog – Fähigkeitssäulen',url:combat}]
+  },
+
+  {
+    lang:'fr', slug:'formes-arme-aberrant', englishPath:'/guides/aberrant-weapon-forms/',
+    title:'Formes d’Aberrant dans Control Resonant : guide complet',
+    description:'Les six formes nommées d’Aberrant, leur place comme forme primaire ou secondaire et les limites des informations avant sortie.',
+    label:'Aberrant', answer:'Aberrant est l’arme de mêlée métamorphe de Dylan. Flurry, Slash et Slice sont proposées comme formes primaires; Crush, Drill et Extend comme formes secondaires. Une troisième sélection distincte sert aux Combo Enders.',
+    sections:[
+      {heading:'Trois couches dans un même arsenal',paragraphs:['La forme primaire détermine la chaîne d’attaques de base. La forme secondaire fournit les actions lourdes ou chargées, tandis que le Combo Ender ajoute une finition choisie séparément. Le joueur peut donc combiner vitesse, portée et fonction sans adopter un seul paquet d’armes figé.','La démo presse montrait ces choix successifs, mais pas tous les coûts, nœuds ou moyens de réinitialisation. Le guide décrit les rôles observés et n’invente pas de dégâts finaux.']},
+      {heading:'Les six formes confirmées',paragraphs:['Flurry emploie des poings rapides, Slash une lame unique et Slice deux lames. Crush est un énorme maillet lent, Drill maintient des dégâts dirigés et Extend utilise un bâton-chaîne de plus grande portée.','Ces fonctions viennent d’une version de présentation. Elles ne suffisent pas à produire un classement de puissance: Talents, Artefacts, améliorations et rencontres finales modifieront leur valeur.']},
+      {heading:'Construire sans fausse méta',paragraphs:['Une forme secondaire peut corriger la faiblesse de la primaire: Extend complète par exemple la courte portée de Slice. Avant la sortie, il est plus solide de couvrir une fonction manquante que de suivre un prétendu meilleur build.']}
+    ], sources:[{label:'Xbox Wire – prise en main d’Aberrant',url:xboxHandsOn},{label:'PlayStation Blog – systèmes de combat',url:combat}]
+  },
+  {
+    lang:'fr', slug:'flurry-forme-aberrant', englishPath:'/guides/flurry-aberrant-form/',
+    title:'Flurry dans Control Resonant : forme rapide d’Aberrant',
+    description:'Flurry utilise des poings rapides comme forme primaire; rôle confirmé, associations possibles et valeurs encore inconnues.',
+    label:'Forme d’arme', answer:'Flurry est l’une des trois premières formes primaires proposées dans la démo. Ses coups de poing rapides conviennent à une pression rapprochée et au cycle où les touches de mêlée restaurent la ressource des capacités.',
+    sections:[
+      {heading:'Rôle confirmé',paragraphs:['Xbox Wire décrit Flurry comme une paire de poings rapides. Parce qu’il s’agit d’une forme primaire, elle façonne surtout les attaques normales; la forme secondaire et le finisher se choisissent ailleurs.','Le nombre de coups, l’allonge, l’interruption et la ressource rendue par impact ne sont pas publiés. Aucun de ces chiffres ne doit être déduit de la vidéo.']},
+      {heading:'Compenser la courte portée',paragraphs:['Extend peut apporter une action plus lointaine, Crush une frappe lourde et Drill une pression maintenue. Barrage fournit aussi une attaque à distance, tandis que Shield sécurise l’engagement.','Ces associations répondent à des fonctions visibles. Elles ne constituent pas encore une liste de builds optimisés, car les arbres d’amélioration restent incomplets.']},
+      {heading:'Ce qui décidera de sa valeur',paragraphs:['Les Talents, effets de statut et variantes de forme peuvent transformer Flurry. Les tests de la version finale devront mesurer sa stabilité contre groupes, armures et boss avant tout classement.']}
+    ], sources:[{label:'Xbox Wire – choix des formes primaires',url:xboxHandsOn},{label:'PlayStation Blog – boucle de momentum',url:combat}]
+  },
+  {
+    lang:'fr', slug:'slash-forme-aberrant', englishPath:'/guides/slash-aberrant-form/',
+    title:'Slash dans Control Resonant : lame primaire d’Aberrant',
+    description:'Slash emploie une lame unique pour le jeu de base; voici sa place exacte et les différences à ne pas inventer face à Slice.',
+    label:'Forme d’arme', answer:'Slash est une forme primaire d’Aberrant utilisant une lame unique. Elle définit le jeu d’attaques de base, alors que les attaques secondaires et les Combo Enders proviennent de choix séparés.',
+    sections:[
+      {heading:'Ce que le choix fixe',paragraphs:['Slash apparaissait avec Flurry et Slice dans le premier groupe de la démo. Cette position confirme son rôle de moveset principal, mais pas des dégâts supérieurs, une meilleure portée ou un effet de saignement.','Les fenêtres d’annulation, propriétés défensives et effets de statut n’ont pas été détaillés. Les animations d’une bande-annonce ne remplacent pas les données de jeu.']},
+      {heading:'Compléter Slash',paragraphs:['Crush peut ajouter du poids, Drill des dégâts maintenus et Extend davantage de portée. Côté capacités, Barrage traite la distance, Seekers crée une pression parallèle et Shield protège l’approche.','Le meilleur complément dépendra des ennemis et des Talents. La structure est confirmée; la hiérarchie ne l’est pas.']},
+      {heading:'Slash n’est pas Slice',paragraphs:['Les deux noms proches désignent deux formes distinctes. Slash est la lame unique; Slice la paire de lames. Les futures pages de statistiques devront conserver cette séparation.']}
+    ], sources:[{label:'Xbox Wire – formes primaires',url:xboxHandsOn}]
+  },
+  {
+    lang:'fr', slug:'slice-forme-aberrant', englishPath:'/guides/slice-aberrant-form/',
+    title:'Slice dans Control Resonant : deux lames d’Aberrant',
+    description:'Slice est la forme primaire à deux lames; rôle observé, association documentée avec Extend et limites avant lancement.',
+    label:'Forme d’arme', answer:'Slice fait manier à Dylan deux lames courtes. Dans la prise en main Xbox Wire, le journaliste l’a choisie pour les dégâts rapprochés puis a sélectionné Extend afin de couvrir une portée plus grande.',
+    sections:[
+      {heading:'Observation vérifiable',paragraphs:['La démo présente Slice comme l’option dual blades parmi les trois formes primaires. Elle gouverne donc le moveset principal. Rien ne confirme cependant des critiques garantis, un saignement ou un statut particulier.','Son ordre de déblocage définitif et les branches de son arbre restent inconnus. La session prouve la fonction et la combinaison, pas la balance finale.']},
+      {heading:'Pourquoi Extend la complète',paragraphs:['Le choix d’Extend était explicitement destiné à compenser la courte portée de Slice. C’est un exemple concret de la philosophie du système: deux formes couvrent des besoins différents dans un même équipement.','Barrage pourrait remplir la distance par une capacité; Shield favoriser l’entrée au contact. Crush ajouterait des impacts lourds sans résoudre de la même manière la portée.']},
+      {heading:'Conseil avant sortie',paragraphs:['Évaluez d’abord Slice selon le confort et les fonctions couvertes. Les ennemis, ressources et synergies de Talents de la version commerciale détermineront ensuite sa spécialisation réelle.']}
+    ], sources:[{label:'Xbox Wire – combinaison Slice et Extend',url:xboxHandsOn}]
+  },
+  {
+    lang:'fr', slug:'crush-forme-aberrant', englishPath:'/guides/crush-aberrant-form/',
+    title:'Crush dans Control Resonant : forme lourde au maillet',
+    description:'Crush est la forme secondaire lente et lourde d’Aberrant; usage confirmé, associations possibles et données encore absentes.',
+    label:'Forme d’arme', answer:'Crush est une forme secondaire prenant l’apparence d’un énorme maillet lent. Elle complète une forme primaire et apporte des actions lourdes sans remplacer toute la chaîne normale.',
+    sections:[
+      {heading:'Poids plutôt que vitesse',paragraphs:['Xbox Wire qualifie Crush de maillet massif, lent et écrasant. Sa place dans le deuxième groupe indique des attaques spéciales ou chargées. La démo ne publie toutefois ni dégâts de posture, ni armure, ni rayon de zone.','Le temps de charge, les annulations et la résistance pendant l’animation nécessitent encore des tests. Ces éléments sont essentiels pour juger une arme lente.']},
+      {heading:'Partenaires possibles',paragraphs:['Flurry ou Slice peuvent fournir des coups rapides entre les actions lourdes. Barrage couvre la distance, Shield aide à créer une fenêtre sûre et Seekers continue d’attaquer pendant que Dylan se place.','Ce sont des associations fonctionnelles, pas une méta: les valeurs et ennemis finaux peuvent changer la priorité.']},
+      {heading:'Arbre d’amélioration',paragraphs:['Chaque forme possède ses propres améliorations et variantes spécialisées. Crush pourrait donc évoluer au-delà de son premier rôle, mais aucun nœud précis ne doit être inventé avant publication.']}
+    ], sources:[{label:'Xbox Wire – Crush, Drill et Extend',url:xboxHandsOn},{label:'Xbox Wire – arbres de formes',url:'https://news.xbox.com/en-us/2026/03/04/control-resonant-combat-preview/'}]
+  },
+  {
+    lang:'fr', slug:'drill-forme-aberrant', englishPath:'/guides/drill-aberrant-form/',
+    title:'Drill dans Control Resonant : dégâts dirigés soutenus',
+    description:'Drill est une forme secondaire maintenant des dégâts sur une cible; fonction, situations probables et limites des aperçus.',
+    label:'Forme d’arme', answer:'Drill est décrite comme une forme secondaire infligeant des dégâts dirigés et soutenus. Elle se distingue du coup lourd de Crush et de la portée plus large d’Extend.',
+    sections:[
+      {heading:'Sens précis de la description',paragraphs:['La prise en main parle d’une action maintenue vers une cible. Cela suggère une pression focalisée, mais ne confirme ni perforation d’armure, ni type élémentaire, ni fonctionnement en rayon.','Durée, coût, mobilité et interruption ne sont pas documentés. Un guide pré-sortie doit laisser ces champs ouverts.']},
+      {heading:'Créer une fenêtre',paragraphs:['Drill paraît plus facile à exploiter quand un ennemi est étourdi ou occupé. Les capacités peuvent provoquer un étourdissement, et Seekers peut ajouter une présence indépendante pendant que Dylan maintient son attaque.','Face à plusieurs menaces, le contrôle et le positionnement pourraient primer. Rien ne prouve que Drill touche plusieurs ennemis.']},
+      {heading:'Choix entre secondaires',paragraphs:['Crush offre un impact lourd visible, Extend une meilleure portée et Drill une pression concentrée. Cette séparation aide à choisir une fonction sans déclarer prématurément un vainqueur.']}
+    ], sources:[{label:'Xbox Wire – formes secondaires',url:xboxHandsOn},{label:'PlayStation Blog – étourdissement et exécutions',url:combat}]
+  },
+  {
+    lang:'fr', slug:'extend-forme-aberrant', englishPath:'/guides/extend-aberrant-form/',
+    title:'Extend dans Control Resonant : portée avec bâton-chaîne',
+    description:'Extend est la forme secondaire de plus grande portée; rôle observé, complément de Slice et propriétés encore non confirmées.',
+    label:'Forme d’arme', answer:'Extend utilise une arme proche d’un bâton-chaîne ou d’un fouet afin d’atteindre plus loin. La démo l’associait à Slice pour compléter ses attaques très rapprochées.',
+    sections:[
+      {heading:'Portée confirmée, pas projectile',paragraphs:['La source décrit Extend comme une option de portée. Cela signifie une zone de mêlée plus longue, sans prouver un véritable projectile, une attraction d’ennemi ou une distance illimitée.','Comme forme secondaire, elle apporte les actions lourdes ou spéciales; la forme primaire continue de définir les attaques ordinaires.']},
+      {heading:'Combinaisons lisibles',paragraphs:['Slice et Extend constituent la paire directement documentée. Flurry peut également profiter d’une couverture plus large. Si Barrage occupe déjà la fonction distante, Crush ou Drill deviennent des alternatives secondaires.','Inversement, Extend peut libérer un emplacement de capacité pour Shield ou Seekers. Cette logique de couverture est plus fiable qu’une tier list avant sortie.']},
+      {heading:'Contrôle de foule non garanti',paragraphs:['Une arme longue semble adaptée aux groupes, mais la largeur des coups, les statuts et la capacité à déplacer les ennemis ne sont pas confirmés. Ces propriétés attendront la version finale.']}
+    ], sources:[{label:'Xbox Wire – Extend dans la démo',url:xboxHandsOn}]
+  },
+  {
+    lang:'fr', slug:'combo-enders-aberrant', englishPath:'/guides/aberrant-combo-ender-system/',
+    title:'Combo Enders d’Aberrant : troisième choix d’arme',
+    description:'Les Combo Enders sont choisis séparément des formes primaire et secondaire; fonctionnement confirmé et questions restantes.',
+    label:'Système de combat', answer:'Les Combo Enders forment le troisième niveau du loadout d’Aberrant. Après la forme primaire et la forme secondaire, le joueur choisit une autre forme pour conclure certaines chaînes d’attaques.',
+    sections:[
+      {heading:'Un finisher indépendant',paragraphs:['La démo présentait un troisième groupe consacré aux fins de combo. Le moveset peut ainsi mélanger plusieurs identités d’arme au lieu d’imposer une forme unique pour coups légers, lourds et finitions.','La liste complète des Enders et leurs commandes ne sont pas encore publiées. La structure est certaine, pas le catalogue final.']},
+      {heading:'Place dans le momentum',paragraphs:['Les coups de mêlée restaurent la ressource, les capacités étourdissent et les exécutions augmentent temporairement les dégâts de mêlée. Le Combo Ender est un outil de conclusion dans cette boucle, mais son interaction exacte avec l’exécution reste ouverte.','Un Ender peut être choisi pour la cible unique, le groupe, le placement ou un statut lorsque ces propriétés seront confirmées.']},
+      {heading:'Tests nécessaires',paragraphs:['Les fenêtres d’annulation, la portée, la ressource générée et les Talents compatibles décideront de la valeur réelle. Aucun meilleur Ender ne peut être démontré avant ces mesures.']}
+    ], sources:[{label:'Xbox Wire – trois groupes Aberrant',url:xboxHandsOn},{label:'PlayStation Blog – momentum',url:combat}]
+  },
+  {
+    lang:'fr', slug:'barrage-capacite-combat', englishPath:'/guides/barrage-combat-ability/',
+    title:'Barrage dans Control Resonant : attaque de pierres à distance',
+    description:'Barrage arrache des pierres au sol et les projette; acquisition par un Resonant, rôle de portée et informations non publiées.',
+    label:'Capacité de combat', answer:'Barrage est l’un des trois pouvoirs proposés après le premier Resonant de la démo. Dylan soulève des pierres du sol et les lance à distance, donnant une option directe à un système surtout centré sur la mêlée.',
+    sections:[
+      {heading:'Récompense et choix',paragraphs:['Le joueur devait choisir Barrage, Seekers ou Shield après le boss. Ces capacités appartiennent donc au même groupe de récompenses et peuvent être exclusives pendant une première partie.','New Game Plus autorise plus tard plusieurs capacités différentes d’un même boss, ce qui change les combinaisons possibles sans effacer l’importance du premier choix.']},
+      {heading:'Fonction dans la boucle',paragraphs:['Barrage traite une cible éloignée, mais les frappes de mêlée restent la méthode confirmée pour restaurer la ressource des capacités. Le pouvoir complète donc la mêlée au lieu de la remplacer en permanence.','Zone, suivi, charge et statistiques finales ne sont pas publiés. Les pierres visibles ne suffisent pas à affirmer ces propriétés.']},
+      {heading:'Quand le choisir',paragraphs:['Les formes courtes comme Flurry ou Slice profitent clairement d’une couverture distante. Seekers préfère la pression autonome et Shield la défense active avec dash offensif.']}
+    ], sources:[{label:'Xbox Wire – choix des capacités',url:xboxHandsOn},{label:'PlayStation Blog – pouvoirs de Resonants',url:combat}]
+  },
+  {
+    lang:'fr', slug:'seekers-invocation', englishPath:'/guides/seekers-summon/',
+    title:'Seekers dans Control Resonant : tourelle invoquée',
+    description:'Seekers crée une tourelle automatique pouvant être lancée comme bombe; fonctions confirmées, rôle tactique et limites.',
+    label:'Capacité de combat', answer:'Seekers invoque une sorte de tourelle qui tire automatiquement. Dylan peut aussi la lancer afin de la transformer en attaque explosive.',
+    sections:[
+      {heading:'Deux usages vérifiés',paragraphs:['Le tir autonome et le lancer explosif sont tous deux décrits dans la prise en main. Le joueur peut donc conserver une pression parallèle ou convertir l’invocation en action immédiate.','Durée, priorité des cibles, quantité simultanée et dégâts ne sont pas connus. Les règles d’autres jeux ne doivent pas être importées ici.']},
+      {heading:'Rôle tactique',paragraphs:['Une unité indépendante peut occuper des ennemis pendant que Dylan gère la mêlée, les exécutions et son déplacement. Une démonstration antérieure montrait précisément un style d’invocations et tourelles destiné au contrôle des groupes.','Cela ne rend pas le combat automatique: la section avancée de l’Evacuation Zone mélangeait menaces de mêlée et à distance autour du joueur.']},
+      {heading:'Comparaison du même pool',paragraphs:['Barrage est une attaque distante directe; Shield protège puis permet de percuter. Seekers convient à une approche de pression continue et de placement.']}
+    ], sources:[{label:'Xbox Wire – Seekers dans le hands-on',url:xboxHandsOn},{label:'Xbox Wire – build d’invocations',url:'https://news.xbox.com/en-us/2026/03/04/control-resonant-combat-preview/'}]
+  },
+  {
+    lang:'fr', slug:'shield-capacite-combat', englishPath:'/guides/shield-combat-ability/',
+    title:'Shield dans Control Resonant : protection et dash offensif',
+    description:'Shield crée un écran de pierres flottantes et peut percuter les ennemis pendant un dash; rôle et choix de build.',
+    label:'Capacité de combat', answer:'Shield lève des pierres flottantes devant Dylan pour le protéger. La capacité possède aussi une fonction agressive: Dylan peut foncer dans les ennemis avec le bouclier.',
+    sections:[
+      {heading:'Défense active',paragraphs:['Shield était l’option défensive du groupe Barrage–Seekers–Shield, mais son dash offensif maintient la logique de combat agressive. Il ne s’agit donc pas seulement d’attendre derrière une barrière.','Angle de blocage, résistance, coût et timing parfait ne sont pas détaillés. Le pouvoir ne doit pas être traité comme une copie exacte du Shield de Jesse.']},
+      {heading:'Besoin couvert',paragraphs:['Flurry, Slash et Slice placent Dylan au contact. Shield peut sécuriser l’entrée ou transformer la défense en déplacement offensif. Crush et Drill peuvent aussi apprécier une fenêtre plus sûre.','Barrage répond mieux à la distance et Seekers à la pression autonome. Le choix dépend de la survie et du rythme désiré.']},
+      {heading:'Choix exclusif au premier passage',paragraphs:['Ces trois pouvoirs viennent du même boss dans la démo. Les choix de la première partie sont limitants; New Game Plus étend ensuite les associations disponibles.']}
+    ], sources:[{label:'Xbox Wire – Shield offensif et défensif',url:xboxHandsOn},{label:'PlayStation Blog – New Game Plus',url:ngp}]
+  },
+  {
+    lang:'fr', slug:'trois-emplacements-capacites', englishPath:'/guides/three-combat-ability-slots/',
+    title:'Trois emplacements de capacités dans Control Resonant',
+    description:'Dylan équipe trois capacités de combat; articulation avec les trois choix Aberrant, les boss et le New Game Plus.',
+    label:'Système de build', answer:'Dylan peut finalement équiper trois Combat Abilities en même temps. Avec la forme primaire, la forme secondaire et le Combo Ender, le loadout réunit six attaques ou capacités actives choisies.',
+    sections:[
+      {heading:'Six éléments actifs',paragraphs:['Aberrant fournit trois niveaux: chaîne normale, action lourde ou chargée et finisher. Trois emplacements supplémentaires accueillent les pouvoirs paranaturels. La prise en main décrit cet ensemble comme le kit actif complet.','Talents et Artefacts modifient ce kit mais ne sont pas simplement des touches actives supplémentaires. Leur rôle reste passif ou conditionnel.']},
+      {heading:'Emplacements contre déblocages',paragraphs:['Avoir trois places ne signifie pas obtenir tous les pouvoirs en une partie. Les Resonants proposent des décisions exclusives et Remedy confirme que tout n’est pas déblocable au premier parcours.','New Game Plus permet plusieurs capacités différentes issues du même boss. Cette flexibilité change la collection disponible, sans supprimer la limite du loadout.']},
+      {heading:'Vérifier un loadout',paragraphs:['Avant les chiffres finaux, un ensemble lisible couvre distance, protection ou contrôle, puis une méthode de pression. Les coûts et temps de recharge décideront ensuite si trois pouvoirs proches sont viables.']}
+    ], sources:[{label:'Xbox Wire – kit de six actions',url:xboxHandsOn},{label:'PlayStation Blog – piliers de progression',url:combat}]
+  }
+);
 
 export const localeHome = {
   de: { path:'/de/', title:'Control Resonant Guide auf Deutsch', description:'Deutscher Guide zu Control Resonant: Release, PC-Anforderungen, Plattformen, Kampf, Story, Sprachen und bestätigte Fakten.', label:'Inoffizieller deutscher Field Guide', heading:'CONTROL RESONANT', intro:'Der deutschsprachige Einstieg zu Remedys Action-RPG: geprüfte Informationen aus offiziellen Quellen, klare Hinweise auf noch offene Details und direkte Wege zu den wichtigsten Kauf- und Spielthemen.', guides:'Deutsche Guides', answer:'Control Resonant erscheint am 24. September 2026 für PS5, Xbox Series X|S und PC. Dylan Faden führt durch ein verzerrtes Manhattan; das Spiel setzt auf Nahkampf, Aberrant-Waffenformen, Instinct-Kräfte und anpassbare Builds.', sourceNote:'Alle Aussagen werden mit offiziellen Quellen belegt. Da das Spiel noch nicht erschienen ist, kennzeichnen wir offene Angaben und aktualisieren Seiten bei neuen Ankündigungen.' },

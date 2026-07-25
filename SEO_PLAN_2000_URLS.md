@@ -56,6 +56,14 @@ Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 - Expanded world and story intent around handcrafted zones, optional discoveries, Altered Item chases, FBC field operations, the seven-year time jump and Zoe–Dylan trust.
 - All build pages explicitly avoid final damage, cooldown, stacking, respec and tier-list claims until the retail build can be tested.
 
+## Round eight progress — localized combat clusters and boss evidence
+
+- Added 25 approved URLs, increasing the verified sitemap count from 234 to 259: 12 German combat pages, 12 French combat pages, and one English boss evidence page.
+- Expanded both localized clusters from 19 to 31 detail URLs with locally written pages for the six named Aberrant forms, the Combo Ender layer, Barrage, Seekers, Shield, and the three Combat Ability slots.
+- Preserved page-level English/German/French alternates so every new localized route points to the established English intent instead of creating disconnected translation islands.
+- Added a spoiler-controlled page for the tentatively named Dancer Resonant while keeping it separate from the large head-shaped Resonant Entity shown in the later media demo.
+- Continued to withhold unpublished boss stats, reward assignments, phase lists, quest names, drops, map coordinates, and final build rankings.
+
 ## 1,000-page pre-release milestone
 
 The immediate target is 1,000 approved sitemap URLs before September 24, while 2,000 remains post-release capacity. The site should not force the missing 793 pages from the current 207-URL state out of six official previews.

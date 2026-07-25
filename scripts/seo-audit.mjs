@@ -151,7 +151,7 @@ for (const [lang, databaseRoute, languageName, ariaName] of [
     const route = page.replace(root, '/').replace(/index\.html$/, '');
     return route.startsWith(`/${lang}/`) && route !== `/${lang}/` && route !== databaseRoute;
   });
-  if (localizedDetails.length !== 19) errors.push(`/${lang}/: expected 19 localized detail URLs, found ${localizedDetails.length}`);
+  if (localizedDetails.length !== 31) errors.push(`/${lang}/: expected 31 localized detail URLs, found ${localizedDetails.length}`);
   const localizedDatabase = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === databaseRoute);
   if (!localizedDatabase) errors.push(`${databaseRoute}: localized database missing`);
   else {

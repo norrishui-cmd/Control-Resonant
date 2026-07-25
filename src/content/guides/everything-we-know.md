@@ -27,7 +27,12 @@ This is the biggest change. The first Control was a third-person shooter with te
 
 ## Builds and progression
 
-Character growth runs through a system Remedy calls **The Gap**, a build space you can open at almost any time. It splits across combat abilities, weapon forms, and talents, with real stat breakdowns underneath. You won't unlock everything in a single playthrough, which leans the design toward experimentation, respecs, and New Game Plus.
+Character growth runs through a system Remedy calls **The Gap**, a build space
+you can open out of combat. It splits across Combat Abilities, weapon forms,
+Talents, and supporting Artifact choices, with readable stat breakdowns
+underneath. You won't unlock everything in a single playthrough; New Game Plus
+is the confirmed route to additional nodes and ability combinations, while a
+general respec policy remains unannounced.
 
 ## What else is confirmed
 

@@ -39,6 +39,10 @@ Beneath all of this are visible **stat breakdowns**, so you can see why a setup 
 
 ## You won't unlock everything at once
 
-By design, a single playthrough won't open every option. That pushes you toward **specialization**, with respecs and **New Game Plus** as the place to try the paths you skipped. Treat your first run as a build, not a checklist.
+By design, a single playthrough won't open every option. That pushes you toward
+**specialization**. **New Game Plus** explicitly adds new Talent nodes and can
+allow multiple different Combat Abilities from the same boss; a general
+first-run respec policy has not been published. Treat your first run as a build,
+not a checklist.
 
 Mechanics shown pre-release can still shift before launch — we'll tighten this guide as hands-on coverage and the final game confirm the details.
