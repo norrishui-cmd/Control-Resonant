@@ -1,12 +1,13 @@
 ---
 import { newsForTab, tabLabels, type NewsTab } from '../data/news';
-const { tab, lang = 'en' } = Astro.props as { tab: NewsTab; lang?: 'en'|'de'|'fr' };
+import type { Locale } from '../data/localized';
+const { tab, lang = 'en' } = Astro.props as { tab: NewsTab; lang?: Locale };
 const items = newsForTab(tab);
 const labels = {
   en:{eyebrow:'Latest field reports',heading:`${tabLabels[tab]} news`,all:'All news',read:'Read report'},
   de:{eyebrow:'Aktuelle Meldungen',heading:`News: ${tabLabels[tab]}`,all:'Alle News',read:'Meldung lesen'},
   fr:{eyebrow:'Dernières actualités',heading:`Actualités : ${tabLabels[tab]}`,all:'Toutes les actualités',read:'Lire l’article'}
-}[lang];
+}[lang as 'en'|'de'|'fr'] ?? {eyebrow:'Latest field reports',heading:`${tabLabels[tab]} news`,all:'All news',read:'Read report'};
 ---
 <section class="border-t border-ash-700 bg-ash-950/35" aria-labelledby={`news-${tab}`}>
   <div class="wrap py-14">

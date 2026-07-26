@@ -21,6 +21,7 @@ const legacyRedirects = new Set([
   '/faq/is-this-the-official-control-resonant-site/',
   '/faq/how-does-the-site-verify-information/',
   '/faq/why-do-some-answers-say-not-announced/',
+  '/news/steam-language-matrix-confirms-15-text-nine-audio/',
 ]);
 const knownRoutes = new Set(pages.map((file) => file.replace(root, '/').replace(/index\.html$/, '')));
 knownRoutes.add('/404.html');
@@ -190,6 +191,38 @@ for (const [lang, databaseRoute, languageName, ariaName] of [
       ? ['/de/erscheinungsdatum/','/de/guides/','/de/datenbank/','/de/charaktere-und-story/','/de/plattformen/','/faq/']
       : ['/fr/date-de-sortie/','/fr/guides/','/fr/base-de-donnees/','/fr/personnages-et-histoire/','/fr/plateformes/','/faq/']) {
       if (!html.includes(`href="${navHref}"`)) errors.push(`/${lang}/: English-parity navigation missing ${navHref}`);
+    }
+  }
+}
+
+const addedLocales = [
+  ['it','it','Italiano'], ['es','es','Español (España)'], ['ja','ja','日本語'],
+  ['ko','ko','한국어'], ['pt-br','pt-BR','Português (Brasil)'], ['zh-cn','zh-CN','简体中文'],
+  ['es-419','es-419','Español (LatAm)'], ['zh-tw','zh-TW','繁體中文'], ['pl','pl','Polski'],
+  ['ru','ru','Русский'], ['tr','tr','Türkçe'], ['uk','uk','Українська'],
+];
+const hreflangCodes = ['en','fr','it','de','es','ja','ko','pt-BR','zh-CN','es-419','zh-TW','pl','ru','tr','uk','x-default'];
+for (const [pathLang, htmlLang, nativeName] of addedLocales) {
+  for (const route of [`/${pathLang}/`, `/${pathLang}/language-support/`]) {
+    const file = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === route);
+    if (!file) { errors.push(`${route}: official-language route missing`); continue; }
+    const html = await readFile(file, 'utf8');
+    if (!html.includes(`<html lang="${htmlLang}"`)) errors.push(`${route}: expected html lang ${htmlLang}`);
+    if (!html.includes(`>${nativeName}<`)) errors.push(`${route}: language dropdown missing current locale name`);
+    if (!html.includes('grid gap-4 sm:grid-cols-2 lg:grid-cols-3') && route === `/${pathLang}/`) errors.push(`${route}: localized home is missing English-style card grid`);
+    for (const code of hreflangCodes) {
+      if (!new RegExp(`<link rel="alternate" hreflang="${code}" href="https://controlresonant\\.wiki/`).test(html)) {
+        errors.push(`${route}: missing absolute hreflang ${code}`);
+      }
+    }
+    if (route.endsWith('/language-support/')) {
+      if (!html.includes('border-l-4 border-clearance') || !html.includes('aria-labelledby="sources-heading"') || !html.includes('aria-labelledby="related-heading"')) {
+        errors.push(`${route}: localized language page is missing English-layout content modules`);
+      }
+      const uniqueNewsLinks = new Set([...html.matchAll(/href="(\/news\/[^"#]+\/)"/g)].map(match => match[1]));
+      const uniqueFaqLinks = new Set([...html.matchAll(/href="(\/faq\/[^"#]+\/)"/g)].map(match => match[1]));
+      if (uniqueNewsLinks.size !== 5) errors.push(`${route}: expected 5 related News links, found ${uniqueNewsLinks.size}`);
+      if (uniqueFaqLinks.size < 5) errors.push(`${route}: expected at least 5 related FAQ links, found ${uniqueFaqLinks.size}`);
     }
   }
 }

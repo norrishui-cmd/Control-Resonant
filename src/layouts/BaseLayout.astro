@@ -22,8 +22,8 @@ const canonical = new URL(canonicalPath ?? Astro.url.pathname, site).href;
 const ogImageURL = new URL(ogImage, site).href;
 const siteName = 'Control Resonant Field Guide';
 const alternatePaths = alternatesFor(Astro.url.pathname);
-const ogLocales = { en: 'en_US', de: 'de_DE', fr: 'fr_FR' };
-const skip = { en: 'Skip to content', de: 'Zum Inhalt springen', fr: 'Aller au contenu' };
+const ogLocales:Record<Locale,string> = { en:'en_US', de:'de_DE', fr:'fr_FR', it:'it_IT', es:'es_ES', ja:'ja_JP', ko:'ko_KR', 'pt-BR':'pt_BR', 'zh-CN':'zh_CN', 'es-419':'es_419', 'zh-TW':'zh_TW', pl:'pl_PL', ru:'ru_RU', tr:'tr_TR', uk:'uk_UA' };
+const skip:Record<Locale,string> = { en:'Skip to content', de:'Zum Inhalt springen', fr:'Aller au contenu', it:'Vai al contenuto', es:'Ir al contenido', ja:'本文へ移動', ko:'본문으로 이동', 'pt-BR':'Ir para o conteúdo', 'zh-CN':'跳到正文', 'es-419':'Ir al contenido', 'zh-TW':'跳到主要內容', pl:'Przejdź do treści', ru:'Перейти к содержанию', tr:'İçeriğe geç', uk:'Перейти до вмісту' };
 ---
 <!doctype html>
 <html lang={lang}>

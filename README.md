@@ -45,9 +45,9 @@ The July 25 evidence refresh corrects New Game Plus carry-over, the PS5 nine-fea
 
 The `/database/` live intelligence index tracks 47 confirmed or explicitly unresolved game properties across characters, equipment, gameplay systems, threats, locations, returning figures, and availability. The English guide collection contains 101 evidence-backed articles. The latest English page separates the tentatively named Dancer from the different head-shaped Resonant Entity shown in the later hands-on. Unnamed entities and unsupported quests, drops or coordinates are deliberately not assigned fabricated pages.
 
-German and French now each contain 41 localized detail pages, a dedicated Guides hub, and a fully translated 23-record database at `/de/datenbank/` and `/fr/base-de-donnees/`. The newest 10 pages per language cover multiplayer status, series entry, progression, exploration, Xbox Play Anywhere, and Steam Deck status. Localized guide pages now use the same visual hierarchy and modules as English, while desktop and mobile navigation expose the same seven primary tabs plus one accessible language dropdown.
+German and French now each contain 49 localized detail pages, a dedicated Guides hub, and a fully translated 23-record database at `/de/datenbank/` and `/fr/base-de-donnees/`. Twelve additional official game languages each have a localized home and language-support detail page. Localized pages use the same visual hierarchy and modules as English, while desktop and mobile navigation expose all 15 official languages in one accessible dropdown.
 
-The current production build targets 286 HTML files, with 281 canonical quality-approved URLs in the sitemap. `SEO_PLAN_2000_URLS.md` keeps the gated path toward the 1,000-page pre-release milestone; later quest, item, boss and map batches remain blocked until attributable preview or final-game evidence exists.
+The current production build passes an audit of 327 HTML files, with 322 canonical quality-approved URLs in the sitemap. `OFFICIAL_LANGUAGE_ROLLOUT_V12.md` records the current 15-language matrix and rollout scope. `SEO_PLAN_2000_URLS.md` keeps the gated path toward the 1,000-page pre-release milestone; later quest, item, boss and map batches remain blocked until attributable preview or final-game evidence exists.
 
 ## Add a new guide
 
@@ -86,7 +86,7 @@ That's it — no env vars. Every push to the repo triggers a rebuild.
 
 ## Google AdSense verification
 
-Publisher `ca-pub-9505220977121599` is configured once in the global layout, so every English, German, French, and future page inherits both the AdSense loader and account meta tag. The authorized seller record is served from `/ads.txt`.
+Publisher `ca-pub-9505220977121599` is configured once in the global layout, so every page in all 15 official-language routes inherits both the AdSense loader and account meta tag. The authorized seller record is served from `/ads.txt`.
 
 After deployment, verify:
 

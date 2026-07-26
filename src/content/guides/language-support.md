@@ -1,6 +1,6 @@
 ---
 title: "Control Resonant Languages: Full Audio, Interface & Subtitles"
-description: "Control Resonant supports 15 interface/subtitle languages and 9 full-audio languages on Steam, including Chinese, Japanese and Brazilian Portuguese dubbing."
+description: "Control Resonant supports 15 interface/subtitle languages and 8 full-audio languages on Steam, including Chinese, Japanese and Brazilian Portuguese dubbing."
 status: confirmed
 category: Platforms
 order: 31
@@ -15,7 +15,7 @@ sources:
 
 ## Quick answer
 
-Steam currently lists **15 languages with interface and subtitle support**. Nine of them also have full audio: English, French, Italian, German, Spanish (Spain), Japanese, Brazilian Portuguese, Simplified Chinese and Ukrainian.
+Steam currently lists **15 languages with interface and subtitle support**. Eight of them also have full audio: English, French, Italian, German, Spanish (Spain), Japanese, Brazilian Portuguese and Simplified Chinese.
 
 ## Official Steam language matrix
 
@@ -29,7 +29,7 @@ Steam currently lists **15 languages with interface and subtitle support**. Nine
 | Japanese | Yes | Yes | Yes |
 | Brazilian Portuguese | Yes | Yes | Yes |
 | Simplified Chinese | Yes | Yes | Yes |
-| Ukrainian | Yes | Yes | Yes |
+| Ukrainian | Yes | No | Yes |
 | Korean | Yes | No | Yes |
 | Spanish — Latin America | Yes | No | Yes |
 | Traditional Chinese | Yes | No | Yes |

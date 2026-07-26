@@ -278,15 +278,15 @@ export const newsItems: NewsItem[] = [
   {
     slug: 'control-resonant-supports-15-interface-subtitle-languages', tab: 'platforms', date: '2026-07-18',
     title: 'Control Resonant Lists 15 Interface and Subtitle Languages',
-    description: 'Steam’s official language matrix lists 15 interface and subtitle languages, with complete audio available in nine of them.',
+    description: 'Steam’s official language matrix lists 15 interface and subtitle languages, with complete audio available in eight of them.',
     sourceLabel: 'Steam — official language support matrix', sourceUrl: steam,
-    lead: 'Control Resonant’s Steam page lists interface and subtitles in 15 languages. Nine of those languages are currently marked for full audio, giving players a clearer picture of localization before launch.',
+    lead: 'Control Resonant’s Steam page lists interface and subtitles in 15 languages. Eight of those languages are currently marked for full audio, giving players a clearer picture of localization before launch.',
     details: [
       'The listed interface and subtitle languages are English, French, Italian, German, Spanish from Spain, Japanese, Korean, Polish, Brazilian Portuguese, Russian, Simplified Chinese, Traditional Chinese, Ukrainian, Latin American Spanish, and Turkish.',
-      'Full audio is marked for English, French, Italian, German, Spanish from Spain, Japanese, Brazilian Portuguese, Simplified Chinese, and Ukrainian. The remaining listed languages currently rely on text support rather than complete dubbing.',
+      'Full audio is marked for English, French, Italian, German, Spanish from Spain, Japanese, Brazilian Portuguese, and Simplified Chinese. The remaining listed languages currently rely on text support rather than complete dubbing.',
       'Steam documents the PC edition. Console language downloads and regional store packages can differ, so the relevant local PlayStation or Xbox listing remains the final check for a console purchase.'
     ],
-    takeaways: ['15 interface and subtitle languages', 'Nine languages have full audio listed', 'Console-region packages may differ from Steam']
+    takeaways: ['15 interface and subtitle languages', 'Eight languages have full audio listed', 'Console-region packages may differ from Steam']
   },
 
   {
@@ -474,17 +474,17 @@ export const newsItems: NewsItem[] = [
     takeaways: ['US Xbox Standard price: $59.99', 'US Xbox Digital Deluxe price: $69.99', 'Regional stores and preorder timing control the final offer']
   },
   {
-    slug: 'steam-language-matrix-confirms-15-text-nine-audio', tab: 'faq', date: '2026-07-25',
-    title: 'Steam Confirms 15 Text Languages and Nine Full-Audio Options',
+    slug: 'steam-language-matrix-confirms-15-text-eight-audio', tab: 'faq', date: '2026-07-26',
+    title: 'Steam Confirms 15 Text Languages and Eight Full-Audio Options',
     description: 'The official Steam matrix resolves language-support questions and distinguishes text localization from complete dubbing.',
     sourceLabel: 'Steam — official Control Resonant language matrix', sourceUrl: steam,
-    lead: 'Steam lists 15 languages with interface and subtitle support. Nine of those languages also carry the full-audio mark: English, French, Italian, German, Spanish from Spain, Japanese, Brazilian Portuguese, Simplified Chinese, and Ukrainian.',
+    lead: 'Steam lists 15 languages with interface and subtitle support. Eight of those languages also carry the full-audio mark: English, French, Italian, German, Spanish from Spain, Japanese, Brazilian Portuguese, and Simplified Chinese.',
     details: [
-      'Korean, Latin American Spanish, Traditional Chinese, Polish, Russian, and Turkish currently have interface and subtitle support without full audio. Turkish is the fifteenth text language; Arabic is not part of the current Steam matrix.',
+      'Korean, Latin American Spanish, Traditional Chinese, Polish, Russian, Turkish, and Ukrainian currently have interface and subtitle support without full audio. Turkish is the fifteenth text language; Arabic is not part of the current Steam matrix.',
       'This distinction matters for users searching whether a language is “supported.” A localized interface and subtitles answer a different accessibility and purchasing question from a complete voice track, so the FAQ records both columns rather than reducing the result to yes or no.',
       'The Steam matrix applies directly to the PC listing. Console language availability can depend on the regional product and downloadable packs, so PS5 and Xbox buyers should verify their own store page even when the language is present on Steam.'
     ],
-    takeaways: ['15 interface and subtitle languages', 'Nine include complete voice acting', 'Turkish is supported for text, not full audio']
+    takeaways: ['15 interface and subtitle languages', 'Eight include complete voice acting', 'Turkish and Ukrainian are text-only in the current matrix']
   }
 ];
 

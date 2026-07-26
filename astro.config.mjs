@@ -18,6 +18,7 @@ export default defineConfig({
     '/faq/is-this-the-official-control-resonant-site/': '/faq/does-control-resonant-have-a-demo/',
     '/faq/how-does-the-site-verify-information/': '/faq/what-was-in-the-media-hands-on-demo/',
     '/faq/why-do-some-answers-say-not-announced/': '/faq/what-are-the-preorder-bonus-items/',
+    '/news/steam-language-matrix-confirms-15-text-nine-audio/': '/news/steam-language-matrix-confirms-15-text-eight-audio/',
   },
   vite: {
     plugins: [tailwindcss()],

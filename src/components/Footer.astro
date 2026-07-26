@@ -1,15 +1,18 @@
 ---
 import type { Locale } from '../data/localized';
+import { localePathForCode } from '../data/officialLocales';
 const { lang = 'en' } = Astro.props as { lang?: Locale };
 const year = new Date().getFullYear();
-const copy = {
+const copies = {
   en:{tag:'Unofficial Field Guide',about:"An independent, fan-made guide tracking Remedy Entertainment's action-RPG sequel ahead of its September 24, 2026 launch.",sections:'Sections',guides:'Guides',release:'Release Date',sources:'About & Sources',status:'Case Status',statusText:'Information is compiled from official Remedy, Steam and PlayStation sources. Claims are separated from pre-release unknowns.',intel:'Intel current as of July 2026 · pre-release',legal:'a fan resource. Not affiliated with Remedy Entertainment.'},
   de:{tag:'Inoffizieller Field Guide',about:'Ein unabhängiger Fan-Guide zu Remedys Action-RPG vor der Veröffentlichung am 24. September 2026.',sections:'Bereiche',guides:'Deutsche Guides',release:'Erscheinungsdatum',sources:'Über uns & Quellen',status:'Aktenstatus',statusText:'Informationen stammen aus offiziellen Quellen von Remedy, Steam und PlayStation. Offene Details werden klar von bestätigten Aussagen getrennt.',intel:'Stand Juli 2026 · vor Veröffentlichung',legal:'eine Fan-Ressource. Nicht mit Remedy Entertainment verbunden.'},
   fr:{tag:'Guide de terrain non officiel',about:'Un guide indépendant créé par des fans pour suivre l’action-RPG de Remedy avant sa sortie le 24 septembre 2026.',sections:'Rubriques',guides:'Guides français',release:'Date de sortie',sources:'À propos & sources',status:'État du dossier',statusText:'Les informations proviennent des sources officielles de Remedy, Steam et PlayStation. Les inconnues sont séparées des faits confirmés.',intel:'Vérifié en juillet 2026 · avant la sortie',legal:'une ressource de fans, sans affiliation avec Remedy Entertainment.'}
-}[lang];
-const home = lang === 'en' ? '/' : `/${lang}/`;
-const guides = lang === 'en' ? '/guides/' : `/${lang}/#guides`;
-const release = lang === 'de' ? '/de/erscheinungsdatum/' : lang === 'fr' ? '/fr/date-de-sortie/' : '/release-date/';
+};
+const copy = copies[lang as 'en'|'de'|'fr'] ?? copies.en;
+const prefix = localePathForCode(lang);
+const home = prefix ? `/${prefix}/` : '/';
+const guides = lang === 'en' ? '/guides/' : `${home}#guides`;
+const release = lang === 'de' ? '/de/erscheinungsdatum/' : lang === 'fr' ? '/fr/date-de-sortie/' : lang === 'en' ? '/release-date/' : `${home}#release`;
 ---
 <footer class="mt-20 border-t border-ash-700 bg-ash-950/40">
   <div class="wrap grid gap-10 py-12 md:grid-cols-3">

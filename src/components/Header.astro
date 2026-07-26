@@ -1,12 +1,13 @@
 ---
 import { alternatesFor, type Locale } from '../data/localized';
+import { allLocaleCodes, addedLocaleByCode, localePathForCode, type AddedLocale } from '../data/officialLocales';
 const { lang = 'en' } = Astro.props as { lang?: Locale };
 const path = Astro.url.pathname;
 const norm = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
 const cur = norm(path);
 const isActive = (href: string) => {
   const h = norm(href);
-  return ['/', '/de', '/fr'].includes(h) ? cur === h : cur === h || cur.startsWith(h + '/');
+  return h === '/' || /^\/[^/]+$/.test(h) ? cur === h : cur === h || cur.startsWith(h + '/');
 };
 
 const navs = {
@@ -22,16 +23,31 @@ en: [
 de: [{href:'/de/',label:'Start'},{href:'/de/erscheinungsdatum/',label:'Release'},{href:'/de/guides/',label:'Guides'},{href:'/de/datenbank/',label:'Datenbank'},{href:'/de/charaktere-und-story/',label:'Charaktere'},{href:'/de/plattformen/',label:'Plattformen'},{href:'/faq/',label:'FAQ'}],
 fr: [{href:'/fr/',label:'Accueil'},{href:'/fr/date-de-sortie/',label:'Sortie'},{href:'/fr/guides/',label:'Guides'},{href:'/fr/base-de-donnees/',label:'Données'},{href:'/fr/personnages-et-histoire/',label:'Personnages'},{href:'/fr/plateformes/',label:'Plateformes'},{href:'/faq/',label:'FAQ'}],
 };
-const nav = navs[lang];
-const alternates = alternatesFor(path) ?? {en:'/',de:'/de/',fr:'/fr/'};
-const menu = {en:'Menu',de:'Menü',fr:'Menu'};
-const tag = {en:'Unofficial Field Guide',de:'Inoffizieller Field Guide',fr:'Guide non officiel'};
-const languageLabel = {en:'Language',de:'Sprache',fr:'Langue'};
-const languageNames = {en:'English',de:'Deutsch',fr:'Français'};
+const added = !['en','de','fr'].includes(lang) ? addedLocaleByCode[lang as AddedLocale] : null;
+const pathLang = localePathForCode(lang);
+const homeHref = pathLang ? `/${pathLang}/` : '/';
+const genericNav = added ? [
+  {href:homeHref,label:added.nav.home},
+  {href:`${homeHref}#release`,label:added.nav.release},
+  {href:`${homeHref}#guides`,label:added.nav.guides},
+  {href:`${homeHref}#database`,label:added.nav.database},
+  {href:'/guides/characters-and-story/',label:added.nav.characters},
+  {href:`${homeHref}#platforms`,label:added.nav.platforms},
+  {href:'/faq/',label:added.nav.faq},
+] : null;
+const nav = genericNav ?? navs[lang as 'en'|'de'|'fr'];
+const alternates = alternatesFor(path) ?? Object.fromEntries(allLocaleCodes.map(code => {
+  const prefix = localePathForCode(code);
+  return [code, prefix ? `/${prefix}/` : '/'];
+}));
+const menu:Record<Locale,string> = {en:'Menu',de:'Menü',fr:'Menu',it:'Menu',es:'Menú',ja:'メニュー',ko:'메뉴','pt-BR':'Menu','zh-CN':'菜单','es-419':'Menú','zh-TW':'選單',pl:'Menu',ru:'Меню',tr:'Menü',uk:'Меню'};
+const tag:Record<Locale,string> = {en:'Unofficial Field Guide',de:'Inoffizieller Field Guide',fr:'Guide non officiel',it:'Guida non ufficiale',es:'Guía no oficial',ja:'非公式攻略ガイド',ko:'비공식 가이드','pt-BR':'Guia não oficial','zh-CN':'非官方攻略','es-419':'Guía no oficial','zh-TW':'非官方攻略',pl:'Nieoficjalny poradnik',ru:'Неофициальный гайд',tr:'Resmî olmayan rehber',uk:'Неофіційний гайд'};
+const languageLabel:Record<Locale,string> = {en:'Language',de:'Sprache',fr:'Langue',it:'Lingua',es:'Idioma',ja:'言語',ko:'언어','pt-BR':'Idioma','zh-CN':'语言','es-419':'Idioma','zh-TW':'語言',pl:'Język',ru:'Язык',tr:'Dil',uk:'Мова'};
+const languageNames:Record<Locale,string> = {en:'English',de:'Deutsch',fr:'Français',it:'Italiano',es:'Español (España)',ja:'日本語',ko:'한국어','pt-BR':'Português (Brasil)','zh-CN':'简体中文','es-419':'Español (LatAm)','zh-TW':'繁體中文',pl:'Polski',ru:'Русский',tr:'Türkçe',uk:'Українська'};
 ---
 <header class="sticky top-0 z-40 border-b border-ash-700 bg-void/90 backdrop-blur">
   <div class="wrap flex items-center justify-between gap-4 py-3">
-    <a href={lang === 'en' ? '/' : `/${lang}/`} class="group flex items-center gap-3" aria-label="Control Resonant Field Guide — home">
+    <a href={homeHref} class="group flex items-center gap-3" aria-label="Control Resonant Field Guide — home">
       <svg
         width="26"
         height="26"
@@ -76,7 +92,7 @@ const languageNames = {en:'English',de:'Deutsch',fr:'Français'};
         </summary>
         <div class="absolute right-0 top-full z-50 mt-2 w-44 border border-ash-700 bg-ash-900 p-1 shadow-xl">
           <p class="px-3 py-2 font-mono text-[.58rem] uppercase tracking-[.16em] text-ash-500">{languageLabel[lang]}</p>
-          {(['en','de','fr'] as const).map(code => <a href={alternates[code]} hreflang={code} lang={code} aria-current={lang === code ? 'page' : undefined} class={`flex items-center justify-between px-3 py-2 font-mono text-xs ${lang === code ? 'bg-ash-800 text-resonant' : 'text-bone-dim hover:bg-ash-800 hover:text-bone'}`}><span>{languageNames[code]}</span><span class="uppercase text-ash-500">{code}</span></a>)}
+          {allLocaleCodes.map(code => <a href={alternates[code] ?? (localePathForCode(code) ? `/${localePathForCode(code)}/` : '/')} hreflang={code} lang={code} aria-current={lang === code ? 'page' : undefined} class={`flex items-center justify-between px-3 py-2 font-mono text-xs ${lang === code ? 'bg-ash-800 text-resonant' : 'text-bone-dim hover:bg-ash-800 hover:text-bone'}`}><span>{languageNames[code]}</span><span class="uppercase text-ash-500">{code}</span></a>)}
         </div>
       </details>
     </nav>
@@ -102,7 +118,7 @@ const languageNames = {en:'English',de:'Deutsch',fr:'Français'};
         }
         <details class="mt-1 border-t border-ash-700 pt-1" aria-label={languageLabel[lang]}>
           <summary class="cursor-pointer list-none px-3 py-2 font-mono text-xs uppercase tracking-[.12em] text-bone">◎ {languageLabel[lang]} · {languageNames[lang]} ▾</summary>
-          <div class="border-t border-ash-800">{(['en','de','fr'] as const).map(code => <a href={alternates[code]} hreflang={code} lang={code} aria-current={lang === code ? 'page' : undefined} class={`flex justify-between px-4 py-2 font-mono text-xs ${lang === code ? 'bg-ash-800 text-resonant' : 'text-ash-300 hover:text-bone'}`}><span>{languageNames[code]}</span><span class="uppercase">{code}</span></a>)}</div>
+          <div class="max-h-80 overflow-y-auto border-t border-ash-800">{allLocaleCodes.map(code => <a href={alternates[code] ?? (localePathForCode(code) ? `/${localePathForCode(code)}/` : '/')} hreflang={code} lang={code} aria-current={lang === code ? 'page' : undefined} class={`flex justify-between px-4 py-2 font-mono text-xs ${lang === code ? 'bg-ash-800 text-resonant' : 'text-ash-300 hover:text-bone'}`}><span>{languageNames[code]}</span><span class="uppercase">{code}</span></a>)}</div>
         </details>
       </nav>
     </details>
