@@ -6,6 +6,7 @@ export interface LocalizedPage {
   label: string; answer: string; sections: LocalizedSection[]; sources: { label: string; url: string }[];
 }
 import { localizedExpansion } from './localizedExpansion.ts';
+import { localizedExpansionV11 } from './localizedExpansionV11.ts';
 
 const steam = 'https://store.steampowered.com/app/3669870/CONTROL_Resonant/';
 const remedy = 'https://www.remedygames.com/article/control-resonant-launches-worldwide-on-september-24';
@@ -240,39 +241,39 @@ localizedPages.push(
     label:'Aberrant', answer:'Aberrant ist Dylans formwandelnde Nahkampfwaffe. Bestätigt sind Flurry, Slash und Slice als frühe Primärformen sowie Crush, Drill und Extend als Sekundärformen. Zusätzlich wählt der Spieler eine eigene Form für Combo Enders.',
     sections:[
       {heading:'Drei Ebenen eines Aberrant-Builds',paragraphs:['Ein Loadout besteht nicht einfach aus einer einzigen Waffe. Die Primärform bestimmt normale Angriffsfolgen, die Sekundärform übernimmt schwere oder aufgeladene Aktionen, und eine dritte Auswahl beendet bestimmte Komboketten. Dadurch lassen sich Tempo, Reichweite und Kontrolle getrennt planen.','Im gezeigten Hands-on wurden die Formen nacheinander gewählt. Die finale Freischaltreihenfolge, Kosten und Rücksetzregeln sind noch nicht vollständig dokumentiert; diese Seite behandelt deshalb Rollen statt erfundener Schadenswerte.']},
-      {heading:'Die sechs benannten Formen',paragraphs:['Flurry arbeitet mit schnellen Fäusten, Slash mit einer einzelnen Klinge und Slice mit zwei Klingen. Crush ist ein langsamer, schwerer Hammer, Drill hält gerichteten Schaden auf einem Ziel, und Extend nutzt eine kettenartige Stabwaffe für größere Reichweite.','Diese Beschreibungen stammen aus einer kontrollierten Vorabversion. Sie belegen die grundsätzliche Funktion, aber keine endgültige Rangliste. Welche Form stark ist, hängt außerdem von Talenten, Artefakten und Combat Abilities ab.']},
+      {heading:'Die sechs benannten Formen',paragraphs:['Flurry nutzt schnelle Doppeldolche mit erhöhter kritischer Chance, Slash eine weit schwingende Sense für Gruppen und Slice eine Axt mit hohem Einzelschaden und Bonus von hinten. Crush ist ein langsamer, schwerer Hammer, Drill hält gerichteten Schaden auf einem Ziel, und Extend nutzt eine kettenartige Stabwaffe für größere Reichweite.','Diese Beschreibungen stammen aus einer kontrollierten Vorabversion. Sie belegen die grundsätzliche Funktion, aber keine endgültige Rangliste. Welche Form stark ist, hängt außerdem von Talenten, Artefakten und Combat Abilities ab.']},
       {heading:'Sinnvoll kombinieren',paragraphs:['Eine langsame Sekundärform kann eine schnelle Primärform ergänzen; eine weitreichende Form kann dagegen ein Nahkampf-Loadout absichern. Vor dem Release ist die beste Regel, fehlende Aufgaben abzudecken statt eine angebliche Meta zu kopieren.']}
     ], sources:[{label:'Xbox Wire – Hands-on zu Aberrant',url:xboxHandsOn},{label:'PlayStation Blog – Combat Deep Dive',url:combat}]
   },
   {
     lang:'de', slug:'flurry-aberrant-form', englishPath:'/guides/flurry-aberrant-form/',
-    title:'Flurry in Control Resonant: schnelle Aberrant-Faustform',
-    description:'Flurry als schnelle Primärform von Aberrant: bestätigte Funktion, mögliche Partnerformen und offene Werte vor dem Release.',
-    label:'Waffenform', answer:'Flurry ist eine der drei im Hands-on angebotenen Primärformen. Dylan kämpft mit schnellen, faustartigen Schlägen; die Form richtet sich damit an Spieler, die Druck aufbauen und die Kampffähigkeits-Ressource durch viele Nahkampftreffer speisen wollen.',
+    title:'Flurry in Control Resonant: schnelle Aberrant-Doppeldolche',
+    description:'Flurry nutzt schnelle Doppeldolche auf kurze Distanz mit erhöhter kritischer Chance; Partnerformen und offene Werte.',
+    label:'Waffenform', answer:'Flurry ist eine der drei im Hands-on angebotenen Primärformen. Dylan kämpft mit schnellen Doppeldolchen auf kurze Distanz; laut Xbox Wire besitzt die Form eine erhöhte kritische Chance.',
     sections:[
-      {heading:'Bestätigte Rolle',paragraphs:['Xbox Wire beschreibt Flurry als schnelle Fäuste. Als Primärform prägt sie die grundlegende Angriffskette, nicht automatisch schwere Angriffe oder den Combo Ender. Ihr hoher Takt passt zum offiziellen Momentum-Kreislauf, in dem Nahkampftreffer Ressourcen für paranatürliche Fähigkeiten zurückgeben.','Nicht veröffentlicht sind Trefferzahl, Reichweite, Unterbrechungsstärke und Ressourcenwert pro Schlag. Diese Felder werden erst nach Tests der finalen Version ergänzt.']},
-      {heading:'Welche Lücke Flurry lässt',paragraphs:['Schnelle kurze Schläge deuten auf gute Nähe und Reaktionsfähigkeit, lösen aber nicht automatisch Probleme mit entfernten oder stark gepanzerten Zielen. Extend kann Reichweite ergänzen, während Crush eine langsamere, härtere Sekundäraktion bietet.','Barrage oder Seekers können Gegner außerhalb der Faustreichweite beschäftigen. Shield ist dagegen die defensivere Wahl, wenn dauerhaftes Dranbleiben zu riskant wird.']},
+      {heading:'Bestätigte Rolle',paragraphs:['Xbox Wire beschreibt Flurry als schnelle Doppeldolche mit erhöhter kritischer Chance. Als Primärform prägt sie die grundlegende Angriffskette, nicht automatisch schwere Angriffe oder den Combo Ender. Ihr hoher Takt passt zum offiziellen Momentum-Kreislauf, in dem Nahkampftreffer Ressourcen für paranatürliche Fähigkeiten zurückgeben.','Nicht veröffentlicht sind Trefferzahl, genaue Reichweite, kritischer Prozentwert und Ressourcenwert pro Schlag. Diese Felder werden erst nach Tests der finalen Version ergänzt.']},
+      {heading:'Welche Lücke Flurry lässt',paragraphs:['Schnelle kurze Schläge deuten auf gute Nähe und Reaktionsfähigkeit, lösen aber nicht automatisch Probleme mit entfernten oder stark gepanzerten Zielen. Extend kann Reichweite ergänzen, während Crush eine langsamere, härtere Sekundäraktion bietet.','Barrage oder Seekers können Gegner außerhalb der Dolchreichweite beschäftigen. Shield ist dagegen die defensivere Wahl, wenn dauerhaftes Dranbleiben zu riskant wird.']},
       {heading:'Kein fertiger Best Build',paragraphs:['Talente, Status-Effekte und Form-Upgrades können Flurrys Rolle noch verändern. Eine seriöse Empfehlung benötigt deshalb finale Knoten, Werte und echte Begegnungen statt nur die Angriffsgeschwindigkeit der Vorschau.']}
     ], sources:[{label:'Xbox Wire – Auswahl der Primärformen',url:xboxHandsOn},{label:'PlayStation Blog – Momentum-System',url:combat}]
   },
   {
     lang:'de', slug:'slash-aberrant-form', englishPath:'/guides/slash-aberrant-form/',
-    title:'Slash in Control Resonant: Aberrant-Klinge als Primärform',
-    description:'Was über Slash bestätigt ist, wie die einzelne Klinge in das Formsystem passt und welche Build-Aussagen noch offen bleiben.',
-    label:'Waffenform', answer:'Slash ist eine frühe Primärform von Aberrant und verwendet eine einzelne Klinge. Sie gehört zum normalen Grund-Moveset eines Loadouts; Sekundärangriffe und Combo Enders werden separat gewählt.',
+    title:'Slash in Control Resonant: Sense gegen Gruppen',
+    description:'Slash ist die weit schwingende Sensen-Primärform gegen Gruppen; bestätigte Rolle und offene Build-Werte.',
+    label:'Waffenform', answer:'Slash ist eine frühe Primärform von Aberrant und verwendet eine weit schwingende Sense, die laut Xbox Wire für Angriffe gegen Gruppen gedacht ist. Sekundärangriffe und Combo Enders werden separat gewählt.',
     sections:[
-      {heading:'Was Slash tatsächlich festlegt',paragraphs:['Die Primärform steuert Dylans leichte oder grundlegende Angriffskette. Slash wurde im Hands-on neben Flurry und Slice angeboten und steht für eine einzelne Klinge. Das unterscheidet die Form strukturell von Slice mit zwei Klingen, belegt aber noch keine höhere Reichweite oder mehr Einzelschaden.','Animationsdauer, Parierfenster und genaue Status-Effekte sind nicht veröffentlicht. Trailerbilder reichen nicht aus, um solche Werte zuverlässig abzuleiten.']},
+      {heading:'Was Slash tatsächlich festlegt',paragraphs:['Die Primärform steuert Dylans grundlegende Angriffskette. Slash wurde neben Flurry und Slice angeboten und steht für breite Sensenschwünge gegen mehrere Ziele. Das unterscheidet die Form von Flurrys Geschwindigkeit und Slices Einzelschaden.','Animationsdauer, Zielgrenze und genaue Status-Effekte sind nicht veröffentlicht. Trailerbilder reichen nicht aus, um solche Werte zuverlässig abzuleiten.']},
       {heading:'Sekundärform und Fähigkeit wählen',paragraphs:['Slash kann mit Crush für schwere Treffer, Drill für gehaltenen Druck oder Extend für Abstand kombiniert werden. Diese zweite Auswahl ersetzt Slash nicht, sondern ergänzt die schweren beziehungsweise aufgeladenen Aktionen.','Bei den Combat Abilities bietet Barrage Reichweite, Seekers unabhängigen Druck und Shield Schutz plus offensiven Dash. Welche Kombination funktioniert, hängt von Begegnung und Talenten ab.']},
-      {heading:'Abgrenzung zu Slice',paragraphs:['Die Namen sind ähnlich, stehen aber für getrennte Primärformen. Slash ist die einzelne Klinge, Slice die dual geführte Variante. Bis finale Movesets vorliegen, sollten beide URLs nicht dieselben Werte oder Strategien behaupten.']}
+      {heading:'Abgrenzung zu Slice',paragraphs:['Die Namen sind ähnlich, stehen aber für getrennte Primärformen. Slash ist die gruppenorientierte Sense, Slice die Axt mit hohem Einzelschaden und Rückenbonus. Bis finale Movesets vorliegen, sollten beide URLs nicht dieselben Werte oder Strategien behaupten.']}
     ], sources:[{label:'Xbox Wire – Hands-on und Formauswahl',url:xboxHandsOn}]
   },
   {
     lang:'de', slug:'slice-aberrant-form', englishPath:'/guides/slice-aberrant-form/',
-    title:'Slice in Control Resonant: zwei Aberrant-Klingen erklärt',
-    description:'Slice nutzt zwei Klingen als Primärform. Hier stehen bestätigte Aufgaben, sinnvolle Ergänzungen und klar markierte Informationsgrenzen.',
-    label:'Waffenform', answer:'Slice ist eine Primärform, bei der Dylan zwei kurze Klingen führt. Im Xbox-Wire-Hands-on wurde Slice wegen ihres Nahkampfschadens gewählt und später mit der weitreichenden Sekundärform Extend kombiniert.',
+    title:'Slice in Control Resonant: Axt und Rückenbonus',
+    description:'Slice ist die Axt-Primärform für hohen Einzelschaden mit Bonus von hinten; Rolle, Ergänzungen und Grenzen.',
+    label:'Waffenform', answer:'Slice ist eine Axt-Primärform mit hohem Schaden gegen ein einzelnes Ziel und zusätzlichem Schaden von hinten. Im Hands-on wurde sie später mit der weitreichenden Sekundärform Extend kombiniert.',
     sections:[
-      {heading:'Direkte Beobachtung aus dem Hands-on',paragraphs:['Die Vorschau bezeichnet Slice als Dual-Blade-Option unter den drei ersten Primärformen. Sie steuert das Haupt-Moveset und wurde als nahe Schadensquelle eingesetzt. Das ist eine beobachtete Rolle, keine Bestätigung für kritische Treffer, Blutung oder einen bestimmten Status-Effekt.','Wie früh Slice dauerhaft verfügbar ist und welche Alternativknoten ihr Upgrade-Baum besitzt, bleibt offen. Die Vorabwahl belegt nur, dass die Form spielbar und kombinierbar war.']},
+      {heading:'Direkte Beobachtung aus dem Hands-on',paragraphs:['Die Vorschau bezeichnet Slice als Axt mit hohem Einzelschaden und Bonus bei Angriffen von hinten. Sie steuert das Haupt-Moveset. Das ist eine beobachtete Rolle, keine Bestätigung für Blutung, garantierte kritische Treffer oder einen Status-Effekt.','Wie früh Slice dauerhaft verfügbar ist und welche Alternativknoten ihr Upgrade-Baum besitzt, bleibt offen. Die Vorabwahl belegt nur, dass die Form spielbar und kombinierbar war.']},
       {heading:'Warum Extend dazu passte',paragraphs:['Der Redakteur wählte Extend ausdrücklich, um Slices kurze Reichweite zu ergänzen. Das zeigt den Zweck des Systems: Primär- und Sekundärform sollen unterschiedliche Aufgaben in einem Loadout abdecken.','Eine andere Lösung wäre Barrage als Fernoption oder Shield für sichere Annäherung. Crush könnte stattdessen langsame schwere Treffer liefern, würde aber die Reichweitenlücke nicht auf dieselbe Weise schließen.']},
       {heading:'Vorläufige Build-Regel',paragraphs:['Beurteile Slice zunächst nach Spielgefühl und Abdeckung, nicht nach einer vorab erfundenen Tier-Liste. Erst finale Gegner, Ressourcenwerte und Talent-Synergien zeigen, ob die Form eher für einzelne Ziele, Gruppen oder Ausführungen optimal ist.']}
     ], sources:[{label:'Xbox Wire – Slice und Extend im Hands-on',url:xboxHandsOn}]
@@ -373,39 +374,39 @@ localizedPages.push(
     label:'Aberrant', answer:'Aberrant est l’arme de mêlée métamorphe de Dylan. Flurry, Slash et Slice sont proposées comme formes primaires; Crush, Drill et Extend comme formes secondaires. Une troisième sélection distincte sert aux Combo Enders.',
     sections:[
       {heading:'Trois couches dans un même arsenal',paragraphs:['La forme primaire détermine la chaîne d’attaques de base. La forme secondaire fournit les actions lourdes ou chargées, tandis que le Combo Ender ajoute une finition choisie séparément. Le joueur peut donc combiner vitesse, portée et fonction sans adopter un seul paquet d’armes figé.','La démo presse montrait ces choix successifs, mais pas tous les coûts, nœuds ou moyens de réinitialisation. Le guide décrit les rôles observés et n’invente pas de dégâts finaux.']},
-      {heading:'Les six formes confirmées',paragraphs:['Flurry emploie des poings rapides, Slash une lame unique et Slice deux lames. Crush est un énorme maillet lent, Drill maintient des dégâts dirigés et Extend utilise un bâton-chaîne de plus grande portée.','Ces fonctions viennent d’une version de présentation. Elles ne suffisent pas à produire un classement de puissance: Talents, Artefacts, améliorations et rencontres finales modifieront leur valeur.']},
+      {heading:'Les six formes confirmées',paragraphs:['Flurry emploie deux dagues rapides avec chances de critique accrues, Slash une faux aux larges balayages contre les groupes et Slice une hache à forts dégâts ciblés avec bonus dans le dos. Crush est un énorme maillet lent, Drill maintient des dégâts dirigés et Extend utilise un bâton-chaîne de plus grande portée.','Ces fonctions viennent d’une version de présentation. Elles ne suffisent pas à produire un classement de puissance: Talents, Artefacts, améliorations et rencontres finales modifieront leur valeur.']},
       {heading:'Construire sans fausse méta',paragraphs:['Une forme secondaire peut corriger la faiblesse de la primaire: Extend complète par exemple la courte portée de Slice. Avant la sortie, il est plus solide de couvrir une fonction manquante que de suivre un prétendu meilleur build.']}
     ], sources:[{label:'Xbox Wire – prise en main d’Aberrant',url:xboxHandsOn},{label:'PlayStation Blog – systèmes de combat',url:combat}]
   },
   {
     lang:'fr', slug:'flurry-forme-aberrant', englishPath:'/guides/flurry-aberrant-form/',
-    title:'Flurry dans Control Resonant : forme rapide d’Aberrant',
-    description:'Flurry utilise des poings rapides comme forme primaire; rôle confirmé, associations possibles et valeurs encore inconnues.',
-    label:'Forme d’arme', answer:'Flurry est l’une des trois premières formes primaires proposées dans la démo. Ses coups de poing rapides conviennent à une pression rapprochée et au cycle où les touches de mêlée restaurent la ressource des capacités.',
+    title:'Flurry dans Control Resonant : doubles dagues rapides',
+    description:'Flurry utilise deux dagues rapides à courte portée avec chances de critique accrues; rôle et valeurs inconnues.',
+    label:'Forme d’arme', answer:'Flurry est l’une des trois premières formes primaires proposées. Elle utilise deux dagues rapides à courte portée et bénéficie, selon Xbox Wire, de chances de coup critique accrues.',
     sections:[
-      {heading:'Rôle confirmé',paragraphs:['Xbox Wire décrit Flurry comme une paire de poings rapides. Parce qu’il s’agit d’une forme primaire, elle façonne surtout les attaques normales; la forme secondaire et le finisher se choisissent ailleurs.','Le nombre de coups, l’allonge, l’interruption et la ressource rendue par impact ne sont pas publiés. Aucun de ces chiffres ne doit être déduit de la vidéo.']},
+      {heading:'Rôle confirmé',paragraphs:['Xbox Wire décrit Flurry comme deux dagues rapides avec chances de critique accrues. Parce qu’il s’agit d’une forme primaire, elle façonne surtout les attaques normales; la forme secondaire et le finisher se choisissent ailleurs.','Le nombre de coups, l’allonge exacte, le pourcentage critique et la ressource rendue par impact ne sont pas publiés. Aucun de ces chiffres ne doit être déduit de la vidéo.']},
       {heading:'Compenser la courte portée',paragraphs:['Extend peut apporter une action plus lointaine, Crush une frappe lourde et Drill une pression maintenue. Barrage fournit aussi une attaque à distance, tandis que Shield sécurise l’engagement.','Ces associations répondent à des fonctions visibles. Elles ne constituent pas encore une liste de builds optimisés, car les arbres d’amélioration restent incomplets.']},
       {heading:'Ce qui décidera de sa valeur',paragraphs:['Les Talents, effets de statut et variantes de forme peuvent transformer Flurry. Les tests de la version finale devront mesurer sa stabilité contre groupes, armures et boss avant tout classement.']}
     ], sources:[{label:'Xbox Wire – choix des formes primaires',url:xboxHandsOn},{label:'PlayStation Blog – boucle de momentum',url:combat}]
   },
   {
     lang:'fr', slug:'slash-forme-aberrant', englishPath:'/guides/slash-aberrant-form/',
-    title:'Slash dans Control Resonant : lame primaire d’Aberrant',
-    description:'Slash emploie une lame unique pour le jeu de base; voici sa place exacte et les différences à ne pas inventer face à Slice.',
-    label:'Forme d’arme', answer:'Slash est une forme primaire d’Aberrant utilisant une lame unique. Elle définit le jeu d’attaques de base, alors que les attaques secondaires et les Combo Enders proviennent de choix séparés.',
+    title:'Slash dans Control Resonant : faux contre les groupes',
+    description:'Slash est la forme primaire à faux et larges balayages contre les groupes; place exacte et limites avant sortie.',
+    label:'Forme d’arme', answer:'Slash est une forme primaire utilisant une faux aux larges balayages, décrite par Xbox Wire comme adaptée aux groupes. Les attaques secondaires et Combo Enders proviennent de choix séparés.',
     sections:[
-      {heading:'Ce que le choix fixe',paragraphs:['Slash apparaissait avec Flurry et Slice dans le premier groupe de la démo. Cette position confirme son rôle de moveset principal, mais pas des dégâts supérieurs, une meilleure portée ou un effet de saignement.','Les fenêtres d’annulation, propriétés défensives et effets de statut n’ont pas été détaillés. Les animations d’une bande-annonce ne remplacent pas les données de jeu.']},
+      {heading:'Ce que le choix fixe',paragraphs:['Slash apparaissait avec Flurry et Slice dans le premier groupe. Ses larges coups de faux confirment une fonction de couverture de groupe, mais pas une valeur de dégâts, une portée exacte ou un effet de saignement.','Les fenêtres d’annulation, limites de cibles et effets de statut n’ont pas été détaillés. Les animations d’une bande-annonce ne remplacent pas les données de jeu.']},
       {heading:'Compléter Slash',paragraphs:['Crush peut ajouter du poids, Drill des dégâts maintenus et Extend davantage de portée. Côté capacités, Barrage traite la distance, Seekers crée une pression parallèle et Shield protège l’approche.','Le meilleur complément dépendra des ennemis et des Talents. La structure est confirmée; la hiérarchie ne l’est pas.']},
-      {heading:'Slash n’est pas Slice',paragraphs:['Les deux noms proches désignent deux formes distinctes. Slash est la lame unique; Slice la paire de lames. Les futures pages de statistiques devront conserver cette séparation.']}
+      {heading:'Slash n’est pas Slice',paragraphs:['Les deux noms proches désignent deux formes distinctes. Slash est la faux orientée groupe; Slice la hache à dégâts ciblés et bonus dans le dos. Les futures pages de statistiques devront conserver cette séparation.']}
     ], sources:[{label:'Xbox Wire – formes primaires',url:xboxHandsOn}]
   },
   {
     lang:'fr', slug:'slice-forme-aberrant', englishPath:'/guides/slice-aberrant-form/',
-    title:'Slice dans Control Resonant : deux lames d’Aberrant',
-    description:'Slice est la forme primaire à deux lames; rôle observé, association documentée avec Extend et limites avant lancement.',
-    label:'Forme d’arme', answer:'Slice fait manier à Dylan deux lames courtes. Dans la prise en main Xbox Wire, le journaliste l’a choisie pour les dégâts rapprochés puis a sélectionné Extend afin de couvrir une portée plus grande.',
+    title:'Slice dans Control Resonant : hache et bonus de dos',
+    description:'Slice est la forme primaire à hache, forte contre une cible et bonifiée dans le dos; association avec Extend et limites.',
+    label:'Forme d’arme', answer:'Slice est une forme primaire en hache à forts dégâts sur une cible, avec dégâts bonus dans le dos. La prise en main l’a associée à Extend afin de couvrir une portée plus grande.',
     sections:[
-      {heading:'Observation vérifiable',paragraphs:['La démo présente Slice comme l’option dual blades parmi les trois formes primaires. Elle gouverne donc le moveset principal. Rien ne confirme cependant des critiques garantis, un saignement ou un statut particulier.','Son ordre de déblocage définitif et les branches de son arbre restent inconnus. La session prouve la fonction et la combinaison, pas la balance finale.']},
+      {heading:'Observation vérifiable',paragraphs:['La démo présente Slice comme une hache à forts dégâts ciblés avec bonus dans le dos. Elle gouverne le moveset principal. Rien ne confirme cependant un saignement, des critiques garantis ou un statut particulier.','Son ordre de déblocage définitif et les branches de son arbre restent inconnus. La session prouve la fonction et la combinaison, pas la balance finale.']},
       {heading:'Pourquoi Extend la complète',paragraphs:['Le choix d’Extend était explicitement destiné à compenser la courte portée de Slice. C’est un exemple concret de la philosophie du système: deux formes couvrent des besoins différents dans un même équipement.','Barrage pourrait remplir la distance par une capacité; Shield favoriser l’entrée au contact. Crush ajouterait des impacts lourds sans résoudre de la même manière la portée.']},
       {heading:'Conseil avant sortie',paragraphs:['Évaluez d’abord Slice selon le confort et les fonctions couvertes. Les ennemis, ressources et synergies de Talents de la version commerciale détermineront ensuite sa spécialisation réelle.']}
     ], sources:[{label:'Xbox Wire – combinaison Slice et Extend',url:xboxHandsOn}]
@@ -500,7 +501,7 @@ localizedPages.push(
   }
 );
 
-localizedPages.push(...localizedExpansion);
+localizedPages.push(...localizedExpansion, ...localizedExpansionV11);
 
 export const localeHome = {
   de: { path:'/de/', title:'Control Resonant Guide auf Deutsch', description:'Deutscher Guide zu Control Resonant: Release, PC-Anforderungen, Plattformen, Kampf, Story, Sprachen und bestätigte Fakten.', label:'Inoffizieller deutscher Field Guide', heading:'CONTROL RESONANT', intro:'Der deutschsprachige Einstieg zu Remedys Action-RPG: geprüfte Informationen aus offiziellen Quellen, klare Hinweise auf noch offene Details und direkte Wege zu den wichtigsten Kauf- und Spielthemen.', guides:'Deutsche Guides', answer:'Control Resonant erscheint am 24. September 2026 für PS5, Xbox Series X|S und PC. Dylan Faden führt durch ein verzerrtes Manhattan; das Spiel setzt auf Nahkampf, Aberrant-Waffenformen, Instinct-Kräfte und anpassbare Builds.', sourceNote:'Alle Aussagen werden mit offiziellen Quellen belegt. Da das Spiel noch nicht erschienen ist, kennzeichnen wir offene Angaben und aktualisieren Seiten bei neuen Ankündigungen.' },

@@ -67,14 +67,22 @@ Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 - Added a spoiler-controlled page for the tentatively named Dancer Resonant while keeping it separate from the large head-shaped Resonant Entity shown in the later media demo.
 - Continued to withhold unpublished boss stats, reward assignments, phase lists, quest names, drops, map coordinates, and final build rankings.
 
+## Round nine progress — German/French world and lore parity
+
+- Added 16 approved localized URLs, taking the verified sitemap from 281 to 297 and expanding both German and French from 41 to 49 detail pages.
+- Built reciprocal English/German/French groups for the opening sequence, seven-year timeline, Casper Darling, The Board, Hiss versus the Resonant AWE, Resonant bosses, the FBC Field Office, and the return to the Oldest House.
+- Reused the English detail-page component so every new localized page has the same breadcrumb, verification badge, direct answer, section hierarchy, official-source card, related-guide grid, language dropdown, responsive styling, and eligible News/FAQ modules.
+- Corrected stale German and French descriptions of the three starting Aberrant forms against the official Xbox hands-on: Flurry is the fast twin-dagger/critical option, Slash the wide group-focused scythe, and Slice the single-target axe with a back-attack bonus.
+- Kept unsupported mission names, map markers, faction rules, boss phases, relationship outcomes, and character endings out of the sitemap.
+
 ## 1,000-page pre-release milestone
 
-The immediate target is 1,000 approved sitemap URLs before September 24, while 2,000 remains post-release capacity. The site should not force the missing 793 pages from the current 207-URL state out of six official previews.
+The immediate target is 1,000 approved sitemap URLs before September 24, while 2,000 remains post-release capacity. The site should not force the remaining 703 pages from the current 297-URL state out of a limited set of official previews.
 
 | Gate | Timing | Approved URL range | What can safely unlock the range |
 | --- | --- | ---: | --- |
-| Current official-evidence phase | July 25–August 15 | 211–280 | Named entities, platform updates, localized high-intent pages, official trailers and store changes |
-| Preview/review-evidence phase | August 16–September 7 | 280–500 | Attributable previews with named quests, locations, enemies, items, controls and tested system detail |
+| Current official-evidence phase | July 25–August 15 | 211–320 | Named entities, platform updates, localized high-intent pages, official trailers and store changes |
+| Preview/review-evidence phase | August 16–September 7 | 320–500 | Attributable previews with named quests, locations, enemies, items, controls and tested system detail |
 | Preload/review-access sprint | September 8–23 | 500–1,000 | Verified play data, screenshots, objectives, rewards, stats, puzzle states and troubleshooting evidence |
 | Launch completion | September 24 onward | 1,000–2,000 | Full-game quests, collectibles, builds, endings, patches and query-led support |
 
