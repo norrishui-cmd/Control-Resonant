@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsModule from './NewsModule.astro';
+import FaqModule from './FaqModule.astro';
+import { localizedPages } from '../data/localized';
+
+const { lang } = Astro.props as { lang:'de'|'fr' };
+const pages = localizedPages.filter(page => page.lang === lang);
+const groups = [...new Set(pages.map(page => page.label))].map(label => ({
+  label,
+  pages: pages.filter(page => page.label === label),
+}));
+const copy = lang === 'de' ? {
+  eyebrow:'Feldhandbuch', title:'Control Resonant Guides',
+  description:'Alle deutschsprachigen Control-Resonant-Guides an einem Ort: Kaufberatung, Plattformen, Kampf, Builds, Charaktere und Erkundung.',
+  intro:'Geprüfte Vorab-Guides zu Remedys Action-RPG. Jede Seite beantwortet eine konkrete Frage, trennt bestätigte Fakten von offenen Details und verweist auf offizielle Quellen.',
+  browse:'Themen durchsuchen', files:'Guides', home:'Startseite',
+} : {
+  eyebrow:'Manuel de terrain', title:'Guides de Control Resonant',
+  description:'Tous les guides français de Control Resonant : achat, plateformes, combat, builds, personnages et exploration.',
+  intro:'Des guides vérifiés avant la sortie de l’action-RPG de Remedy. Chaque page répond à une question précise, sépare les faits des inconnues et cite des sources officielles.',
+  browse:'Explorer les thèmes', files:'guides', home:'Accueil',
+};
+const path = `/${lang}/guides/`;
+const jsonLd = {'@context':'https://schema.org','@graph':[
+  {'@type':'CollectionPage',name:copy.title,description:copy.description,url:`https://controlresonant.wiki${path}`,inLanguage:lang,mainEntity:{'@type':'ItemList',numberOfItems:pages.length,itemListElement:pages.map((page,index)=>({'@type':'ListItem',position:index+1,name:page.title,url:`https://controlresonant.wiki/${lang}/${page.slug}/`}))}},
+  {'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:copy.home,item:`https://controlresonant.wiki/${lang}/`},{'@type':'ListItem',position:2,name:copy.title,item:`https://controlresonant.wiki${path}`}]}
+]};
+const idFor = (label:string) => label.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+---
+<BaseLayout lang={lang} title={`${copy.title} | Field Guide`} description={copy.description} canonicalPath={path} jsonLd={jsonLd}>
+  <section class="border-b border-ash-700">
+    <div class="wrap py-14">
+      <nav class="mb-5 font-mono text-[0.66rem] uppercase tracking-[0.16em] text-ash-400" aria-label="Breadcrumb">
+        <a href={`/${lang}/`} class="hover:text-bone">{copy.home}</a><span class="mx-2 text-ash-600">/</span>{copy.title}
+      </nav>
+      <p class="eyebrow">{copy.eyebrow}</p>
+      <h1 class="mt-3 font-display text-3xl font-bold text-bone sm:text-4xl">{copy.title}</h1>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-bone-dim">{copy.intro}</p>
+    </div>
+  </section>
+  <div class="wrap py-12">
+    <nav class="mb-12 border border-ash-700 bg-ash-900/30 p-5" aria-label={copy.browse}>
+      <p class="eyebrow">{copy.browse}</p>
+      <div class="mt-4 flex flex-wrap gap-2">
+        {groups.map(group => <a href={`#${idFor(group.label)}`} class="border border-ash-700 px-3 py-2 font-mono text-[0.68rem] uppercase tracking-[0.12em] text-ash-300 transition-colors hover:border-resonant hover:text-bone">{group.label} · {group.pages.length}</a>)}
+      </div>
+    </nav>
+    {groups.map(group => <section id={idFor(group.label)} class="mb-12 scroll-mt-24">
+      <div class="mb-5 flex items-center gap-3"><h2 class="font-display text-xl font-bold text-bone">{group.label}</h2><span class="h-px flex-1 bg-ash-700"></span><span class="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-ash-500">{group.pages.length} {copy.files}</span></div>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {group.pages.map(page => <a href={`/${lang}/${page.slug}/`} class="group border border-ash-700 bg-ash-900/35 p-5 transition hover:border-resonant">
+          <p class="eyebrow">{page.label}</p><h3 class="mt-2 font-display text-lg font-semibold text-bone group-hover:text-resonant">{page.title}</h3><p class="mt-3 text-sm leading-relaxed text-ash-300">{page.description}</p>
+        </a>)}
+      </div>
+    </section>)}
+  </div>
+  <NewsModule tab="guides" lang={lang} />
+  <FaqModule tab="guides" lang={lang} />
+</BaseLayout>

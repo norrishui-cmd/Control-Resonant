@@ -60,6 +60,9 @@ Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 
 - Added 25 approved URLs, increasing the verified sitemap count from 234 to 259: 12 German combat pages, 12 French combat pages, and one English boss evidence page.
 - Expanded both localized clusters from 19 to 31 detail URLs with locally written pages for the six named Aberrant forms, the Combo Ender layer, Barrage, Seekers, Shield, and the three Combat Ability slots.
+- Added 22 approved localized URLs in the next sprint: 10 German details, 10 French details, and one Guides hub per language, taking the target sitemap count from 259 to 281.
+- Expanded both localized clusters from 31 to 41 detail URLs across multiplayer, series entry, Talents, Artifacts, movement, puzzles, activities, Xbox Play Anywhere, and Steam Deck status. Two overlapping topics per language were merged into existing canonical pages instead of creating duplicate routes.
+- Standardized German and French pages on the English visual system: seven-tab navigation, breadcrumb, verification badge, direct-answer panel, article sections, official-source card, related-guide grid, News/FAQ modules where relevant, and mobile language dropdown.
 - Preserved page-level English/German/French alternates so every new localized route points to the established English intent instead of creating disconnected translation islands.
 - Added a spoiler-controlled page for the tentatively named Dancer Resonant while keeping it separate from the large head-shaped Resonant Entity shown in the later media demo.
 - Continued to withhold unpublished boss stats, reward assignments, phase lists, quest names, drops, map coordinates, and final build rankings.

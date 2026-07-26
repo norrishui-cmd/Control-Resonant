@@ -45,9 +45,9 @@ The July 25 evidence refresh corrects New Game Plus carry-over, the PS5 nine-fea
 
 The `/database/` live intelligence index tracks 47 confirmed or explicitly unresolved game properties across characters, equipment, gameplay systems, threats, locations, returning figures, and availability. The English guide collection contains 101 evidence-backed articles. The latest English page separates the tentatively named Dancer from the different head-shaped Resonant Entity shown in the later hands-on. Unnamed entities and unsupported quests, drops or coordinates are deliberately not assigned fabricated pages.
 
-German and French now each contain 31 localized detail pages plus a fully translated 23-record database at `/de/datenbank/` and `/fr/base-de-donnees/`. The newest 12 pages per language form a complete combat cluster for the six named Aberrant forms, Combo Enders, Barrage, Seekers, Shield, and the three Combat Ability slots. Desktop and mobile navigation use one accessible language dropdown with page-level EN/DE/FR alternate destinations.
+German and French now each contain 41 localized detail pages, a dedicated Guides hub, and a fully translated 23-record database at `/de/datenbank/` and `/fr/base-de-donnees/`. The newest 10 pages per language cover multiplayer status, series entry, progression, exploration, Xbox Play Anywhere, and Steam Deck status. Localized guide pages now use the same visual hierarchy and modules as English, while desktop and mobile navigation expose the same seven primary tabs plus one accessible language dropdown.
 
-The current production build generates 264 HTML files, with 259 canonical quality-approved URLs in the sitemap. `SEO_PLAN_2000_URLS.md` keeps the gated path toward the 1,000-page pre-release milestone; later quest, item, boss and map batches remain blocked until attributable preview or final-game evidence exists.
+The current production build targets 286 HTML files, with 281 canonical quality-approved URLs in the sitemap. `SEO_PLAN_2000_URLS.md` keeps the gated path toward the 1,000-page pre-release milestone; later quest, item, boss and map batches remain blocked until attributable preview or final-game evidence exists.
 
 ## Add a new guide
 

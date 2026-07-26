@@ -151,7 +151,28 @@ for (const [lang, databaseRoute, languageName, ariaName] of [
     const route = page.replace(root, '/').replace(/index\.html$/, '');
     return route.startsWith(`/${lang}/`) && route !== `/${lang}/` && route !== databaseRoute;
   });
-  if (localizedDetails.length !== 31) errors.push(`/${lang}/: expected 31 localized detail URLs, found ${localizedDetails.length}`);
+  if (localizedDetails.length !== 42) errors.push(`/${lang}/: expected 42 localized routes (41 details + guides hub), found ${localizedDetails.length}`);
+  const localizedGuideDetails = localizedDetails.filter(page => !page.endsWith('/guides/index.html'));
+  for (const page of localizedGuideDetails) {
+    const html = await readFile(page, 'utf8');
+    const route = page.replace(root, '/').replace(/index\.html$/, '');
+    const visibleText = html.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ');
+    const words = visibleText.split(/\s+/).filter(Boolean).length;
+    if (words < 220) errors.push(`${route}: localized guide has only ${words} visible words (minimum 220)`);
+    if (!html.includes('border-l-4 border-clearance') || !html.includes('aria-labelledby="sources-heading"') || !html.includes('aria-labelledby="related-heading"')) {
+      errors.push(`${route}: localized page is missing English-layout content modules`);
+    }
+  }
+  const guidesRoute = `/${lang}/guides/`;
+  const guidesHub = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === guidesRoute);
+  if (!guidesHub) errors.push(`${guidesRoute}: localized Guides hub missing`);
+  else {
+    const html = await readFile(guidesHub, 'utf8');
+    const databasePath = lang === 'de' ? '/de/datenbank/' : '/fr/base-de-donnees/';
+    const localizedLinks = new Set([...html.matchAll(new RegExp(`href="(/${lang}/[^"#]+/)"`, 'g'))].map(match => match[1]).filter(link => link !== `/${lang}/` && link !== guidesRoute && link !== databasePath));
+    if (localizedLinks.size !== 41) errors.push(`${guidesRoute}: expected links to 41 localized details, found ${localizedLinks.size}`);
+    if (!html.includes('"@type":"CollectionPage"') || !html.includes('"@type":"ItemList"')) errors.push(`${guidesRoute}: missing CollectionPage/ItemList schema`);
+  }
   const localizedDatabase = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === databaseRoute);
   if (!localizedDatabase) errors.push(`${databaseRoute}: localized database missing`);
   else {
@@ -165,6 +186,11 @@ for (const [lang, databaseRoute, languageName, ariaName] of [
   if (homeFile) {
     const html = await readFile(homeFile, 'utf8');
     if (!html.includes(`aria-label="${ariaName}"`) || !html.includes(`>${languageName}<`)) errors.push(`/${lang}/: navigation language dropdown missing current locale`);
+    for (const navHref of lang === 'de'
+      ? ['/de/erscheinungsdatum/','/de/guides/','/de/datenbank/','/de/charaktere-und-story/','/de/plattformen/','/faq/']
+      : ['/fr/date-de-sortie/','/fr/guides/','/fr/base-de-donnees/','/fr/personnages-et-histoire/','/fr/plateformes/','/faq/']) {
+      if (!html.includes(`href="${navHref}"`)) errors.push(`/${lang}/: English-parity navigation missing ${navHref}`);
+    }
   }
 }
 

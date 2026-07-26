@@ -5,6 +5,7 @@ export interface LocalizedPage {
   lang: 'de' | 'fr'; slug: string; englishPath: string; title: string; description: string;
   label: string; answer: string; sections: LocalizedSection[]; sources: { label: string; url: string }[];
 }
+import { localizedExpansion } from './localizedExpansion.ts';
 
 const steam = 'https://store.steampowered.com/app/3669870/CONTROL_Resonant/';
 const remedy = 'https://www.remedygames.com/article/control-resonant-launches-worldwide-on-september-24';
@@ -499,6 +500,8 @@ localizedPages.push(
   }
 );
 
+localizedPages.push(...localizedExpansion);
+
 export const localeHome = {
   de: { path:'/de/', title:'Control Resonant Guide auf Deutsch', description:'Deutscher Guide zu Control Resonant: Release, PC-Anforderungen, Plattformen, Kampf, Story, Sprachen und bestätigte Fakten.', label:'Inoffizieller deutscher Field Guide', heading:'CONTROL RESONANT', intro:'Der deutschsprachige Einstieg zu Remedys Action-RPG: geprüfte Informationen aus offiziellen Quellen, klare Hinweise auf noch offene Details und direkte Wege zu den wichtigsten Kauf- und Spielthemen.', guides:'Deutsche Guides', answer:'Control Resonant erscheint am 24. September 2026 für PS5, Xbox Series X|S und PC. Dylan Faden führt durch ein verzerrtes Manhattan; das Spiel setzt auf Nahkampf, Aberrant-Waffenformen, Instinct-Kräfte und anpassbare Builds.', sourceNote:'Alle Aussagen werden mit offiziellen Quellen belegt. Da das Spiel noch nicht erschienen ist, kennzeichnen wir offene Angaben und aktualisieren Seiten bei neuen Ankündigungen.' },
   fr: { path:'/fr/', title:'Guide français de Control Resonant', description:'Guide français de Control Resonant : sortie, configuration PC, plateformes, combat, histoire, langues et informations confirmées.', label:'Guide de terrain français non officiel', heading:'CONTROL RESONANT', intro:'Le point de départ francophone pour l’action-RPG de Remedy : des faits vérifiés dans les sources officielles, des limites clairement indiquées et un accès direct aux sujets essentiels avant l’achat.', guides:'Guides en français', answer:'Control Resonant sortira le 24 septembre 2026 sur PS5, Xbox Series X|S et PC. Dylan Faden explore un Manhattan déformé avec Aberrant, des pouvoirs Instinct et un système de builds orienté action au corps à corps.', sourceNote:'Chaque affirmation repose sur une source officielle. Le jeu n’étant pas encore disponible, nous signalons les informations manquantes et mettons les pages à jour après les annonces.' }
@@ -512,6 +515,7 @@ export function pathFor(page: LocalizedPage, lang: Locale) {
 
 export function alternatesFor(pathname: string) {
   if (pathname === '/' || pathname === '/de/' || pathname === '/fr/') return { en:'/', de:'/de/', fr:'/fr/' };
+  if (pathname === '/guides/' || pathname === '/de/guides/' || pathname === '/fr/guides/') return { en:'/guides/', de:'/de/guides/', fr:'/fr/guides/' };
   if (pathname === '/database/' || pathname === '/de/datenbank/' || pathname === '/fr/base-de-donnees/') return { en:'/database/', de:'/de/datenbank/', fr:'/fr/base-de-donnees/' };
   const current = localizedPages.find((p) => p.englishPath === pathname || `/${p.lang}/${p.slug}/` === pathname);
   return current ? { en:current.englishPath, de:pathFor(current,'de'), fr:pathFor(current,'fr') } : null;
