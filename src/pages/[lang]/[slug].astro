@@ -6,6 +6,7 @@ import FaqModule from '../../components/FaqModule.astro';
 import { addedLocales, type LocaleProfile } from '../../data/officialLocales';
 import { officialLocaleGuidesV14, officialLocaleGuideUiV14 } from '../../data/officialLocaleGuidesV14';
 import type { OfficialLocaleGuide } from '../../data/officialLocaleGuidesV13';
+import { tabsForContent } from '../../data/contentTabs';
 export function getStaticPaths() {
   return [
     ...localizedPages.map(page => ({params:{lang:page.lang,slug:page.slug},props:{page,profile:null}})),
@@ -48,7 +49,7 @@ const words = page.lang === 'de'
   ? {home:'Accueil', guides:'Guides', short:'Réponse courte', sources:'Sources officielles', related:'Guides associés', updated:'Dernière vérification le 26 juillet 2026', back:'Retour à tous les guides', note:'Les détails de Control Resonant peuvent évoluer avant la sortie. Les informations sensibles au temps sont vérifiées dans les sources officielles.'}
   : {home:profile!.nav.home, guides:profile!.nav.guides, short:addedUi?.short ?? profile!.shortLabel, sources:addedUi?.sources ?? 'Official sources', related:addedUi?.related ?? profile!.nav.guides, updated:addedUi?.updated ?? 'Official language matrix checked July 26, 2026', back:addedUi?.back ?? profile!.nav.home, note:addedUi?.note ?? profile!.sourceNote};
 const canonicalPath = `/${pathLang}/${page.slug}/`;
-const newsTab = page.englishPath === '/release-date/' ? 'release' : page.englishPath === '/guides/characters-and-story/' ? 'characters' : page.englishPath === '/guides/platforms-and-performance/' || page.englishPath === '/guides/system-requirements/' || page.englishPath === '/guides/language-support/' ? 'platforms' : page.englishPath === '/guides/combat-and-build-systems-explained/' ? 'guides' : null;
+const contentTabs = tabsForContent(page.englishPath, page.label);
 const jsonLd = {'@context':'https://schema.org','@graph':[{'@type':'Article',headline:page.title,description:page.description,inLanguage:page.lang,mainEntityOfPage:`https://controlresonant.wiki${canonicalPath}`},{'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:words.home,item:`https://controlresonant.wiki/${pathLang}/`},{'@type':'ListItem',position:2,name:page.title,item:`https://controlresonant.wiki${canonicalPath}`}]}]};
 ---
 <BaseLayout lang={page.lang} title={`${page.title} | Field Guide`} description={page.description} canonicalPath={canonicalPath} jsonLd={jsonLd}>
@@ -60,6 +61,6 @@ const jsonLd = {'@context':'https://schema.org','@graph':[{'@type':'Article',hea
     <nav class="mt-10 max-w-[44rem]" aria-labelledby="related-heading"><h2 id="related-heading" class="font-display text-lg font-semibold text-bone">{words.related}</h2><ul class="mt-3 grid gap-2 sm:grid-cols-2">{isAdded && addedRelated.length ? addedRelated.map(p => <li><a href={`/${pathLang}/${p.slug}/`} class="block border border-ash-700 p-3 text-sm text-bone-dim transition-colors hover:border-resonant hover:text-bone">{p.title}</a></li>) : isAdded ? <><li><a href="/guides/language-support/" class="block border border-ash-700 p-3 text-sm text-bone-dim transition-colors hover:border-resonant hover:text-bone">All 15 official languages</a></li><li><a href="/guides/platforms-and-performance/" class="block border border-ash-700 p-3 text-sm text-bone-dim transition-colors hover:border-resonant hover:text-bone">{profile!.nav.platforms}</a></li><li><a href="/faq/" class="block border border-ash-700 p-3 text-sm text-bone-dim transition-colors hover:border-resonant hover:text-bone">{profile!.nav.faq}</a></li><li><a href="/news/" class="block border border-ash-700 p-3 text-sm text-bone-dim transition-colors hover:border-resonant hover:text-bone">News</a></li></> : fallbackRelated.map(p => <li><a href={pathFor(p,page.lang)} class="block border border-ash-700 p-3 text-sm text-bone-dim transition-colors hover:border-resonant hover:text-bone">{p.title}</a></li>)}</ul></nav>
     <div class="mt-12 max-w-[44rem] border-t border-ash-800 pt-6"><p class="text-xs leading-relaxed text-ash-400">{words.note}</p><a href={isAdded && addedUi ? `/${pathLang}/guides/` : isAdded ? `/${pathLang}/` : `/${page.lang}/guides/`} class="mt-4 inline-block font-mono text-xs uppercase tracking-[.16em] text-resonant hover:text-hiss">← {words.back}</a></div></div>
   </article>
-  {newsTab && <NewsModule tab={newsTab} lang={page.lang} />}
-  {newsTab && <FaqModule tab={newsTab} lang={page.lang} />}
+  <NewsModule tab={contentTabs.news} lang={page.lang} />
+  <FaqModule tab={contentTabs.faq} lang={page.lang} />
 </BaseLayout>

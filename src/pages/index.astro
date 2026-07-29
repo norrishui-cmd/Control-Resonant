@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Countdown from '../components/Countdown.astro';
 import GuideCard from '../components/GuideCard.astro';
+import NewsModule from '../components/NewsModule.astro';
+import FaqModule from '../components/FaqModule.astro';
 
 const guides = (await getCollection('guides')).sort(
   (a, b) => a.data.order - b.data.order,
@@ -207,4 +209,6 @@ const jsonLd = {
       </p>
     </div>
   </section>
+  <NewsModule tab="guides" />
+  <FaqModule tab="guides" />
 </BaseLayout>

@@ -3,6 +3,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { localeHome, localizedPages } from '../../data/localized';
 import { addedLocales, addedLocaleByPath, type LocaleProfile } from '../../data/officialLocales';
 import { officialLocaleGuidesV14 } from '../../data/officialLocaleGuidesV14';
+import NewsModule from '../../components/NewsModule.astro';
+import FaqModule from '../../components/FaqModule.astro';
 
 export function getStaticPaths() {
   return [
@@ -43,9 +45,11 @@ const jsonLd = {'@context':'https://schema.org','@type':'WebSite',name:home.titl
         {addedPages.map(page => <a href={`/${pathLang}/${page.slug}/`} class="group border border-ash-700 bg-ash-900/35 p-5 transition hover:border-resonant"><p class="eyebrow">{page.label}</p><h3 class="mt-2 font-display text-lg font-semibold text-bone group-hover:text-resonant">{page.title}</h3><p class="mt-3 text-sm leading-relaxed text-ash-300">{page.description}</p></a>)}
         <a href={`/${pathLang}/language-support/`} class="group border border-ash-700 bg-ash-900/35 p-5 transition hover:border-resonant"><p class="eyebrow">{profile!.nav.language}</p><h3 class="mt-2 font-display text-lg font-semibold text-bone group-hover:text-resonant">{profile!.supportTitle}</h3><p class="mt-3 text-sm leading-relaxed text-ash-300">{profile!.supportDescription}</p></a>
         {!addedPages.length && <a href="/release-date/" class="group border border-ash-700 bg-ash-900/35 p-5 transition hover:border-resonant"><p class="eyebrow">{profile!.nav.release}</p><h3 class="mt-2 font-display text-lg font-semibold text-bone group-hover:text-resonant">CONTROL Resonant — September 24, 2026</h3><p class="mt-3 text-sm leading-relaxed text-ash-300">Verified launch timing, platforms and edition details from Remedy and official stores.</p></a>}
-        {!addedPages.length && <a href="/faq/" class="group border border-ash-700 bg-ash-900/35 p-5 transition hover:border-resonant"><p class="eyebrow">{profile!.nav.faq}</p><h3 class="mt-2 font-display text-lg font-semibold text-bone group-hover:text-resonant">50 verified player questions</h3><p class="mt-3 text-sm leading-relaxed text-ash-300">Direct answers with official sources and links to the relevant guide cluster.</p></a>}
+        {!addedPages.length && <a href="/faq/" class="group border border-ash-700 bg-ash-900/35 p-5 transition hover:border-resonant"><p class="eyebrow">{profile!.nav.faq}</p><h3 class="mt-2 font-display text-lg font-semibold text-bone group-hover:text-resonant">100 verified player questions</h3><p class="mt-3 text-sm leading-relaxed text-ash-300">Direct answers with official sources and links to the relevant guide cluster.</p></a>}
       </div>}
   </section>
   <section id="database" class="border-y border-ash-700 bg-ash-950/40"><div class="wrap py-12"><p class="eyebrow">FBC // Data</p><h2 class="mt-2 font-display text-2xl font-bold text-bone">{labels.database}</h2><p class="mt-3 max-w-2xl text-sm leading-relaxed text-bone-dim">{labels.databaseText}</p><a href={lang === 'de' ? '/de/datenbank/' : lang === 'fr' ? '/fr/base-de-donnees/' : '/database/'} class="mt-5 inline-flex border border-resonant px-4 py-3 font-mono text-xs uppercase tracking-[.14em] text-resonant hover:bg-resonant hover:text-void">{labels.openDatabase} →</a></div></section>
   <section id="platforms" class="wrap pb-16 pt-12"><div class="border border-ash-700 bg-ash-900/35 p-6"><h2 class="font-display text-xl font-bold text-bone">{labels.sources}</h2><p class="mt-3 max-w-3xl leading-relaxed text-bone-dim">{home.sourceNote}</p><a href="https://store.steampowered.com/app/3669870/CONTROL_Resonant/" rel="nofollow noopener" target="_blank" class="mt-4 inline-block font-mono text-xs uppercase tracking-[.14em] text-resonant hover:text-hiss">Steam official language matrix →</a></div></section>
+  <NewsModule tab="guides" lang={pageLang} />
+  <FaqModule tab="guides" lang={pageLang} />
 </BaseLayout>

@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import StatusStamp from '../../components/StatusStamp.astro';
 import NewsModule from '../../components/NewsModule.astro';
 import FaqModule from '../../components/FaqModule.astro';
+import { tabsForContent } from '../../data/contentTabs';
 
 export async function getStaticPaths() {
   const guides = await getCollection('guides');
@@ -27,7 +28,7 @@ const related = (await getCollection('guides'))
   .filter((guide) => guide.id !== entry.id && guide.data.category === category && guide.data.indexable)
   .sort((a, b) => a.data.order - b.data.order)
   .slice(0, 4);
-const newsTab = entry.id === 'characters-and-story' ? 'characters' : entry.id === 'platforms-and-performance' ? 'platforms' : null;
+const contentTabs = tabsForContent(entry.id, category);
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -127,6 +128,6 @@ const jsonLd = {
       </div>
     </div>
   </article>
-  {newsTab && <NewsModule tab={newsTab} />}
-  {newsTab && <FaqModule tab={newsTab} />}
+  <NewsModule tab={contentTabs.news} />
+  <FaqModule tab={contentTabs.faq} />
 </BaseLayout>

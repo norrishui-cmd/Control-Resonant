@@ -51,6 +51,12 @@ module order, responsive layout, News/FAQ entry points, canonical rules, and
 15-language hreflang graph. The verified output contains 374 sitemap URLs and
 380 HTML files, including compatibility redirects and non-indexed utility pages.
 
+V15 expands the FAQ archive from 50 to 100 independent, source-backed answer
+URLs and connects five topical News plus at least five relevant FAQ links to
+every English guide detail and every page reachable through the 15-language
+selector. The current verified output contains 424 sitemap URLs and 430 HTML
+files. See `NEWS-FAQ-EXPANSION-V15.md`.
+
 The `/database/` live intelligence index tracks 47 confirmed or explicitly unresolved game properties across characters, equipment, gameplay systems, threats, locations, returning figures, and availability. The English guide collection contains 101 evidence-backed articles. The latest English page separates the tentatively named Dancer from the different head-shaped Resonant Entity shown in the later hands-on. Unnamed entities and unsupported quests, drops or coordinates are deliberately not assigned fabricated pages.
 
 German and French now each contain 49 localized detail pages, a dedicated Guides hub, and a fully translated 23-record database at `/de/datenbank/` and `/fr/base-de-donnees/`. Twelve additional official game languages each have a localized home and language-support detail page. Localized pages use the same visual hierarchy and modules as English, while desktop and mobile navigation expose all 15 official languages in one accessible dropdown.
