@@ -171,7 +171,9 @@ for (const [lang, databaseRoute, languageName, ariaName] of [
     const route = page.replace(root, '/').replace(/index\.html$/, '');
     return route.startsWith(`/${lang}/`) && route !== `/${lang}/` && route !== databaseRoute;
   });
-  if (localizedDetails.length !== 50) errors.push(`/${lang}/: expected 50 localized routes (49 details + guides hub), found ${localizedDetails.length}`);
+  const expectedLocalizedDetails = lang === 'de' ? 58 : 50;
+  const expectedGuideDetails = lang === 'de' ? 57 : 49;
+  if (localizedDetails.length !== expectedLocalizedDetails) errors.push(`/${lang}/: expected ${expectedLocalizedDetails} localized routes (${expectedGuideDetails} details + guides hub), found ${localizedDetails.length}`);
   const localizedGuideDetails = localizedDetails.filter(page => !page.endsWith('/guides/index.html'));
   for (const page of localizedGuideDetails) {
     const html = await readFile(page, 'utf8');
@@ -190,7 +192,7 @@ for (const [lang, databaseRoute, languageName, ariaName] of [
     const html = await readFile(guidesHub, 'utf8');
     const databasePath = lang === 'de' ? '/de/datenbank/' : '/fr/base-de-donnees/';
     const localizedLinks = new Set([...html.matchAll(new RegExp(`href="(/${lang}/[^"#]+/)"`, 'g'))].map(match => match[1]).filter(link => link !== `/${lang}/` && link !== guidesRoute && link !== databasePath));
-    if (localizedLinks.size !== 49) errors.push(`${guidesRoute}: expected links to 49 localized details, found ${localizedLinks.size}`);
+    if (localizedLinks.size !== expectedGuideDetails) errors.push(`${guidesRoute}: expected links to ${expectedGuideDetails} localized details, found ${localizedLinks.size}`);
     if (!html.includes('"@type":"CollectionPage"') || !html.includes('"@type":"ItemList"')) errors.push(`${guidesRoute}: missing CollectionPage/ItemList schema`);
   }
   const localizedDatabase = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === databaseRoute);
@@ -362,7 +364,7 @@ if ((notFoundHtml.match(new RegExp(`adsbygoogle\\.js\\?client=${publisherId}`, '
 
 const sitemapXml = await readFile(join(root, 'sitemap-0.xml'), 'utf8');
 const sitemapUrls = (sitemapXml.match(/<loc>/g) ?? []).length;
-if (sitemapUrls !== 424) errors.push(`/sitemap-0.xml: expected 424 canonical URLs, found ${sitemapUrls}`);
+if (sitemapUrls !== 440) errors.push(`/sitemap-0.xml: expected 440 canonical URLs, found ${sitemapUrls}`);
 
 if (errors.length) {
   console.error(`SEO audit failed (${errors.length} issues):\n${errors.join('\n')}`);

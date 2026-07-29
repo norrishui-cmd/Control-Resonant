@@ -4,6 +4,7 @@ import {
   officialLocaleGuideUi,
   type OfficialLocaleGuide,
 } from './officialLocaleGuidesV13';
+import { japaneseExpansionV16 } from './deJaExpansionV16';
 
 const steam = 'https://store.steampowered.com/app/3669870/CONTROL_Resonant/';
 const official = 'https://controlgame.com/';
@@ -261,4 +262,5 @@ const v14Guides: OfficialLocaleGuide[] = [
 export const officialLocaleGuidesV14: OfficialLocaleGuide[] = [
   ...officialLocaleGuidesV13,
   ...v14Guides,
+  ...japaneseExpansionV16,
 ];

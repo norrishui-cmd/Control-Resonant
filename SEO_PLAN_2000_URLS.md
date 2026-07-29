@@ -75,9 +75,23 @@ Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 - Corrected stale German and French descriptions of the three starting Aberrant forms against the official Xbox hands-on: Flurry is the fast twin-dagger/critical option, Slash the wide group-focused scythe, and Slice the single-target axe with a back-attack bonus.
 - Kept unsupported mission names, map markers, faction rules, boss phases, relationship outcomes, and character endings out of the sitemap.
 
+## Round ten progress — German and Japanese coverage
+
+- Added 16 approved localized URLs, raising the verified sitemap from 424 to 440.
+- Expanded German from 49 to 57 detail pages across combat resource flow,
+  action-RPG structure, traversal, PS5 Pro evidence, build locks, and status
+  builds.
+- Expanded Japanese from 4 to 12 detail pages across New Game Plus, Aberrant,
+  movement, world structure, the three confirmed central characters, and World
+  Quests.
+- Reused the English detail component, five-News and five-FAQ modules, related
+  guide grid, mobile layout, canonical rules, and reciprocal hreflang.
+- Continued to withhold unverified performance modes, numerical combat values,
+  quest routes, rewards, map coordinates, and story outcomes.
+
 ## 1,000-page pre-release milestone
 
-The immediate target is 1,000 approved sitemap URLs before September 24, while 2,000 remains post-release capacity. V12 established all 15 official-language entry points. V13 deepened Italian, Spanish (Spain), Japanese, Portuguese (Brazil), and Simplified Chinese. V14 added three core guides plus a Guides hub for Korean, Spanish (Latin America), Traditional Chinese, Polish, Russian, Turkish, and Ukrainian. V15 expands the verified FAQ archive to 100 independent answers and raises the sitemap to 424 URLs; the site should not force the remaining pages from a limited set of pre-release evidence.
+The immediate target is 1,000 approved sitemap URLs before September 24, while 2,000 remains post-release capacity. V12 established all 15 official-language entry points. V13 deepened Italian, Spanish (Spain), Japanese, Portuguese (Brazil), and Simplified Chinese. V14 added three core guides plus a Guides hub for Korean, Spanish (Latin America), Traditional Chinese, Polish, Russian, Turkish, and Ukrainian. V15 expanded the verified FAQ archive to 100 independent answers, and V16 deepened German and Japanese to reach 440 sitemap URLs. The site should not force the remaining pages from a limited set of pre-release evidence.
 
 | Gate | Timing | Approved URL range | What can safely unlock the range |
 | --- | --- | ---: | --- |

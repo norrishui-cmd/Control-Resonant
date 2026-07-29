@@ -57,9 +57,14 @@ every English guide detail and every page reachable through the 15-language
 selector. The current verified output contains 424 sitemap URLs and 430 HTML
 files. See `NEWS-FAQ-EXPANSION-V15.md`.
 
+V16 adds eight German and eight Japanese detail pages while preserving the
+English layout and content-module order. German now has 57 localized details
+and Japanese has 12. The verified output contains 440 sitemap URLs and 446
+audited HTML files. See `DE-JA-EXPANSION-V16.md`.
+
 The `/database/` live intelligence index tracks 47 confirmed or explicitly unresolved game properties across characters, equipment, gameplay systems, threats, locations, returning figures, and availability. The English guide collection contains 101 evidence-backed articles. The latest English page separates the tentatively named Dancer from the different head-shaped Resonant Entity shown in the later hands-on. Unnamed entities and unsupported quests, drops or coordinates are deliberately not assigned fabricated pages.
 
-German and French now each contain 49 localized detail pages, a dedicated Guides hub, and a fully translated 23-record database at `/de/datenbank/` and `/fr/base-de-donnees/`. Twelve additional official game languages each have a localized home and language-support detail page. Localized pages use the same visual hierarchy and modules as English, while desktop and mobile navigation expose all 15 official languages in one accessible dropdown.
+German now contains 57 localized detail pages; French retains 49. Both have a dedicated Guides hub and a fully translated 23-record database at `/de/datenbank/` and `/fr/base-de-donnees/`. Japanese now contains 12 localized details plus its Guides hub. Twelve additional official game languages each have a localized home and language-support detail page. Localized pages use the same visual hierarchy and modules as English, while desktop and mobile navigation expose all 15 official languages in one accessible dropdown.
 
 The current production build passes an audit of 327 HTML files, with 322 canonical quality-approved URLs in the sitemap. `OFFICIAL_LANGUAGE_ROLLOUT_V12.md` records the current 15-language matrix and rollout scope. `SEO_PLAN_2000_URLS.md` keeps the gated path toward the 1,000-page pre-release milestone; later quest, item, boss and map batches remain blocked until attributable preview or final-game evidence exists.
 
