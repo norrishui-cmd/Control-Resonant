@@ -227,6 +227,109 @@ for (const [pathLang, htmlLang, nativeName] of addedLocales) {
   }
 }
 
+const expandedLocaleRoutes = {
+  it:['data-uscita','piattaforme-requisiti','combattimento-build','personaggi-storia'],
+  es:['fecha-lanzamiento','plataformas-requisitos','combate-builds','personajes-historia'],
+  ja:['release-date','platforms-system-requirements','combat-builds','characters-story'],
+  'pt-br':['data-lancamento','plataformas-requisitos','combate-builds','personagens-historia'],
+  'zh-cn':['release-date','platforms-system-requirements','combat-builds','characters-story'],
+};
+const expandedHreflangs = ['en','de','fr','it','es','ja','pt-BR','zh-CN','x-default'];
+for (const [pathLang, slugs] of Object.entries(expandedLocaleRoutes)) {
+  const guidesRoute = `/${pathLang}/guides/`;
+  const guidesFile = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === guidesRoute);
+  if (!guidesFile) errors.push(`${guidesRoute}: expanded locale Guides hub missing`);
+  else {
+    const html = await readFile(guidesFile, 'utf8');
+    const detailLinks = new Set([...html.matchAll(new RegExp(`href="(/${pathLang}/[^"#]+/)"`, 'g'))].map(match => match[1]).filter(link => slugs.some(slug => link === `/${pathLang}/${slug}/`)));
+    if (detailLinks.size !== 4) errors.push(`${guidesRoute}: expected links to 4 localized core guides, found ${detailLinks.size}`);
+    if (!html.includes('"@type":"CollectionPage"') || !html.includes('"@type":"ItemList"')) errors.push(`${guidesRoute}: missing CollectionPage/ItemList schema`);
+    for (const code of expandedHreflangs) {
+      if (!new RegExp(`<link rel="alternate" hreflang="${code}" href="https://controlresonant\\.wiki/`).test(html)) errors.push(`${guidesRoute}: missing hreflang ${code}`);
+    }
+  }
+  for (const slug of slugs) {
+    const route = `/${pathLang}/${slug}/`;
+    const file = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === route);
+    if (!file) { errors.push(`${route}: expanded localized guide missing`); continue; }
+    const html = await readFile(file, 'utf8');
+    const visibleText = html.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').replace(/\s+/g,' ').trim();
+    const words = visibleText.split(/\s+/).filter(Boolean).length;
+    const cjkChars = (visibleText.match(/[\u3040-\u30ff\u3400-\u9fff]/g) ?? []).length;
+    if (pathLang === 'ja' || pathLang === 'zh-cn') {
+      if (cjkChars < 500) errors.push(`${route}: localized guide has only ${cjkChars} CJK characters (minimum 500)`);
+    } else if (words < 220) errors.push(`${route}: localized guide has only ${words} visible words (minimum 220)`);
+    if (!html.includes('border-l-4 border-clearance') || !html.includes('aria-labelledby="sources-heading"') || !html.includes('aria-labelledby="related-heading"')) {
+      errors.push(`${route}: localized page is missing English-layout content modules`);
+    }
+    const newsLinks = new Set([...html.matchAll(/href="(\/news\/[^"#]+\/)"/g)].map(match => match[1]));
+    const faqLinks = new Set([...html.matchAll(/href="(\/faq\/[^"#]+\/)"/g)].map(match => match[1]));
+    if (newsLinks.size !== 5) errors.push(`${route}: expected 5 related News links, found ${newsLinks.size}`);
+    if (faqLinks.size < 5) errors.push(`${route}: expected at least 5 related FAQ links, found ${faqLinks.size}`);
+    for (const code of expandedHreflangs) {
+      if (!new RegExp(`<link rel="alternate" hreflang="${code}" href="https://controlresonant\\.wiki/`).test(html)) errors.push(`${route}: missing hreflang ${code}`);
+    }
+  }
+  const homeFile = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === `/${pathLang}/`);
+  if (homeFile) {
+    const html = await readFile(homeFile, 'utf8');
+    if (!html.includes(`href="${guidesRoute}"`)) errors.push(`/${pathLang}/: navigation missing localized Guides hub`);
+    for (const slug of slugs) if (!html.includes(`href="/${pathLang}/${slug}/"`)) errors.push(`/${pathLang}/: home grid missing ${slug}`);
+  }
+}
+
+const v14LocaleRoutes = {
+  ko:['release-date','platforms-system-requirements','combat-builds'],
+  'es-419':['fecha-lanzamiento','plataformas-requisitos','combate-builds'],
+  'zh-tw':['release-date','platforms-system-requirements','combat-builds'],
+  pl:['data-premiery','platformy-wymagania','walka-buildy'],
+  ru:['data-vyhoda','platformy-trebovaniya','boy-i-bildy'],
+  tr:['cikis-tarihi','platformlar-sistem-gereksinimleri','savas-build-sistemleri'],
+  uk:['data-vyhodu','platformy-vymohy','biy-i-bildy'],
+};
+for (const [pathLang, slugs] of Object.entries(v14LocaleRoutes)) {
+  const guidesRoute = `/${pathLang}/guides/`;
+  const guidesFile = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === guidesRoute);
+  if (!guidesFile) errors.push(`${guidesRoute}: V14 locale Guides hub missing`);
+  else {
+    const html = await readFile(guidesFile, 'utf8');
+    const detailLinks = new Set([...html.matchAll(new RegExp(`href="(/${pathLang}/[^"#]+/)"`, 'g'))].map(match => match[1]).filter(link => slugs.some(slug => link === `/${pathLang}/${slug}/`)));
+    if (detailLinks.size !== 3) errors.push(`${guidesRoute}: expected links to 3 localized core guides, found ${detailLinks.size}`);
+    if (!html.includes('"@type":"CollectionPage"') || !html.includes('"@type":"ItemList"')) errors.push(`${guidesRoute}: missing CollectionPage/ItemList schema`);
+    for (const code of hreflangCodes) {
+      if (!new RegExp(`<link rel="alternate" hreflang="${code}" href="https://controlresonant\\.wiki/`).test(html)) errors.push(`${guidesRoute}: missing hreflang ${code}`);
+    }
+  }
+  for (const slug of slugs) {
+    const route = `/${pathLang}/${slug}/`;
+    const file = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === route);
+    if (!file) { errors.push(`${route}: V14 localized guide missing`); continue; }
+    const html = await readFile(file, 'utf8');
+    const visibleText = html.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ').replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ').replace(/\s+/g,' ').trim();
+    const words = visibleText.split(/\s+/).filter(Boolean).length;
+    const cjkChars = (visibleText.match(/[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af]/g) ?? []).length;
+    if (pathLang === 'ko' || pathLang === 'zh-tw') {
+      if (cjkChars < 500) errors.push(`${route}: localized guide has only ${cjkChars} CJK/Hangul characters (minimum 500)`);
+    } else if (words < 220) errors.push(`${route}: localized guide has only ${words} visible words (minimum 220)`);
+    if (!html.includes('border-l-4 border-clearance') || !html.includes('aria-labelledby="sources-heading"') || !html.includes('aria-labelledby="related-heading"')) {
+      errors.push(`${route}: localized page is missing English-layout content modules`);
+    }
+    const newsLinks = new Set([...html.matchAll(/href="(\/news\/[^"#]+\/)"/g)].map(match => match[1]));
+    const faqLinks = new Set([...html.matchAll(/href="(\/faq\/[^"#]+\/)"/g)].map(match => match[1]));
+    if (newsLinks.size !== 5) errors.push(`${route}: expected 5 related News links, found ${newsLinks.size}`);
+    if (faqLinks.size < 5) errors.push(`${route}: expected at least 5 related FAQ links, found ${faqLinks.size}`);
+    for (const code of hreflangCodes) {
+      if (!new RegExp(`<link rel="alternate" hreflang="${code}" href="https://controlresonant\\.wiki/`).test(html)) errors.push(`${route}: missing hreflang ${code}`);
+    }
+  }
+  const homeFile = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === `/${pathLang}/`);
+  if (homeFile) {
+    const html = await readFile(homeFile, 'utf8');
+    if (!html.includes(`href="${guidesRoute}"`)) errors.push(`/${pathLang}/: navigation missing localized Guides hub`);
+    for (const slug of slugs) if (!html.includes(`href="/${pathLang}/${slug}/"`)) errors.push(`/${pathLang}/: home grid missing ${slug}`);
+  }
+}
+
 const adsTxt = (await readFile(join(root, 'ads.txt'), 'utf8')).trim();
 const expectedAdsTxt = 'google.com, pub-9505220977121599, DIRECT, f08c47fec0942fa0';
 if (adsTxt !== expectedAdsTxt) errors.push(`/ads.txt: expected exact Google publisher record`);
@@ -238,8 +341,12 @@ if ((notFoundHtml.match(new RegExp(`adsbygoogle\\.js\\?client=${publisherId}`, '
   errors.push('/404.html: expected exactly 1 AdSense script');
 }
 
+const sitemapXml = await readFile(join(root, 'sitemap-0.xml'), 'utf8');
+const sitemapUrls = (sitemapXml.match(/<loc>/g) ?? []).length;
+if (sitemapUrls !== 374) errors.push(`/sitemap-0.xml: expected 374 canonical URLs, found ${sitemapUrls}`);
+
 if (errors.length) {
   console.error(`SEO audit failed (${errors.length} issues):\n${errors.join('\n')}`);
   process.exit(1);
 }
-console.log(`SEO and AdSense audit passed: ${pages.length + 1} HTML pages checked; ads.txt verified.`);
+console.log(`SEO and AdSense audit passed: ${pages.length + 1} HTML pages checked; ${sitemapUrls} sitemap URLs; ads.txt verified.`);

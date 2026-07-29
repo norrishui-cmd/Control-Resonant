@@ -1,6 +1,7 @@
 export type { Locale } from './officialLocales';
 import type { Locale } from './officialLocales';
 import { allLocaleCodes, addedLocales, localePathForCode } from './officialLocales';
+import { expandedOfficialLocaleCodesV14, officialLocaleGuidesV14 } from './officialLocaleGuidesV14';
 
 export interface LocalizedSection { heading: string; paragraphs: string[]; bullets?: string[] }
 export interface LocalizedPage {
@@ -533,8 +534,22 @@ export function alternatesFor(pathname: string) {
       return [code, `/${localePathForCode(code)}/language-support/`];
     }));
   }
-  if (pathname === '/guides/' || pathname === '/de/guides/' || pathname === '/fr/guides/') return { en:'/guides/', de:'/de/guides/', fr:'/fr/guides/' };
+  const expandedGuideHubs = expandedOfficialLocaleCodesV14.map(code => `/${localePathForCode(code)}/guides/`);
+  if (pathname === '/guides/' || pathname === '/de/guides/' || pathname === '/fr/guides/' || expandedGuideHubs.includes(pathname)) {
+    return {
+      en:'/guides/', de:'/de/guides/', fr:'/fr/guides/',
+      ...Object.fromEntries(expandedOfficialLocaleCodesV14.map(code => [code, `/${localePathForCode(code)}/guides/`])),
+    };
+  }
   if (pathname === '/database/' || pathname === '/de/datenbank/' || pathname === '/fr/base-de-donnees/') return { en:'/database/', de:'/de/datenbank/', fr:'/fr/base-de-donnees/' };
   const current = localizedPages.find((p) => p.englishPath === pathname || `/${p.lang}/${p.slug}/` === pathname);
-  return current ? { en:current.englishPath, de:pathFor(current,'de'), fr:pathFor(current,'fr') } : null;
+  const currentOfficial = officialLocaleGuidesV14.find(p => p.englishPath === pathname || `/${localePathForCode(p.lang)}/${p.slug}/` === pathname);
+  const englishPath = current?.englishPath ?? currentOfficial?.englishPath;
+  if (!englishPath) return null;
+  const localizedReference = localizedPages.find(p => p.englishPath === englishPath);
+  return {
+    en:englishPath,
+    ...(localizedReference ? {de:pathFor(localizedReference,'de'),fr:pathFor(localizedReference,'fr')} : {}),
+    ...Object.fromEntries(officialLocaleGuidesV14.filter(p => p.englishPath === englishPath).map(p => [p.lang, `/${localePathForCode(p.lang)}/${p.slug}/`])),
+  };
 }

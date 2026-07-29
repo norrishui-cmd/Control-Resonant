@@ -1,0 +1,11 @@
+---
+import OfficialLocaleGuidesPage from '../../components/OfficialLocaleGuidesPage.astro';
+import { expandedOfficialLocaleCodesV14 } from '../../data/officialLocaleGuidesV14';
+
+export function getStaticPaths() {
+  return expandedOfficialLocaleCodesV14.map(lang => ({params:{lang:lang === 'pt-BR' ? 'pt-br' : lang.toLowerCase()},props:{lang}}));
+}
+
+const { lang } = Astro.props;
+---
+<OfficialLocaleGuidesPage lang={lang} />

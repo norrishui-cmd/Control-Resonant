@@ -1,6 +1,7 @@
 ---
 import { alternatesFor, type Locale } from '../data/localized';
 import { allLocaleCodes, addedLocaleByCode, localePathForCode, type AddedLocale } from '../data/officialLocales';
+import { officialLocaleGuidesV14 } from '../data/officialLocaleGuidesV14';
 const { lang = 'en' } = Astro.props as { lang?: Locale };
 const path = Astro.url.pathname;
 const norm = (p: string) => (p !== '/' && p.endsWith('/') ? p.slice(0, -1) : p);
@@ -26,13 +27,18 @@ fr: [{href:'/fr/',label:'Accueil'},{href:'/fr/date-de-sortie/',label:'Sortie'},{
 const added = !['en','de','fr'].includes(lang) ? addedLocaleByCode[lang as AddedLocale] : null;
 const pathLang = localePathForCode(lang);
 const homeHref = pathLang ? `/${pathLang}/` : '/';
+const addedGuidePath = (englishPath:string, fallback:string) => {
+  const match = officialLocaleGuidesV14.find(page => page.lang === lang && page.englishPath === englishPath);
+  return match ? `/${pathLang}/${match.slug}/` : fallback;
+};
+const hasAddedGuideHub = officialLocaleGuidesV14.some(page => page.lang === lang);
 const genericNav = added ? [
   {href:homeHref,label:added.nav.home},
-  {href:`${homeHref}#release`,label:added.nav.release},
-  {href:`${homeHref}#guides`,label:added.nav.guides},
+  {href:addedGuidePath('/release-date/',`${homeHref}#release`),label:added.nav.release},
+  {href:hasAddedGuideHub ? `/${pathLang}/guides/` : `${homeHref}#guides`,label:added.nav.guides},
   {href:`${homeHref}#database`,label:added.nav.database},
-  {href:'/guides/characters-and-story/',label:added.nav.characters},
-  {href:`${homeHref}#platforms`,label:added.nav.platforms},
+  {href:addedGuidePath('/guides/characters-and-story/','/guides/characters-and-story/'),label:added.nav.characters},
+  {href:addedGuidePath('/guides/platforms-and-performance/',`${homeHref}#platforms`),label:added.nav.platforms},
   {href:'/faq/',label:added.nav.faq},
 ] : null;
 const nav = genericNav ?? navs[lang as 'en'|'de'|'fr'];

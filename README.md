@@ -43,6 +43,14 @@ FAQ is a primary navigation tab. The `/faq/` hub contains 50 source-checked answ
 
 The July 25 evidence refresh corrects New Game Plus carry-over, the PS5 nine-feature accessibility list, US Xbox edition prices, and the Steam language matrix. It also adds player-focused FAQ coverage for public Demo/Beta status, the controlled media hands-on, and preorder items.
 
+V14 expands the seven remaining official-language sections—Korean, Spanish
+(Latin America), Traditional Chinese, Polish, Russian, Turkish, and
+Ukrainian—with release, platform/system-requirement, and combat/build guides,
+plus a localized Guides hub. These pages share the English detail component,
+module order, responsive layout, News/FAQ entry points, canonical rules, and
+15-language hreflang graph. The verified output contains 374 sitemap URLs and
+380 HTML files, including compatibility redirects and non-indexed utility pages.
+
 The `/database/` live intelligence index tracks 47 confirmed or explicitly unresolved game properties across characters, equipment, gameplay systems, threats, locations, returning figures, and availability. The English guide collection contains 101 evidence-backed articles. The latest English page separates the tentatively named Dancer from the different head-shaped Resonant Entity shown in the later hands-on. Unnamed entities and unsupported quests, drops or coordinates are deliberately not assigned fabricated pages.
 
 German and French now each contain 49 localized detail pages, a dedicated Guides hub, and a fully translated 23-record database at `/de/datenbank/` and `/fr/base-de-donnees/`. Twelve additional official game languages each have a localized home and language-support detail page. Localized pages use the same visual hierarchy and modules as English, while desktop and mobile navigation expose all 15 official languages in one accessible dropdown.
