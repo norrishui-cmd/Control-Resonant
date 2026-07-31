@@ -1,3 +1,5 @@
+import { newsExpansionV17 } from './newsExpansionV17';
+
 export type NewsTab = 'release' | 'guides' | 'database' | 'characters' | 'platforms' | 'faq' | 'about';
 
 export interface NewsItem {
@@ -485,7 +487,8 @@ export const newsItems: NewsItem[] = [
       'The Steam matrix applies directly to the PC listing. Console language availability can depend on the regional product and downloadable packs, so PS5 and Xbox buyers should verify their own store page even when the language is present on Steam.'
     ],
     takeaways: ['15 interface and subtitle languages', 'Eight include complete voice acting', 'Turkish and Ukrainian are text-only in the current matrix']
-  }
+  },
+  ...newsExpansionV17
 ];
 
 export const tabLabels: Record<NewsTab, string> = {

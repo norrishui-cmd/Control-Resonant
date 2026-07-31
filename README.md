@@ -23,8 +23,8 @@ controlresonant/
    │  ├─ index.astro          # homepage hub
    │  ├─ release-date.astro    # release / platforms / FAQ (FAQ schema)
    │  ├─ news/index.astro       # source-linked news center, grouped by topic
-   │  ├─ news/[slug].astro      # 35 independent NewsArticle pages
-   │  ├─ faq/index.astro        # 50-answer FAQ hub + FAQPage schema
+   │  ├─ news/[slug].astro      # 70 independent NewsArticle pages
+   │  ├─ faq/index.astro        # 150-answer FAQ hub + FAQPage schema
    │  ├─ faq/[slug].astro       # one permanent, source-linked URL per question
    │  ├─ database/index.astro   # 47 verified character/item/system/world records
    │  ├─ guides/index.astro    # all guides, grouped
@@ -37,9 +37,9 @@ controlresonant/
 
 `SEO_PLAN_2000_URLS.md` contains the phased expansion model and indexability quality gate. The production build runs two audits: `scripts/content-quality-audit.mjs` checks useful depth, direct answers, placeholders and cross-page phrase overlap; `scripts/seo-audit.mjs` checks titles, descriptions, canonicals, H1s, duplicate titles and internal links.
 
-The six primary detail tabs—Release Date, Guides, Database, Characters, Platforms, and FAQ—each expose exactly five topic-matched news reports. About also retains five development/source reports. Every report has its own canonical `/news/<slug>/` URL, dated first-party source, visible direct answer, related-report links, and `NewsArticle` structured data. The news audit rejects missing pages, thin reports, incorrect per-tab counts, and missing source links.
+The six primary detail tabs—Release Date, Guides, Database, Characters, Platforms, and FAQ—each expose exactly ten topic-matched news reports. About also contains ten development/source reports. Every report has its own canonical `/news/<slug>/` URL, dated first-party source, visible direct answer, related-report links, and `NewsArticle` structured data. The news audit rejects missing pages, thin reports, incorrect per-tab counts, and missing source links.
 
-FAQ is a primary navigation tab. The `/faq/` hub contains 50 source-checked answers grouped into five topics, with a complete 50-question `FAQPage` graph. Every question also has a self-canonical `/faq/<slug>/` detail URL, direct answer, first-party source, related guide, and related-question links. Release, Guides, Database, Characters, Platforms, and About expose five context-matched FAQ entries; the FAQ hub itself exposes all 50. Three replaced low-value FAQ URLs are preserved as static redirects and excluded from the sitemap.
+FAQ is a primary navigation tab. The `/faq/` hub contains 150 source-checked answers grouped into five topics, with a complete 150-question `FAQPage` graph. Every question also has a self-canonical `/faq/<slug>/` detail URL, direct answer, first-party source, related guide, and related-question links. Release, Guides, Database, Characters, Platforms, and About expose five context-matched FAQ entries; the FAQ hub itself exposes all 150. Three replaced low-value FAQ URLs are preserved as static redirects and excluded from the sitemap.
 
 The July 25 evidence refresh corrects New Game Plus carry-over, the PS5 nine-feature accessibility list, US Xbox edition prices, and the Steam language matrix. It also adds player-focused FAQ coverage for public Demo/Beta status, the controlled media hands-on, and preorder items.
 
@@ -61,6 +61,13 @@ V16 adds eight German and eight Japanese detail pages while preserving the
 English layout and content-module order. German now has 57 localized details
 and Japanese has 12. The verified output contains 440 sitemap URLs and 446
 audited HTML files. See `DE-JA-EXPANSION-V16.md`.
+
+V17 adds five new News reports to each of the seven topic clusters and 50 new
+source-backed FAQ detail URLs. Every primary navigation destination, English
+guide detail, FAQ detail, and language-dropdown route now exposes ten topical
+News links and at least five related FAQ links. The verified output contains
+525 sitemap URLs and 531 audited HTML files. See
+`NEWS-FAQ-EXPANSION-V17.md`.
 
 The `/database/` live intelligence index tracks 47 confirmed or explicitly unresolved game properties across characters, equipment, gameplay systems, threats, locations, returning figures, and availability. The English guide collection contains 101 evidence-backed articles. The latest English page separates the tentatively named Dancer from the different head-shaped Resonant Entity shown in the later hands-on. Unnamed entities and unsupported quests, drops or coordinates are deliberately not assigned fabricated pages.
 

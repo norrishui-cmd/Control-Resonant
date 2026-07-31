@@ -1,4 +1,5 @@
 import { faqExpansionV15 } from './faqsExpansionV15';
+import { faqExpansionV17 } from './faqsExpansionV17';
 
 export type FaqTab = 'release' | 'guides' | 'characters' | 'platforms' | 'about';
 export interface FaqItem { slug:string; tab:FaqTab; question:string; answer:string; detail:string; sourceLabel:string; sourceUrl:string; relatedUrl:string; }
@@ -69,7 +70,8 @@ export const faqItems:FaqItem[]=[
 {slug:'does-control-resonant-have-a-demo',tab:'about',question:'Does Control Resonant have a public demo or beta?',answer:'No public player demo, open beta, or closed beta registration has been announced. The reported pre-release sessions were controlled media hands-on events, not downloadable public tests.',detail:'A preview build played by journalists does not create a consumer demo, and the PS5 Deluxe 48-hour advance-access offer is a paid edition benefit rather than a trial. This answer should change only after a first-party announcement or store download appears.',sourceLabel:'Remedy — current official game page',sourceUrl:remedyGame,relatedUrl:'/guides/demo-beta-and-playtest-status/'},
 {slug:'what-was-in-the-media-hands-on-demo',tab:'about',question:'What did the media hands-on preview include?',answer:'Xbox Wire reports playing the opening hour plus a later combat arena. The session covered Dylan leaving the Oldest House, primary and secondary Aberrant choices, movement unlocks, an early Resonant boss, and a developed late-game build.',detail:'The preview also identified Flurry, Slash, Slice, Crush, Drill, Extend, Barrage, Seekers, and Shield. These observations come from a controlled media build and do not confirm a public demo, final balance, or the complete campaign structure.',sourceLabel:'Xbox Wire — official hands-on preview',sourceUrl:handsOn,relatedUrl:'/guides/media-demo-hands-on-details/'},
 {slug:'what-are-the-preorder-bonus-items',tab:'about',question:'What are the Control Resonant preorder bonus items?',answer:'Steam and Xbox list the Hiss Corruption Outfit and Pickpocket’s Tool Artifact as preorder bonuses. They are separate from the permanent Digital Deluxe add-ons.',detail:'The offer remains subject to storefront timing and region. The Digital Deluxe bundle separately lists the AWE Mission Outfit, soundtrack and artbook, Starter Resource Bundle, and Untapped Artifact (Wallet), so buyers should not merge the two item groups.',sourceLabel:'Xbox Store — preorder bonus listing',sourceUrl:xboxStore,relatedUrl:'/guides/preorder-bonus-items/'},
-...faqExpansionV15
+    ...faqExpansionV15,
+    ...faqExpansionV17
 ];
 
 export const faqTabLabels:Record<FaqTab,string>={release:'Release Date',guides:'Guides & Gameplay',characters:'Characters & Story',platforms:'Platforms & Performance',about:'Support & Verification'};

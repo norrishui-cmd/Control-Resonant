@@ -91,7 +91,7 @@ Rule: 2,000 is a capacity target, not permission to publish unsupported pages.
 
 ## 1,000-page pre-release milestone
 
-The immediate target is 1,000 approved sitemap URLs before September 24, while 2,000 remains post-release capacity. V12 established all 15 official-language entry points. V13 deepened Italian, Spanish (Spain), Japanese, Portuguese (Brazil), and Simplified Chinese. V14 added three core guides plus a Guides hub for Korean, Spanish (Latin America), Traditional Chinese, Polish, Russian, Turkish, and Ukrainian. V15 expanded the verified FAQ archive to 100 independent answers, and V16 deepened German and Japanese to reach 440 sitemap URLs. The site should not force the remaining pages from a limited set of pre-release evidence.
+The immediate target is 1,000 approved sitemap URLs before September 24, while 2,000 remains post-release capacity. V12 established all 15 official-language entry points. V13 deepened Italian, Spanish (Spain), Japanese, Portuguese (Brazil), and Simplified Chinese. V14 added three core guides plus a Guides hub for Korean, Spanish (Latin America), Traditional Chinese, Polish, Russian, Turkish, and Ukrainian. V15 expanded the verified FAQ archive to 100 independent answers, V16 deepened German and Japanese to reach 440 sitemap URLs, and V17 added 35 official-source News reports plus 50 FAQ answers to reach 525 sitemap URLs. The site should not force the remaining pages from a limited set of pre-release evidence.
 
 | Gate | Timing | Approved URL range | What can safely unlock the range |
 | --- | --- | ---: | --- |

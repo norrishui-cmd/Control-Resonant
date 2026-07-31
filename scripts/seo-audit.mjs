@@ -85,26 +85,26 @@ for (const file of pages) {
   }
 }
 
-if (newsPages.length !== 35) errors.push(`/news/: expected 35 independent news URLs, found ${newsPages.length}`);
-if (faqPages.length !== 100) errors.push(`/faq/: expected 100 independent FAQ URLs, found ${faqPages.length}`);
+if (newsPages.length !== 70) errors.push(`/news/: expected 70 independent news URLs, found ${newsPages.length}`);
+if (faqPages.length !== 150) errors.push(`/faq/: expected 150 independent FAQ URLs, found ${faqPages.length}`);
 const faqHubFile = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === '/faq/');
 if (faqHubFile) {
   const faqHubHtml = await readFile(faqHubFile, 'utf8');
   const hubFaqLinks = new Set([...faqHubHtml.matchAll(/href="(\/faq\/[^"#]+\/)"/g)].map(match => match[1]));
   const schemaQuestions = (faqHubHtml.match(/"@type":"Question"/g) ?? []).length;
-  if (hubFaqLinks.size !== 100) errors.push(`/faq/: expected links to 100 FAQ detail pages, found ${hubFaqLinks.size}`);
-  if (schemaQuestions !== 100) errors.push(`/faq/: expected 100 FAQPage schema questions, found ${schemaQuestions}`);
+  if (hubFaqLinks.size !== 150) errors.push(`/faq/: expected links to 150 FAQ detail pages, found ${hubFaqLinks.size}`);
+  if (schemaQuestions !== 150) errors.push(`/faq/: expected 150 FAQPage schema questions, found ${schemaQuestions}`);
 } else errors.push('/faq/: FAQ hub page missing');
 const requiredNewsModules = {
-  '/release-date/': 5,
-  '/guides/': 5,
-  '/database/': 5,
-  '/guides/characters-and-story/': 5,
-  '/guides/platforms-and-performance/': 5,
-  '/faq/': 5,
-  '/about/': 5,
-  '/de/datenbank/': 5,
-  '/fr/base-de-donnees/': 5,
+  '/release-date/': 10,
+  '/guides/': 10,
+  '/database/': 10,
+  '/guides/characters-and-story/': 10,
+  '/guides/platforms-and-performance/': 10,
+  '/faq/': 10,
+  '/about/': 10,
+  '/de/datenbank/': 10,
+  '/fr/base-de-donnees/': 10,
 };
 for (const [route, expected] of Object.entries(requiredNewsModules)) {
   const file = pages.find(page => page.replace(root, '/').replace(/index\.html$/, '') === route);
@@ -132,7 +132,7 @@ for (const [route, expected] of Object.entries(requiredFaqModules)) {
 }
 
 // Every guide detail and every language-dropdown landing/detail page must expose
-// five topical News URLs and at least five related FAQ URLs.
+// ten topical News URLs and at least five related FAQ URLs.
 const detailModulePages = pages.filter(page => {
   const route = page.replace(root, '/').replace(/index\.html$/, '');
   if (legacyRedirects.has(route)) return false;
@@ -146,7 +146,7 @@ for (const page of detailModulePages) {
   const html = await readFile(page, 'utf8');
   const uniqueNewsLinks = new Set([...html.matchAll(/href="(\/news\/[^"#]+\/)"/g)].map(match => match[1]));
   const uniqueFaqLinks = new Set([...html.matchAll(/href="(\/faq\/[^"#]+\/)"/g)].map(match => match[1]));
-  if (uniqueNewsLinks.size !== 5) errors.push(`${route}: expected 5 topical News links, found ${uniqueNewsLinks.size}`);
+  if (uniqueNewsLinks.size !== 10) errors.push(`${route}: expected 10 topical News links, found ${uniqueNewsLinks.size}`);
   if (uniqueFaqLinks.size < 5) errors.push(`${route}: expected at least 5 related FAQ links, found ${uniqueFaqLinks.size}`);
 }
 
@@ -242,7 +242,7 @@ for (const [pathLang, htmlLang, nativeName] of addedLocales) {
       }
       const uniqueNewsLinks = new Set([...html.matchAll(/href="(\/news\/[^"#]+\/)"/g)].map(match => match[1]));
       const uniqueFaqLinks = new Set([...html.matchAll(/href="(\/faq\/[^"#]+\/)"/g)].map(match => match[1]));
-      if (uniqueNewsLinks.size !== 5) errors.push(`${route}: expected 5 related News links, found ${uniqueNewsLinks.size}`);
+      if (uniqueNewsLinks.size !== 10) errors.push(`${route}: expected 10 related News links, found ${uniqueNewsLinks.size}`);
       if (uniqueFaqLinks.size < 5) errors.push(`${route}: expected at least 5 related FAQ links, found ${uniqueFaqLinks.size}`);
     }
   }
@@ -285,7 +285,7 @@ for (const [pathLang, slugs] of Object.entries(expandedLocaleRoutes)) {
     }
     const newsLinks = new Set([...html.matchAll(/href="(\/news\/[^"#]+\/)"/g)].map(match => match[1]));
     const faqLinks = new Set([...html.matchAll(/href="(\/faq\/[^"#]+\/)"/g)].map(match => match[1]));
-    if (newsLinks.size !== 5) errors.push(`${route}: expected 5 related News links, found ${newsLinks.size}`);
+    if (newsLinks.size !== 10) errors.push(`${route}: expected 10 related News links, found ${newsLinks.size}`);
     if (faqLinks.size < 5) errors.push(`${route}: expected at least 5 related FAQ links, found ${faqLinks.size}`);
     for (const code of expandedHreflangs) {
       if (!new RegExp(`<link rel="alternate" hreflang="${code}" href="https://controlresonant\\.wiki/`).test(html)) errors.push(`${route}: missing hreflang ${code}`);
@@ -337,7 +337,7 @@ for (const [pathLang, slugs] of Object.entries(v14LocaleRoutes)) {
     }
     const newsLinks = new Set([...html.matchAll(/href="(\/news\/[^"#]+\/)"/g)].map(match => match[1]));
     const faqLinks = new Set([...html.matchAll(/href="(\/faq\/[^"#]+\/)"/g)].map(match => match[1]));
-    if (newsLinks.size !== 5) errors.push(`${route}: expected 5 related News links, found ${newsLinks.size}`);
+    if (newsLinks.size !== 10) errors.push(`${route}: expected 10 related News links, found ${newsLinks.size}`);
     if (faqLinks.size < 5) errors.push(`${route}: expected at least 5 related FAQ links, found ${faqLinks.size}`);
     for (const code of hreflangCodes) {
       if (!new RegExp(`<link rel="alternate" hreflang="${code}" href="https://controlresonant\\.wiki/`).test(html)) errors.push(`${route}: missing hreflang ${code}`);
@@ -364,7 +364,7 @@ if ((notFoundHtml.match(new RegExp(`adsbygoogle\\.js\\?client=${publisherId}`, '
 
 const sitemapXml = await readFile(join(root, 'sitemap-0.xml'), 'utf8');
 const sitemapUrls = (sitemapXml.match(/<loc>/g) ?? []).length;
-if (sitemapUrls !== 440) errors.push(`/sitemap-0.xml: expected 440 canonical URLs, found ${sitemapUrls}`);
+if (sitemapUrls !== 525) errors.push(`/sitemap-0.xml: expected 525 canonical URLs, found ${sitemapUrls}`);
 
 if (errors.length) {
   console.error(`SEO audit failed (${errors.length} issues):\n${errors.join('\n')}`);
